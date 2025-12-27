@@ -147,7 +147,7 @@ kotlin {
 ### Generate a Mnemonic & Seed
 
 ```kotlin
-import com.cbstudio.wearwallet.core.crypto.Pbkdf2
+import io.github.iml1s.crypto.Pbkdf2
 
 // Generate seed from mnemonic (BIP39)
 val mnemonic = "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about"
@@ -159,7 +159,7 @@ val seed = Pbkdf2.bip39Seed(mnemonic, passphrase = "")
 ### HD Key Derivation (BIP32)
 
 ```kotlin
-import com.cbstudio.wearwallet.core.crypto.Bip32
+import io.github.iml1s.crypto.Bip32
 
 // Derive master key from seed
 val masterKey = Bip32.derivePath(seed, "m")
@@ -175,7 +175,7 @@ val chainCode = ethKey.chainCode    // 32 bytes
 ### ECDSA Signing (Secp256k1)
 
 ```kotlin
-import com.cbstudio.wearwallet.core.crypto.Secp256k1Pure
+import io.github.iml1s.crypto.Secp256k1Pure
 
 // Generate public key from private key
 val publicKey = Secp256k1Pure.generatePublicKey(privateKey)
@@ -190,7 +190,7 @@ val isValid = Secp256k1Pure.verify(messageHash, signature, publicKey)
 ### Ethereum Address Derivation
 
 ```kotlin
-import com.cbstudio.wearwallet.core.crypto.PureEthereumCrypto
+import io.github.iml1s.crypto.PureEthereumCrypto
 
 // Derive address from private key
 val address = PureEthereumCrypto.deriveAddressFromPrivateKey(privateKey)

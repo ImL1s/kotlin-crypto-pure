@@ -5,7 +5,7 @@ plugins {
 }
 
 // Library version and metadata
-group = "com.cbstudio"
+group = "io.github.iml1s"
 version = "1.0.0"
 
 kotlin {
@@ -97,7 +97,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.cbstudio.wearwallet.core.crypto"
+    namespace = "io.github.iml1s.crypto"
     compileSdk = 35
     defaultConfig {
         minSdk = 26
@@ -108,3 +108,4 @@ android {
         isCoreLibraryDesugaringEnabled = false
     }
 }
+
