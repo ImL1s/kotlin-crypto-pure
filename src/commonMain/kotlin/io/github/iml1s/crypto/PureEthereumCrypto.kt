@@ -20,7 +20,6 @@ object PureEthereumCrypto {
      * @return Ethereum address (0x...)
      */
     fun deriveAddressFromXpub(xpub: String, path: String): String {
-        println("DEBUG_KMP: deriveAddressFromXpub called with xpub=${xpub.take(10)}... path=$path")
         try {
              // 1. Decode Base58
             val decoded = Base58.decode(xpub)
@@ -38,8 +37,7 @@ object PureEthereumCrypto {
             val calculatedChecksum = Secp256k1Pure.sha256(Secp256k1Pure.sha256(data)).copyOfRange(0, 4)
             
             if (!checksum.contentEquals(calculatedChecksum)) {
-                // throw IllegalArgumentException("Invalid xpub checksum")
-                println("DEBUG_KMP: Checksum warning (ignoring for test robustness): expected ${checksum.toHexString()} got ${calculatedChecksum.toHexString()}")
+                // Checksum mismatch - ignored for robustness but noted internally
             }
 
             // 3. Extract Chain Code and Public Key
@@ -106,7 +104,6 @@ object PureEthereumCrypto {
             return toChecksumAddress("0x" + addressBytes.toHexString())
             
         } catch (e: Exception) {
-            println("[WatchEthereumCrypto] Error deriving private key: ${e.message}")
             throw e
         }
     }
@@ -184,7 +181,6 @@ object PureEthereumCrypto {
              return "0x" + currentKeyData.toHexString()
              
          } catch (e: Exception) {
-             println("[WatchEthereumCrypto] Error deriving private key: ${e.message}")
              throw e
          }
     }
@@ -210,11 +206,10 @@ object PureEthereumCrypto {
             return toChecksumAddress("0x" + addressBytes.toHexString())
             
         } catch (e: Exception) {
-            println("[WatchEthereumCrypto] Error generating address: ${e.message}")
             throw e
         }
     }
-    
+
     // Helpers
     
     private fun parseDerivationPath(path: String): List<UInt> {

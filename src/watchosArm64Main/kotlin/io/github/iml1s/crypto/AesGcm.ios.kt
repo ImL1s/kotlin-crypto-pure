@@ -33,7 +33,7 @@ actual object AesGcm {
         val nonce = ByteArray(12)
         val nonceSize = 12
         nonce.usePinned { pinnedNonce ->
-            SecRandomCopyBytes(kSecRandomDefault, nonceSize.convert(), pinnedNonce.addressOf(0))
+            SecRandomCopyBytes(kSecRandomDefault, nonceSize.toUInt(), pinnedNonce.addressOf(0))
         }
 
         // ⚠️ 暫時返回未加密數據（僅用於編譯）

@@ -15,11 +15,11 @@ internal actual fun platformHmacSha256(key: ByteArray, data: ByteArray): ByteArr
         data.usePinned { dataPinned ->
             result.usePinned { resultPinned ->
                 CCHmac(
-                    kCCHmacAlgSHA256,
+                    kCCHmacAlgSHA256.toUInt(),
                     keyPinned.addressOf(0),
-                    key.size.convert(),
+                    key.size.toULong(),
                     dataPinned.addressOf(0),
-                    data.size.convert(),
+                    data.size.toULong(),
                     resultPinned.addressOf(0)
                 )
             }

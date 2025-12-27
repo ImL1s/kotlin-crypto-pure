@@ -380,9 +380,6 @@ class Pbkdf2Test {
 
         // 確保結果正確
         assertEquals(64, seed.size, "BIP39 seed should be 64 bytes")
-
-        // 輸出性能數據（僅用於參考）
-        println("BIP39 seed derivation took ${duration}ms")
     }
 
     // ========================================

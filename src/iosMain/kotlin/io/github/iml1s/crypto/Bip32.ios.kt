@@ -21,7 +21,8 @@ import platform.CoreCrypto.*
  * @throws IllegalArgumentException 如果私鑰無效
  */
 @OptIn(ExperimentalForeignApi::class)
-internal actual fun platformGetPublicKey(privateKey: ByteArray): ByteArray {
+public actual fun platformGetPublicKey(privateKey: ByteArray): ByteArray {
+
     require(privateKey.size == 32) { "Private key must be 32 bytes, got ${privateKey.size}" }
 
     return try {
@@ -36,7 +37,8 @@ internal actual fun platformGetPublicKey(privateKey: ByteArray): ByteArray {
  * 計算 SHA256 哈希
  */
 @OptIn(ExperimentalForeignApi::class)
-internal actual fun platformSha256(data: ByteArray): ByteArray {
+public actual fun platformSha256(data: ByteArray): ByteArray {
+
     val result = ByteArray(CC_SHA256_DIGEST_LENGTH)
     data.usePinned { pinned ->
         result.usePinned { resultPinned ->
@@ -64,6 +66,7 @@ internal actual fun platformSha256(data: ByteArray): ByteArray {
  * @return 20字節 RIPEMD160 哈希
  */
 @OptIn(ExperimentalForeignApi::class)
-internal actual fun platformRipemd160(data: ByteArray): ByteArray {
+public actual fun platformRipemd160(data: ByteArray): ByteArray {
+
     return Ripemd160.hash(data)
 }

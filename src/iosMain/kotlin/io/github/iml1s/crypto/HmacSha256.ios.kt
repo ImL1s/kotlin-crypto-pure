@@ -4,22 +4,22 @@ import kotlinx.cinterop.*
 import platform.CoreCrypto.*
 
 /**
- * iOS 平台的 HMAC-SHA512 實現
+ * iOS 平台的 HMAC-SHA256 實現
  * 使用 CommonCrypto CCHmac
  */
 @OptIn(ExperimentalForeignApi::class)
-internal actual fun platformHmacSha512(key: ByteArray, data: ByteArray): ByteArray {
-    val result = ByteArray(CC_SHA512_DIGEST_LENGTH)
+internal actual fun platformHmacSha256(key: ByteArray, data: ByteArray): ByteArray {
+    val result = ByteArray(CC_SHA256_DIGEST_LENGTH)
 
     key.usePinned { keyPinned ->
         data.usePinned { dataPinned ->
             result.usePinned { resultPinned ->
                 CCHmac(
-                    kCCHmacAlgSHA512,
+                    kCCHmacAlgSHA256.toUInt(),
                     keyPinned.addressOf(0),
-                    key.size.convert(),  // 使用 convert() 自動處理平台差異
+                    key.size.toULong(),
                     dataPinned.addressOf(0),
-                    data.size.convert(),  // 使用 convert() 自動處理平台差異
+                    data.size.toULong(),
                     resultPinned.addressOf(0)
                 )
             }
