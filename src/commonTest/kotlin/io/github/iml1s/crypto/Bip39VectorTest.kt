@@ -51,9 +51,6 @@ class Bip39VectorTest {
         for ((index, v) in vectors.withIndex()) {
             val derivedSeedBytes = platformDeriveSeed(v.mnemonic, v.passphrase)
             val derivedSeed = derivedSeedBytes.toHexString()
-            println("Vector $index: ${v.mnemonic.take(30)}...")
-            println("Expected: ${v.seed}")
-            println("Actual:   $derivedSeed")
             assertEquals(v.seed, derivedSeed, "Seed derivation failed for vector $index")
         }
     }

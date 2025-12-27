@@ -398,14 +398,17 @@ data class ExtendedKey(
 /**
  * 平台特定的公鑰計算（secp256k1 點乘法）
  */
-internal expect fun platformGetPublicKey(privateKey: ByteArray): ByteArray
+public expect fun platformGetPublicKey(privateKey: ByteArray): ByteArray
+
 
 /**
  * 平台特定的 SHA256 哈希
  */
-internal expect fun platformSha256(data: ByteArray): ByteArray
+public expect fun platformSha256(data: ByteArray): ByteArray
+
 
 /**
  * 平台特定的 RIPEMD160 哈希
  */
-internal expect fun platformRipemd160(data: ByteArray): ByteArray
+public expect fun platformRipemd160(data: ByteArray): ByteArray
+

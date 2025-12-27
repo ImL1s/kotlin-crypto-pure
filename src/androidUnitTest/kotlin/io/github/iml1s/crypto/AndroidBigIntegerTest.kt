@@ -11,9 +11,8 @@ class AndroidBigIntegerTest {
         val two = 2
         val result = ten / two
         assertEquals(5, result)
-        println("10 / 2 = $result")
     }
-    
+
     @Test
     fun testSimpleModulo() {
         // Test basic modulo
@@ -21,6 +20,5 @@ class AndroidBigIntegerTest {
         val three = 3
         val result = ten % three
         assertEquals(1, result)
-        println("10 % 3 = $result")
     }
 }

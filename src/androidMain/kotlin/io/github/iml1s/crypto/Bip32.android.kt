@@ -13,7 +13,8 @@ import java.security.MessageDigest
 /**
  * 使用 TrustWallet Core 計算 secp256k1 公鑰
  */
-internal actual fun platformGetPublicKey(privateKey: ByteArray): ByteArray {
+public actual fun platformGetPublicKey(privateKey: ByteArray): ByteArray {
+
     val key = PrivateKey(privateKey)
     val publicKey = key.getPublicKeySecp256k1(true) // compressed = true
     return publicKey.data()
@@ -22,7 +23,8 @@ internal actual fun platformGetPublicKey(privateKey: ByteArray): ByteArray {
 /**
  * 計算 SHA256 哈希
  */
-internal actual fun platformSha256(data: ByteArray): ByteArray {
+public actual fun platformSha256(data: ByteArray): ByteArray {
+
     val digest = MessageDigest.getInstance("SHA-256")
     return digest.digest(data)
 }
@@ -30,7 +32,8 @@ internal actual fun platformSha256(data: ByteArray): ByteArray {
 /**
  * 計算 RIPEMD160 哈希
  */
-internal actual fun platformRipemd160(data: ByteArray): ByteArray {
+public actual fun platformRipemd160(data: ByteArray): ByteArray {
+
     val digest = RIPEMD160Digest()
     digest.update(data, 0, data.size)
     val result = ByteArray(digest.digestSize)
