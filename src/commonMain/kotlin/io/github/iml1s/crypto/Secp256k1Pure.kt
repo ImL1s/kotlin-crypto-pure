@@ -638,6 +638,151 @@ object Secp256k1Pure {
         }
         return res
     }
+
+    /**
+     * ==========================================
+     * BIP340 Schnorr Signatures
+     * ==========================================
+     */
+
+    /**
+     * BIP340 Schnorr 簽名
+     *
+     * @param message 32-byte 消息哈希 (m)
+     * @param privateKey 32-byte 私鑰 (d)
+     * @param auxRand 32-byte 輔助隨機數據 (a) - 用於防止側信道攻擊，可選（默認為 0）
+     * @return 64-byte 簽名 (R || s)
+     */
+    fun signSchnorr(message: ByteArray, privateKey: ByteArray, auxRand: ByteArray = ByteArray(32)): ByteArray {
+        require(message.size == 32) { "Message must be 32 bytes" }
+        require(privateKey.size == 32) { "Private key must be 32 bytes" }
+
+        // 1. d' = int(sk)
+        // fail if d' = 0 or d' >= n
+        val dBig = privateKey.toBigInteger()
+        if (dBig == BigInteger.ZERO || dBig >= N) {
+            throw IllegalArgumentException("Invalid private key")
+        }
+
+        // 2. P = d'⋅G
+        val P = scalarMultiply(dBig, G_X, G_Y)
+
+        // 3. d = d' if has_even_y(P), else n - d'
+        val d = if (hasEvenY(P)) dBig else N - dBig
+
+        // 4. t = bytes(d) xor bytes(tagged_hash("BIP0340/aux", aux_rand))
+        val t = xor(privateKey, taggedHash("BIP0340/aux", auxRand))
+
+        // 5. rand = tagged_hash("BIP0340/nonce", t || bytes(P) || m)
+        // P bytes is encoded as 32-byte x coordinate
+        val P_bytes = P.first.toByteArray32()
+        val rand = taggedHash("BIP0340/nonce", t + P_bytes + message)
+
+        // 6. k' = int(rand) mod n
+        // 7. fail if k' = 0
+        val kPrime = BigInteger.fromByteArray(rand) % N
+        if (kPrime == BigInteger.ZERO) {
+            throw IllegalStateException("kPrime is zero (extremely unlikely)")
+        }
+
+        // 8. R = k'⋅G
+        val R = scalarMultiply(kPrime, G_X, G_Y)
+
+        // 9. k = k' if has_even_y(R), else n - k'
+        val k = if (hasEvenY(R)) kPrime else N - kPrime
+
+        // 10. e = int(tagged_hash("BIP0340/challenge", bytes(R) || bytes(P) || m)) mod n
+        val R_bytes = R.first.toByteArray32()
+        val e = BigInteger.fromByteArray(taggedHash("BIP0340/challenge", R_bytes + P_bytes + message)) % N
+
+        // 11. sig = bytes(R) || bytes((k + ed) mod n)
+        val s = (k + e * d) % N
+        val sig = R_bytes + s.toByteArray32()
+
+        return sig
+    }
+
+    /**
+     * BIP340 Schnorr 驗證
+     *
+     * @param message 32-byte 消息 (m)
+     * @param publicKey 32-byte x-only 公鑰 (P)
+     * @param signature 64-byte 簽名 (R || s)
+     * @return 是否有效
+     */
+    fun verifySchnorr(message: ByteArray, publicKey: ByteArray, signature: ByteArray): Boolean {
+        if (message.size != 32) return false
+        if (publicKey.size != 32) return false
+        if (signature.size != 64) return false
+
+        try {
+            // 1. P = lift_x(int(pk))
+            // fail if P is not on curve
+            val px = publicKey.toBigInteger()
+            if (px >= P) return false
+            val P_point = liftX(px) // y is even
+
+            // 2. r = int(sig[0:32])
+            // fail if r >= p
+            val r = signature.sliceArray(0 until 32).toBigInteger()
+            if (r >= P) return false
+
+            // 3. s = int(sig[32:64])
+            // fail if s >= n
+            val s = signature.sliceArray(32 until 64).toBigInteger()
+            if (s >= N) return false
+
+            // 4. e = int(tagged_hash("BIP0340/challenge", bytes(r) || bytes(P) || m)) mod n
+            val e = BigInteger.fromByteArray(taggedHash("BIP0340/challenge", signature.sliceArray(0 until 32) + publicKey + message)) % N
+
+            // 5. R = s⋅G - e⋅P
+            // R = s⋅G + (-e)⋅P
+            // sG
+            val sG = scalarMultiply(s, G_X, G_Y)
+            // -eP = (n-e)P
+            val negE = N - e
+            val negEP = scalarMultiply(negE, P_point.first, P_point.second)
+
+            val R_calc = pointAdd(sG.first, sG.second, negEP.first, negEP.second)
+
+            // 6. fail if is_infinite(R)
+            if (isPointAtInfinity(R_calc.first, R_calc.second)) return false
+
+            // 7. fail if not has_even_y(R)
+            if (!hasEvenY(R_calc)) return false
+
+            // 8. fail if x(R) != r
+            return R_calc.first == r
+
+        } catch (e: Exception) {
+            return false
+        }
+    }
+
+    private fun taggedHash(tag: String, data: ByteArray): ByteArray {
+        val tagHash = sha256(tag.encodeToByteArray())
+        return sha256(tagHash + tagHash + data)
+    }
+
+    private fun hasEvenY(point: Pair<BigInteger, BigInteger>): Boolean {
+        // y % 2 == 0
+        return point.second % BigInteger(KmpBigInteger.fromInt(2)) == BigInteger.ZERO
+    }
+
+    private fun liftX(x: BigInteger): Pair<BigInteger, BigInteger> {
+        val y = decompressY(x, false) // false means even for decompressY's isOdd
+        // decompressY checks validity internally? No, we should check curve equation
+        if (!validatePointOnCurve(x, y)) throw IllegalArgumentException("Point not on curve")
+        return Pair(x, y)
+    }
+
+    private fun xor(a: ByteArray, b: ByteArray): ByteArray {
+        val out = ByteArray(a.size)
+        for (i in a.indices) {
+            out[i] = (a[i].toInt() xor b[i].toInt()).toByte()
+        }
+        return out
+    }
 }
 
 // 擴展函數

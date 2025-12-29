@@ -1,7 +1,7 @@
 # kotlin-crypto-pure
 
 <p align="center">
-  <img src="docs/images/hero-banner.png" alt="kotlin-crypto-pure" width="100%">
+  <img src="../docs/images/kmp_crypto_banner.png" alt="kotlin-crypto-pure" width="100%">
 </p>
 
 <p align="center">
