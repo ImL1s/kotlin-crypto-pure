@@ -711,7 +711,8 @@ object Secp256k1Pure {
         val d = if (hasEvenY(P)) dBig else N - dBig
 
         // 4. t = bytes(d) xor bytes(tagged_hash("BIP0340/aux", aux_rand))
-        val t = xor(privateKey, taggedHash("BIP0340/aux", auxRand))
+        // Note: must use adjusted 'd', not original 'd' (privateKey)
+        val t = xor(d.toByteArray32(), taggedHash("BIP0340/aux", auxRand))
 
         // 5. rand = tagged_hash("BIP0340/nonce", t || bytes(P) || m)
         // P bytes is encoded as 32-byte x coordinate
