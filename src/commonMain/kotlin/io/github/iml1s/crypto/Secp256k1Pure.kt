@@ -813,6 +813,32 @@ object Secp256k1Pure {
         return taggedHash("TapLeaf", data)
     }
     
+    /**
+     * BIP-341 TapBranch hash
+     * tagged_hash("TapBranch", sorted(left, right))
+     * Leaves are sorted lexicographically before concatenation
+     */
+    internal fun tapBranchHash(left: ByteArray, right: ByteArray): ByteArray {
+        // Sort the two hashes lexicographically (as per BIP-341)
+        val (first, second) = if (compareByteArrays(left, right) < 0) {
+            left to right
+        } else {
+            right to left
+        }
+        return taggedHash("TapBranch", first + second)
+    }
+    
+    /**
+     * Lexicographic comparison of byte arrays
+     */
+    private fun compareByteArrays(a: ByteArray, b: ByteArray): Int {
+        for (i in 0 until minOf(a.size, b.size)) {
+            val cmp = (a[i].toInt() and 0xFF) - (b[i].toInt() and 0xFF)
+            if (cmp != 0) return cmp
+        }
+        return a.size - b.size
+    }
+    
     private fun compactSize(size: Int): ByteArray {
         return when {
             size < 253 -> byteArrayOf(size.toByte())
