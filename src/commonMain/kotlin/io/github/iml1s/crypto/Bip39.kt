@@ -68,7 +68,7 @@ object Bip39 {
             indices.add(index)
         }
 
-        return indices.map { BIP39WordList.ENGLISH[it] }
+        return indices.map { BIP39_ENGLISH_WORDLIST[it] }
     }
 
     /**
@@ -83,7 +83,7 @@ object Bip39 {
 
         // Convert words to indices
         val indices = words.map { word ->
-            val index = BIP39WordList.ENGLISH.indexOf(word)
+            val index = BIP39_ENGLISH_WORDLIST.indexOf(word)
             if (index == -1) return false
             index
         }

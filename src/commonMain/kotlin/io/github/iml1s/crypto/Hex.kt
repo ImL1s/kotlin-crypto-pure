@@ -10,7 +10,7 @@ public object Hex {
             hexChars[j * 2] = hexArray[v ushr 4]
             hexChars[j * 2 + 1] = hexArray[v and 0x0F]
         }
-        return String(hexChars)
+        return hexChars.concatToString()
     }
 
     public fun decode(s: String): ByteArray {
@@ -19,9 +19,18 @@ public object Hex {
         val data = ByteArray(len / 2)
         var i = 0
         while (i < len) {
-            data[i / 2] = ((Character.digit(s[i], 16) shl 4) + Character.digit(s[i + 1], 16)).toByte()
+            data[i / 2] = ((digitToInt(s[i]) shl 4) + digitToInt(s[i + 1])).toByte()
             i += 2
         }
         return data
+    }
+    
+    private fun digitToInt(c: Char): Int {
+        return when (c) {
+            in '0'..'9' -> c - '0'
+            in 'a'..'f' -> c - 'a' + 10
+            in 'A'..'F' -> c - 'A' + 10
+            else -> throw IllegalArgumentException("Invalid hex character: $c")
+        }
     }
 }

@@ -1,25 +1,17 @@
 package io.github.iml1s.crypto
 
 import java.text.Normalizer
-import javax.crypto.SecretKeyFactory
-import javax.crypto.spec.PBEKeySpec
+import javax.crypto.Mac
+import javax.crypto.spec.SecretKeySpec
 
 /**
  * Android 平台的 PBKDF2-HMAC-SHA512 實現
  *
- * 使用 Java Cryptography Architecture (JCA) 提供的標準實現。
+ * 使用純 Java 實現符合 RFC 2898 標準。
  *
- * ## 實現細節
- * - 使用 `javax.crypto.SecretKeyFactory`
- * - 算法：`PBKDF2WithHmacSHA512`
- * - 符合 RFC 2898 和 BIP39 標準
- *
- * ## 安全性
- * - 使用 Android 系統內建的加密庫
- * - 支援硬體加速（在支援的設備上）
- * - 經過 FIPS 認證的實現
- *
- * @see [Android Cryptography](https://developer.android.com/guide/topics/security/cryptography)
+ * ## 為什麼使用自定義實現？
+ * JCA 的 `PBEKeySpec` 和 BouncyCastle 在某些情況下產生不一致的結果。
+ * 這個實現直接按照 RFC 2898 規範實現，確保與 BIP39 官方測試向量完全相容。
  */
 internal actual fun pbkdf2HmacSha512(
     password: ByteArray,
@@ -27,62 +19,48 @@ internal actual fun pbkdf2HmacSha512(
     iterations: Int,
     keyLength: Int
 ): ByteArray {
-    try {
-        // Android PBEKeySpec 不允許空鹽值，使用單字節鹽值作為後備
-        val effectiveSalt = if (salt.isEmpty()) byteArrayOf(0) else salt
-
-        // JCA 的 PBEKeySpec 需要 char array 作為密碼
-        // 並非所有 ByteArray 都能透過 decodeToString() 安全轉換
-        // 對於 BIP39，密碼和鹽值應該已經是 NFKD 正規化過的 UTF-8 字符串
-        val passwordChars = password.decodeToString().toCharArray()
-
-        // 創建 PBEKeySpec
-        val spec = PBEKeySpec(
-            passwordChars,
-            effectiveSalt,
-            iterations,
-            keyLength * 8
-        )
-
-        try {
-            // 獲取 PBKDF2WithHmacSHA512 工廠
-            val factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512")
-
-            // 生成密鑰
-            val key = factory.generateSecret(spec)
-
-            return key.encoded
-        } finally {
-            // 安全清理：清除 spec 中的密碼
-            spec.clearPassword()
+    val mac = Mac.getInstance("HmacSHA512")
+    mac.init(SecretKeySpec(password, "HmacSHA512"))
+    
+    val hLen = 64 // SHA512 輸出長度
+    val dkLen = keyLength
+    
+    // RFC 2898: l = CEIL(dkLen / hLen)
+    val l = (dkLen + hLen - 1) / hLen
+    
+    val dk = ByteArray(l * hLen)
+    
+    for (i in 1..l) {
+        // F(Password, Salt, c, i) = U_1 ^ U_2 ^ ... ^ U_c
+        // U_1 = PRF(Password, Salt || INT(i))
+        val block = ByteArray(salt.size + 4)
+        System.arraycopy(salt, 0, block, 0, salt.size)
+        block[salt.size] = ((i shr 24) and 0xFF).toByte()
+        block[salt.size + 1] = ((i shr 16) and 0xFF).toByte()
+        block[salt.size + 2] = ((i shr 8) and 0xFF).toByte()
+        block[salt.size + 3] = (i and 0xFF).toByte()
+        
+        var u = mac.doFinal(block)
+        val f = u.copyOf()
+        
+        // U_2 ... U_c
+        for (j in 2..iterations) {
+            u = mac.doFinal(u)
+            for (k in f.indices) {
+                f[k] = (f[k].toInt() xor u[k].toInt()).toByte()
+            }
         }
-    } catch (e: Exception) {
-        // 提供更詳細的錯誤訊息
-        throw IllegalStateException(
-            "PBKDF2-HMAC-SHA512 failed on Android: ${e.message}",
-            e
-        )
+        
+        // 複製 F 到結果
+        System.arraycopy(f, 0, dk, (i - 1) * hLen, hLen)
     }
+    
+    // 返回前 dkLen 字節
+    return dk.copyOf(dkLen)
 }
 
 /**
  * Android 平台的 NFKD 正規化實現
- *
- * 使用 Java 標準庫的 `java.text.Normalizer`。
- *
- * ## NFKD 正規化
- * - Normalization Form Compatibility Decomposition
- * - 將複合字符分解為基礎字符和組合標記
- * - 確保 Unicode 字符的一致性表示
- *
- * ### 範例
- * ```kotlin
- * // é (U+00E9) -> e (U+0065) + ´ (U+0301)
- * normalizeNfkdPlatform("café") // -> "café" (分解形式)
- * ```
- *
- * @param text 需要正規化的文本
- * @return NFKD 正規化後的文本
  */
 internal actual fun normalizeNfkdPlatform(text: String): String {
     return Normalizer.normalize(text, Normalizer.Form.NFKD)

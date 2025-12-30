@@ -1,6 +1,6 @@
 plugins {
-    kotlin("multiplatform") version "2.1.0"
-    id("com.android.library") version "8.6.0"
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.android.library)
     `maven-publish`
 }
 
@@ -10,11 +10,9 @@ version = "1.0.0"
 
 kotlin {
     androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "17"
-                freeCompilerArgs = freeCompilerArgs + listOf("-opt-in=kotlin.ExperimentalStdlibApi")
-            }
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+            freeCompilerArgs.add("-opt-in=kotlin.ExperimentalStdlibApi")
         }
         // Enable publishing for Android target
         publishLibraryVariants("release")

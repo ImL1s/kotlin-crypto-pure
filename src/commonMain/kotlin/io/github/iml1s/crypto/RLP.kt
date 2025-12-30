@@ -40,7 +40,7 @@ object RLP {
         }
     }
 
-    private fun encodeList(list: List<*>): ByteArray {
+    public fun encodeList(list: List<*>): ByteArray {
         val encodedItems = list.map { encode(it!!) } // Assume no nulls for now
         val totalLength = encodedItems.sumOf { it.size }
         val combined = encodedItems.fold(ByteArray(0)) { acc, bytes -> acc + bytes }

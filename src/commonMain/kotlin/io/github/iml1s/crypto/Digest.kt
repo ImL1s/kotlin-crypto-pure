@@ -1,6 +1,6 @@
 package io.github.iml1s.crypto
 
-import org.kotlincrypto.hash.sha1.SHA1
+// import org.kotlincrypto.hash.sha1.SHA1
 import org.kotlincrypto.hash.sha2.SHA256
 import org.kotlincrypto.hash.sha2.SHA512
 
@@ -16,12 +16,13 @@ public interface Digest {
 }
 
 public object Digests {
-    fun sha1(): Digest = Sha1Digest()
+    // fun sha1(): Digest = Sha1Digest()
     fun sha256(): Digest = Sha256Digest()
     fun sha512(): Digest = Sha512Digest()
-    fun ripemd160(): Digest = Ripemd160()
+    // fun ripemd160(): Digest = Ripemd160()
 }
 
+/*
 private class Sha1Digest : Digest {
     private val delegate = SHA1()
     override fun getAlgorithmName(): String = "SHA-1"
@@ -40,6 +41,7 @@ private class Sha1Digest : Digest {
         if (delegate is Resettable) (delegate as Resettable).reset()
     }
 }
+*/
 
 private class Sha256Digest : Digest {
     private val delegate = SHA256()

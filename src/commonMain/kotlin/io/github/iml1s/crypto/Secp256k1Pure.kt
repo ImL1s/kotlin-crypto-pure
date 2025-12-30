@@ -178,22 +178,31 @@ object Secp256k1Pure {
         }
     }
     
-    /**
-     * 橢圓曲線點加法
-     */
     private fun pointAdd(x1: BigInteger, y1: BigInteger, x2: BigInteger, y2: BigInteger): Pair<BigInteger, BigInteger> {
+        val three = BigInteger(KmpBigInteger.fromInt(3))
+        val two = BigInteger(KmpBigInteger.fromInt(2))
+        val pMinusTwo = P - two
+
         if (x1 == x2 && y1 == y2) {
             // 點倍增
-            val s = ((BigInteger(KmpBigInteger.fromInt(3)) * x1 * x1) * (BigInteger(KmpBigInteger.fromInt(2)) * y1).modInverse(P)) % P
-            val x3 = (s * s - BigInteger(KmpBigInteger.fromInt(2)) * x1) % P
-            val y3 = (s * (x1 - x3) - y1) % P
-            return Pair(x3.mod(P), y3.mod(P))
+            // s = (3*x1^2) / (2*y1) mod P
+            val num = (three * x1 * x1).mod(P)
+            val den = (two * y1).mod(P)
+            val s = (num * den.modPow(pMinusTwo, P)).mod(P)
+            
+            val x3 = (s * s - two * x1).mod(P)
+            val y3 = (s * (x1 - x3) - y1).mod(P)
+            return Pair(x3, y3)
         } else {
             // 一般點加法
-            val s = ((y2 - y1) * (x2 - x1).modInverse(P)) % P
-            val x3 = (s * s - x1 - x2) % P
-            val y3 = (s * (x1 - x3) - y1) % P
-            return Pair(x3.mod(P), y3.mod(P))
+            // s = (y2-y1) / (x2-x1) mod P
+            val num = (y2 - y1).mod(P)
+            val den = (x2 - x1).mod(P)
+            
+            val s = (num * den.modPow(pMinusTwo, P)).mod(P)
+            val x3 = (s * s - x1 - x2).mod(P)
+            val y3 = (s * (x1 - x3) - y1).mod(P)
+            return Pair(x3, y3)
         }
     }
     
@@ -445,7 +454,7 @@ object Secp256k1Pure {
      * @param y 點的 y 坐標
      * @return 點是否在曲線上
      */
-    private fun validatePointOnCurve(x: BigInteger, y: BigInteger): Boolean {
+    internal fun validatePointOnCurve(x: BigInteger, y: BigInteger): Boolean {
         // 左邊: y² mod p
         val left = (y * y) % P
         
@@ -550,9 +559,27 @@ object Secp256k1Pure {
         constructor(bytes: ByteArray) : this(KmpBigInteger.fromByteArray(bytes, Sign.POSITIVE))
         
         fun toByteArray32(): ByteArray {
-            val hex = magnitude.toString(16).padStart(64, '0')
-            val cleanHex = if (hex.length > 64) hex.takeLast(64) else hex
-            return cleanHex.hexToByteArray()
+            val bytes = magnitude.toByteArray()
+            // IonSpin toByteArray returns signed representation, potentially with leading zero
+            val cleanBytes = if (bytes.size > 32 && bytes[0] == 0.toByte()) {
+                bytes.sliceArray(1 until bytes.size)
+            } else if (bytes.size > 32) {
+                // If it's more than 32 bytes without a leading zero, it's > 2^256. 
+                // For secp256k1 coordinates, this shouldn't happen, but we'll take last 32.
+                bytes.sliceArray(bytes.size - 32 until bytes.size)
+            } else {
+                bytes
+            }
+            
+            val result = ByteArray(32)
+            val startAt = 32 - cleanBytes.size
+            if (startAt >= 0) {
+                cleanBytes.copyInto(result, startAt)
+            } else {
+                // Should not happen for coordinates < P
+                cleanBytes.sliceArray(cleanBytes.size - 32 until cleanBytes.size).copyInto(result)
+            }
+            return result
         }
         
         fun toByteArrayTrimmed(): ByteArray {
@@ -582,7 +609,7 @@ object Secp256k1Pure {
         override fun equals(other: Any?): Boolean {
             if (this === other) return true
             if (other !is BigInteger) return false
-            return magnitude == other.magnitude
+            return magnitude.compareTo(other.magnitude) == 0
         }
         
         override fun hashCode(): Int = magnitude.hashCode()
@@ -592,10 +619,23 @@ object Secp256k1Pure {
         fun modSqrt(p: BigInteger): BigInteger {
             // secp256k1 的 p ≡ 3 (mod 4)，可以使用簡化公式：y = x^((p+1)/4) mod p
             val exp = (p.magnitude + KmpBigInteger.ONE) / KmpBigInteger.fromInt(4)
-            return BigInteger(modPow(magnitude, exp, p.magnitude))
+            return BigInteger(modPowInternal(magnitude, exp, p.magnitude))
         }
         
         fun pow(n: Long): BigInteger = BigInteger(magnitude.pow(n))
+
+        fun modPow(exponent: BigInteger, modulus: BigInteger): BigInteger {
+            // IonSpin might have a more optimized modPow. If not, we fall back to our Internal one.
+            // But wait, KmpBigInteger doesn't have modPow in some versions? 
+            // I'll try it. If it fails to compile, I'll use modPowInternal.
+            return try {
+                 // return BigInteger(magnitude.modPow(exponent.magnitude, modulus.magnitude))
+                 // Actually, let's stick to the verified loop but make it more robust.
+                 BigInteger(modPowInternal(magnitude, exponent.magnitude, modulus.magnitude))
+            } catch (e: Exception) {
+                 BigInteger(modPowInternal(magnitude, exponent.magnitude, modulus.magnitude))
+            }
+        }
 
         fun modInverse(m: BigInteger): BigInteger {
             // 使用擴展歐幾里得算法或庫自帶方法
@@ -625,7 +665,7 @@ object Secp256k1Pure {
         }
     }
 
-    private fun modPow(base: KmpBigInteger, exponent: KmpBigInteger, modulus: KmpBigInteger): KmpBigInteger {
+    private fun modPowInternal(base: KmpBigInteger, exponent: KmpBigInteger, modulus: KmpBigInteger): KmpBigInteger {
         var res = KmpBigInteger.ONE
         var b = base % modulus
         var e = exponent
@@ -759,9 +799,27 @@ object Secp256k1Pure {
         }
     }
 
-    private fun taggedHash(tag: String, data: ByteArray): ByteArray {
+    internal fun taggedHash(tag: String, data: ByteArray): ByteArray {
         val tagHash = sha256(tag.encodeToByteArray())
         return sha256(tagHash + tagHash + data)
+    }
+    
+    /**
+     * BIP-341 TapLeaf hash
+     * tagged_hash("TapLeaf", leafVersion || compact_size(script) || script)
+     */
+    internal fun tapLeafHash(leafVersion: Byte, script: ByteArray): ByteArray {
+        val data = byteArrayOf(leafVersion) + compactSize(script.size) + script
+        return taggedHash("TapLeaf", data)
+    }
+    
+    private fun compactSize(size: Int): ByteArray {
+        return when {
+            size < 253 -> byteArrayOf(size.toByte())
+            size <= 0xFFFF -> byteArrayOf(0xFD.toByte()) + 
+                byteArrayOf((size and 0xFF).toByte(), ((size shr 8) and 0xFF).toByte())
+            else -> throw IllegalArgumentException("Script too large")
+        }
     }
 
     private fun hasEvenY(point: Pair<BigInteger, BigInteger>): Boolean {
@@ -769,11 +827,19 @@ object Secp256k1Pure {
         return point.second % BigInteger(KmpBigInteger.fromInt(2)) == BigInteger.ZERO
     }
 
-    private fun liftX(x: BigInteger): Pair<BigInteger, BigInteger> {
+    internal fun liftX(x: BigInteger): Pair<BigInteger, BigInteger> {
         val y = decompressY(x, false) // false means even for decompressY's isOdd
         // decompressY checks validity internally? No, we should check curve equation
         if (!validatePointOnCurve(x, y)) throw IllegalArgumentException("Point not on curve")
         return Pair(x, y)
+    }
+    
+    /**
+     * Scalar multiply with generator point G
+     * Used for Taproot tweak: tweak * G
+     */
+    internal fun scalarMultiplyG(scalar: BigInteger): Pair<BigInteger, BigInteger> {
+        return scalarMultiply(scalar, G_X, G_Y)
     }
 
     private fun xor(a: ByteArray, b: ByteArray): ByteArray {
