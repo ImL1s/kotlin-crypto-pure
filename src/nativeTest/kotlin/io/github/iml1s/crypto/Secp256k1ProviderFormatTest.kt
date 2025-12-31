@@ -124,5 +124,9 @@ class Secp256k1ProviderFormatTest {
     }
 
     // Helper function
-    private fun Byte.toHexString(): String = "%02x".format(this)
+    private fun Byte.toHexString(): String {
+        val chars = "0123456789abcdef"
+        val i = this.toInt() and 0xFF
+        return "" + chars[i shr 4] + chars[i and 0x0F]
+    }
 }

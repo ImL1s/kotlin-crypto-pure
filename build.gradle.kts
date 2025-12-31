@@ -62,11 +62,18 @@ kotlin {
             }
         }
 
-        // iOS source set - includes secp256k1-kmp (has native iOS bindings)
-        val iosMain by creating {
+        // Shared Native Main source set (iOS & watchOS)
+        val nativeMain by creating {
             dependsOn(commonMain)
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+            }
+        }
+
+        // iosMain will now inherit from nativeMain
+        val iosMain by creating {
+            dependsOn(nativeMain)
+            dependencies {
                 api("fr.acinq.secp256k1:secp256k1-kmp:0.19.0")
             }
         }
@@ -76,19 +83,28 @@ kotlin {
         val iosSimulatorArm64Main by getting { dependsOn(iosMain) }
         val iosX64Main by getting { dependsOn(iosMain) }
 
-        // watchOS source set - no secp256k1-kmp (no watchOS bindings available)
-        // Uses pure Kotlin Secp256k1Pure instead
+        // watchosMain will now inherit from nativeMain
         val watchosMain by creating {
-            dependsOn(commonMain)
-             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
-            }
+            dependsOn(nativeMain)
         }
 
         // Link watchOS targets to watchosMain
         val watchosArm64Main by getting { dependsOn(watchosMain) }
         val watchosSimulatorArm64Main by getting { dependsOn(watchosMain) }
         val watchosX64Main by getting { dependsOn(watchosMain) }
+
+        // Shared Native Test source set (iOS & watchOS)
+        val nativeTest by creating {
+            dependsOn(commonTest)
+        }
+
+        val iosArm64Test by getting { dependsOn(nativeTest) }
+        val iosSimulatorArm64Test by getting { dependsOn(nativeTest) }
+        val iosX64Test by getting { dependsOn(nativeTest) }
+
+        val watchosArm64Test by getting { dependsOn(nativeTest) }
+        val watchosSimulatorArm64Test by getting { dependsOn(nativeTest) }
+        val watchosX64Test by getting { dependsOn(nativeTest) }
     }
 }
 
