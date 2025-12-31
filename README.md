@@ -54,7 +54,7 @@ graph TD
 
 ```kotlin
 // build.gradle.kts
-implementation("com.github.ImL1s:kotlin-crypto-pure:0.2.0-watchos")
+implementation("com.github.ImL1s:kotlin-crypto-pure:0.3.0-watchos")
 ```
 
 ---
