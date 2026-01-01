@@ -3,11 +3,22 @@ package io.github.iml1s.crypto
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.cinterop.*
+import commonCrypto.*
 import platform.CoreCrypto.*
 import platform.Security.*
+import platform.posix.size_tVar
 
 /**
- * iOS/watchOS 平台實作 - 暫時佔位符 (修復編譯)
+ * iOS/watchOS 平台實作 - 使用 Apple CommonCrypto 框架
+ * 
+ * 符合 RFC 5116 標準。
+ * 
+ * ## 實作細節
+ * - 密鑰派生：PBKDF2-HMAC-SHA256
+ * - 加密算法：AES-256-GCM
+ * - Nonce：12 字節隨機生成 (SecRandomCopyBytes)
+ * - Tag：16 字節認證標籤
+ * - 支援：iOS 13.0+, watchOS 6.0+
  */
 @OptIn(ExperimentalForeignApi::class)
 actual object AesGcm {
@@ -17,10 +28,40 @@ actual object AesGcm {
         salt: ByteArray,
         iterations: Int
     ): AesGcmResult = withContext(Dispatchers.Default) {
-        // ⚠️ 暫時返回未加密數據（僅用於驗證 Secp256k1）
-        val nonce = ByteArray(12) { 0 }
-        val tag = ByteArray(16) { 0 }
-        AesGcmResult(nonce, plaintext, tag)
+        require(plaintext.isNotEmpty()) { "Plaintext cannot be empty" }
+        require(password.isNotEmpty()) { "Password cannot be empty" }
+
+        // 1. 派生密鑰 (256-bit)
+        val key = pbkdf2HmacSha256(password.encodeToByteArray(), salt, iterations, 32)
+        
+        // 2. 生成隨機 Nonce (12-byte)
+        val nonce = generateSecureRandomBytes(12)
+        val ciphertext = ByteArray(plaintext.size)
+        val tag = ByteArray(16)
+
+        // 3. 使用 CommonCrypto 進行 GCM 加密
+        memScoped {
+            val tagLength = alloc<size_tVar>()
+            tagLength.value = 16.toULong()
+
+            val dummyAAD = alloc<ByteVar>()
+            val status = CCCryptorGCM(
+                kCCEncrypt,
+                kCCAlgorithmAES,
+                key.refTo(0), key.size.toULong(),
+                nonce.refTo(0), nonce.size.toULong(),
+                dummyAAD.ptr, 0.toULong(), // AAD
+                plaintext.refTo(0), plaintext.size.toULong(),
+                ciphertext.refTo(0),
+                tag.refTo(0), tagLength.ptr
+            )
+
+            if (status != kCCSuccess) {
+                throw IllegalStateException("AES-GCM encryption failed with status: $status")
+            }
+        }
+
+        AesGcmResult(nonce, ciphertext, tag)
     }
 
     actual suspend fun decrypt(
@@ -29,7 +70,52 @@ actual object AesGcm {
         salt: ByteArray,
         iterations: Int
     ): ByteArray = withContext(Dispatchers.Default) {
-        // ⚠️ 暫時返回密文作為明文
-        encrypted.ciphertext
+        require(password.isNotEmpty()) { "Password cannot be empty" }
+
+        // 1. 派生相同的密鑰
+        val key = pbkdf2HmacSha256(password.encodeToByteArray(), salt, iterations, 32)
+        val plaintext = ByteArray(encrypted.ciphertext.size)
+
+        // 2. 使用 CommonCrypto 進行 GCM 解密
+        val computedTag = ByteArray(encrypted.tag.size)
+        memScoped {
+            val tagLength = alloc<size_tVar>()
+            tagLength.value = computedTag.size.toULong()
+
+            val dummyAAD = alloc<ByteVar>()
+            val status = CCCryptorGCM(
+                kCCDecrypt,
+                kCCAlgorithmAES,
+                key.refTo(0), key.size.toULong(),
+                encrypted.nonce.refTo(0), encrypted.nonce.size.toULong(),
+                dummyAAD.ptr, 0.toULong(),
+                encrypted.ciphertext.refTo(0), encrypted.ciphertext.size.toULong(),
+                plaintext.refTo(0),
+                computedTag.refTo(0), tagLength.ptr
+            )
+
+            if (status != kCCSuccess) {
+                throw IllegalStateException("AES-GCM decryption failed (binary error), status: $status")
+            }
+
+            // 3. 手動驗證 Tag (因為 CCCryptorGCM 在某些平台上可能不會自動驗證，而是輸出計算出的 Tag)
+            if (!computedTag.contentEquals(encrypted.tag)) {
+                throw IllegalStateException("AES-GCM decryption failed (authentication error)")
+            }
+        }
+
+        plaintext
+    }
+
+    /**
+     * 生成安全隨機數
+     */
+    private fun generateSecureRandomBytes(size: Int): ByteArray {
+        val bytes = ByteArray(size)
+        val status = SecRandomCopyBytes(kSecRandomDefault, size.toULong(), bytes.refTo(0))
+        if (status != errSecSuccess) {
+            throw IllegalStateException("Failed to generate secure random bytes: $status")
+        }
+        return bytes
     }
 }

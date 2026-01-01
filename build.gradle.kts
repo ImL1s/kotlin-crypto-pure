@@ -18,13 +18,73 @@ kotlin {
         publishLibraryVariants("release")
     }
 
-    iosArm64()
-    iosSimulatorArm64()
-    iosX64()
+    iosArm64() {
+        compilations.getByName("main") {
+            cinterops {
+                val CommonCrypto by creating {
+                    defFile = project.file("src/nativeInterop/cinterop/CommonCrypto.def")
+                    packageName = "commonCrypto"
+                    includeDirs("src/nativeInterop/cinterop")
+                }
+            }
+        }
+    }
+    iosSimulatorArm64() {
+        compilations.getByName("main") {
+            cinterops {
+                val CommonCrypto by creating {
+                    defFile = project.file("src/nativeInterop/cinterop/CommonCrypto.def")
+                    packageName = "commonCrypto"
+                    includeDirs("src/nativeInterop/cinterop")
+                }
+            }
+        }
+    }
+    iosX64() {
+        compilations.getByName("main") {
+            cinterops {
+                val CommonCrypto by creating {
+                    defFile = project.file("src/nativeInterop/cinterop/CommonCrypto.def")
+                    packageName = "commonCrypto"
+                    includeDirs("src/nativeInterop/cinterop")
+                }
+            }
+        }
+    }
 
-    watchosArm64()
-    watchosSimulatorArm64()
-    watchosX64()
+    watchosArm64() {
+        compilations.getByName("main") {
+            cinterops {
+                val CommonCrypto by creating {
+                    defFile = project.file("src/nativeInterop/cinterop/CommonCrypto.def")
+                    packageName = "commonCrypto"
+                    includeDirs("src/nativeInterop/cinterop")
+                }
+            }
+        }
+    }
+    watchosSimulatorArm64() {
+        compilations.getByName("main") {
+            cinterops {
+                val CommonCrypto by creating {
+                    defFile = project.file("src/nativeInterop/cinterop/CommonCrypto.def")
+                    packageName = "commonCrypto"
+                    includeDirs("src/nativeInterop/cinterop")
+                }
+            }
+        }
+    }
+    watchosX64() {
+        compilations.getByName("main") {
+            cinterops {
+                val CommonCrypto by creating {
+                    defFile = project.file("src/nativeInterop/cinterop/CommonCrypto.def")
+                    packageName = "commonCrypto"
+                    includeDirs("src/nativeInterop/cinterop")
+                }
+            }
+        }
+    }
 
     sourceSets {
         val commonMain by getting {

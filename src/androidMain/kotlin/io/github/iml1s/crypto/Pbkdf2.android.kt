@@ -60,6 +60,25 @@ internal actual fun pbkdf2HmacSha512(
 }
 
 /**
+ * Android 平台的 PBKDF2-HMAC-SHA256 實現
+ */
+internal actual fun pbkdf2HmacSha256(
+    password: ByteArray,
+    salt: ByteArray,
+    iterations: Int,
+    keyLength: Int
+): ByteArray {
+    val spec = javax.crypto.spec.PBEKeySpec(
+        password.decodeToString().toCharArray(),
+        salt,
+        iterations,
+        keyLength * 8
+    )
+    val factory = javax.crypto.SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256")
+    return factory.generateSecret(spec).encoded
+}
+
+/**
  * Android 平台的 NFKD 正規化實現
  */
 internal actual fun normalizeNfkdPlatform(text: String): String {

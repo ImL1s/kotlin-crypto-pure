@@ -64,6 +64,44 @@ internal actual fun pbkdf2HmacSha512(
 }
 
 /**
+ * iOS 平台的 PBKDF2-HMAC-SHA256 實現
+ */
+@OptIn(ExperimentalForeignApi::class)
+internal actual fun pbkdf2HmacSha256(
+    password: ByteArray,
+    salt: ByteArray,
+    iterations: Int,
+    keyLength: Int
+): ByteArray {
+    val derivedKey = ByteArray(keyLength)
+    val passwordString = password.decodeToString()
+
+    val status = memScoped {
+        salt.usePinned { saltPinned ->
+            derivedKey.usePinned { keyPinned ->
+                CCKeyDerivationPBKDF(
+                    kCCPBKDF2.toUInt(),
+                    passwordString,
+                    password.size.toULong(),
+                    if (salt.isNotEmpty()) saltPinned.addressOf(0) as CPointer<UByteVar>? else null,
+                    salt.size.toULong(),
+                    kCCPRFHmacAlgSHA256.toUInt(),
+                    iterations.toUInt(),
+                    if (derivedKey.isNotEmpty()) keyPinned.addressOf(0) as CPointer<UByteVar>? else null,
+                    keyLength.toULong()
+                )
+            }
+        }
+    }
+
+    if (status != kCCSuccess) {
+        throw IllegalStateException("PBKDF2 derivation failed with status: $status")
+    }
+
+    return derivedKey
+}
+
+/**
  * ByteArray 轉 NSData
  */
 @OptIn(ExperimentalForeignApi::class)

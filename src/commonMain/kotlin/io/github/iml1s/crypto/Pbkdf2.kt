@@ -180,6 +180,16 @@ internal expect fun pbkdf2HmacSha512(
 ): ByteArray
 
 /**
+ * 平台特定的 PBKDF2-HMAC-SHA256 實現
+ */
+internal expect fun pbkdf2HmacSha256(
+    password: ByteArray,
+    salt: ByteArray,
+    iterations: Int,
+    keyLength: Int
+): ByteArray
+
+/**
  * 平台特定的 NFKD 正規化實現
  *
  * 各平台需要實現這個函數：
