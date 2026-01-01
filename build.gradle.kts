@@ -9,6 +9,7 @@ group = "io.github.iml1s"
 version = "1.0.0"
 
 kotlin {
+    jvm()
     androidTarget {
         compilerOptions {
             jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)

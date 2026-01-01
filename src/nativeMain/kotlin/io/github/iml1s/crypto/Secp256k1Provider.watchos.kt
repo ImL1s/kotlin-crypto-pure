@@ -25,13 +25,7 @@ actual object Secp256k1Provider {
      * 從私鑰派生公鑰 (使用純 Kotlin 實現)
      */
     actual fun computePublicKey(privateKey: ByteArray, compressed: Boolean): ByteArray {
-        val fullPubKey = Secp256k1Pure.generatePublicKey(privateKey)
-        return if (compressed) {
-            val point = Secp256k1Pure.decodePublicKey(fullPubKey)
-            Secp256k1Pure.encodePublicKey(point, compressed = true)
-        } else {
-            fullPubKey
-        }
+        return Secp256k1Pure.generatePublicKey(privateKey, compressed)
     }
 
     /**

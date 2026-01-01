@@ -454,7 +454,7 @@ object Secp256k1Pure {
      * @param y 點的 y 坐標
      * @return 點是否在曲線上
      */
-    internal fun validatePointOnCurve(x: BigInteger, y: BigInteger): Boolean {
+    fun validatePointOnCurve(x: BigInteger, y: BigInteger): Boolean {
         // 左邊: y² mod p
         val left = (y * y) % P
         
@@ -800,7 +800,7 @@ object Secp256k1Pure {
         }
     }
 
-    internal fun taggedHash(tag: String, data: ByteArray): ByteArray {
+    fun taggedHash(tag: String, data: ByteArray): ByteArray {
         val tagHash = sha256(tag.encodeToByteArray())
         return sha256(tagHash + tagHash + data)
     }
@@ -854,7 +854,7 @@ object Secp256k1Pure {
         return point.second % BigInteger(KmpBigInteger.fromInt(2)) == BigInteger.ZERO
     }
 
-    internal fun liftX(x: BigInteger): Pair<BigInteger, BigInteger> {
+    fun liftX(x: BigInteger): Pair<BigInteger, BigInteger> {
         val y = decompressY(x, false) // false means even for decompressY's isOdd
         // decompressY checks validity internally? No, we should check curve equation
         if (!validatePointOnCurve(x, y)) throw IllegalArgumentException("Point not on curve")
@@ -865,8 +865,57 @@ object Secp256k1Pure {
      * Scalar multiply with generator point G
      * Used for Taproot tweak: tweak * G
      */
-    internal fun scalarMultiplyG(scalar: BigInteger): Pair<BigInteger, BigInteger> {
+    fun scalarMultiplyG(scalar: BigInteger): Pair<BigInteger, BigInteger> {
         return scalarMultiply(scalar, G_X, G_Y)
+    }
+
+    /**
+     * 驗證私鑰是否有效 (0 < privateKey < n)
+     */
+    fun secKeyVerify(privateKey: ByteArray): Boolean {
+        if (privateKey.size != 32) return false
+        val d = privateKey.toBigInteger()
+        return d > BigInteger.ZERO && d < N
+    }
+
+    /**
+     * 從私鑰創建公鑰 (33-byte compressed)
+     */
+    fun pubkeyCreate(privateKey: ByteArray): ByteArray {
+        return pubKeyOf(privateKey, true)
+    }
+
+    /**
+     * 私鑰調整 (childPrivateKey = (parentPrivateKey + tweak) mod n)
+     */
+    fun privKeyTweakAdd(privateKey: ByteArray, tweak: ByteArray): ByteArray {
+        require(privateKey.size == 32)
+        require(tweak.size == 32)
+        val d = privateKey.toBigInteger()
+        val t = tweak.toBigInteger()
+        val result = (d + t) % N
+        return result.toByteArray32()
+    }
+
+    /**
+     * 公鑰調整 (childPublicKey = parentPublicKey + tweak * G)
+     */
+    fun pubKeyTweakAdd(publicKey: ByteArray, tweak: ByteArray): ByteArray {
+        require(publicKey.size == 33 || publicKey.size == 65)
+        require(tweak.size == 32)
+        
+        // 1. 解碼公鑰點 P
+        val (px, py) = decodePublicKey(publicKey)
+        
+        // 2. 計算 tweak * G
+        val t = tweak.toBigInteger()
+        val (tx, ty) = scalarMultiply(t, G_X, G_Y)
+        
+        // 3. 計算 P + tweak * G
+        val (rx, ry) = pointAdd(px, py, tx, ty)
+        
+        // 4. 返回壓縮格式
+        return encodePublicKey(Pair(rx, ry), true)
     }
 
     private fun xor(a: ByteArray, b: ByteArray): ByteArray {
