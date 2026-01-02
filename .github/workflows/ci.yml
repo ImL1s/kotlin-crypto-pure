@@ -22,6 +22,9 @@ jobs:
       
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.actor }}
       
       - name: Run Android Unit Tests
         run: ./gradlew testDebugUnitTest --continue
