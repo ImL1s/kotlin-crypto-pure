@@ -1,0 +1,759 @@
+iOS Build Check	Set up job	﻿2026-01-02T03:44:49.0470310Z Current runner version: '2.330.0'
+iOS Build Check	Set up job	2026-01-02T03:44:49.0485620Z ##[group]Runner Image Provisioner
+iOS Build Check	Set up job	2026-01-02T03:44:49.0486090Z Hosted Compute Agent
+iOS Build Check	Set up job	2026-01-02T03:44:49.0486420Z Version: 20251211.462
+iOS Build Check	Set up job	2026-01-02T03:44:49.0486790Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+iOS Build Check	Set up job	2026-01-02T03:44:49.0487220Z Build Date: 2025-12-11T16:28:49Z
+iOS Build Check	Set up job	2026-01-02T03:44:49.0487630Z Worker ID: {b2100555-7186-44b9-ade4-74851ae03b7f}
+iOS Build Check	Set up job	2026-01-02T03:44:49.0488040Z ##[endgroup]
+iOS Build Check	Set up job	2026-01-02T03:44:49.0488360Z ##[group]Operating System
+iOS Build Check	Set up job	2026-01-02T03:44:49.0488710Z macOS
+iOS Build Check	Set up job	2026-01-02T03:44:49.0488990Z 15.7.2
+iOS Build Check	Set up job	2026-01-02T03:44:49.0489260Z 24G325
+iOS Build Check	Set up job	2026-01-02T03:44:49.0489530Z ##[endgroup]
+iOS Build Check	Set up job	2026-01-02T03:44:49.0489830Z ##[group]Runner Image
+iOS Build Check	Set up job	2026-01-02T03:44:49.0490140Z Image: macos-15-arm64
+iOS Build Check	Set up job	2026-01-02T03:44:49.0490450Z Version: 20251215.0075.1
+iOS Build Check	Set up job	2026-01-02T03:44:49.0491130Z Included Software: https://github.com/actions/runner-images/blob/macos-15-arm64/20251215.0075/images/macos/macos-15-arm64-Readme.md
+iOS Build Check	Set up job	2026-01-02T03:44:49.0492060Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-15-arm64%2F20251215.0075
+iOS Build Check	Set up job	2026-01-02T03:44:49.0492730Z ##[endgroup]
+iOS Build Check	Set up job	2026-01-02T03:44:49.0493380Z ##[group]GITHUB_TOKEN Permissions
+iOS Build Check	Set up job	2026-01-02T03:44:49.0494340Z Contents: read
+iOS Build Check	Set up job	2026-01-02T03:44:49.0494640Z Metadata: read
+iOS Build Check	Set up job	2026-01-02T03:44:49.0494930Z Packages: read
+iOS Build Check	Set up job	2026-01-02T03:44:49.0495230Z ##[endgroup]
+iOS Build Check	Set up job	2026-01-02T03:44:49.0496560Z Secret source: Actions
+iOS Build Check	Set up job	2026-01-02T03:44:49.0497010Z Prepare workflow directory
+iOS Build Check	Set up job	2026-01-02T03:44:49.0724630Z Prepare all required actions
+iOS Build Check	Set up job	2026-01-02T03:44:49.0751640Z Getting action download info
+iOS Build Check	Set up job	2026-01-02T03:44:49.3195450Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+iOS Build Check	Set up job	2026-01-02T03:44:49.6644490Z Download action repository 'actions/setup-java@v4' (SHA:c1e323688fd81a25caa38c78aa6df2d33d3e20d9)
+iOS Build Check	Set up job	2026-01-02T03:44:51.1514370Z Download action repository 'gradle/gradle-build-action@v2' (SHA:a8f75513eafdebd8141bd1cd4e30fcd194af8dfa)
+iOS Build Check	Set up job	2026-01-02T03:44:52.7860610Z Complete job name: iOS Build Check
+iOS Build Check	Run actions/checkout@v4	﻿2026-01-02T03:44:52.8307170Z ##[group]Run actions/checkout@v4
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8307970Z with:
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8308450Z   repository: ImL1s/kotlin-crypto-pure
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8309360Z   token: ***
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8309790Z   ssh-strict: true
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8310230Z   ssh-user: git
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8310680Z   persist-credentials: true
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8311190Z   clean: true
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8311670Z   sparse-checkout-cone-mode: true
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8312250Z   fetch-depth: 1
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8312710Z   fetch-tags: false
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8313180Z   show-progress: true
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8313660Z   lfs: false
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8314100Z   submodules: false
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8314590Z   set-safe-directory: true
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.8315230Z ##[endgroup]
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1320310Z Syncing repository: ImL1s/kotlin-crypto-pure
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1322700Z ##[group]Getting Git version info
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1323710Z Working directory is '/Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure'
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1325300Z [command]/opt/homebrew/bin/git version
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1822990Z git version 2.50.1
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1852090Z ##[endgroup]
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1862820Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/a3ec0be5-1a46-4db5-8137-69712c86b756/.gitconfig'
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1869320Z Temporarily overriding HOME='/Users/runner/work/_temp/a3ec0be5-1a46-4db5-8137-69712c86b756' before making global git config changes
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1871070Z Adding repository directory to the temporary git global config as a safe directory
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1872930Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1973060Z Deleting the contents of '/Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure'
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1975430Z ##[group]Initializing the repository
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1980070Z [command]/opt/homebrew/bin/git init /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2152900Z hint: Using 'master' as the name for the initial branch. This default branch name
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2154700Z hint: is subject to change. To configure the initial branch name to use in all
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2155910Z hint: of your new repositories, which will suppress this warning, call:
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2156750Z hint:
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2157320Z hint: 	git config --global init.defaultBranch <name>
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2158010Z hint:
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2158660Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2159810Z hint: 'development'. The just-created branch can be renamed via this command:
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2160680Z hint:
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2161140Z hint: 	git branch -m <name>
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2161650Z hint:
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2162360Z hint: Disable this message with "git config set advice.defaultBranchName false"
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2163720Z Initialized empty Git repository in /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/.git/
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2166160Z [command]/opt/homebrew/bin/git remote add origin https://github.com/ImL1s/kotlin-crypto-pure
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2232380Z ##[endgroup]
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2233400Z ##[group]Disabling automatic garbage collection
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2234720Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2292230Z ##[endgroup]
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2293170Z ##[group]Setting up auth
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2296340Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2351380Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.3861300Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.3918910Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.4574110Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.4633360Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.5348010Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.5404430Z ##[endgroup]
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.5405300Z ##[group]Fetching the repository
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.5409840Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +89e61c54a6704a8e26d77d6cbbc25447013a962f:refs/remotes/origin/main
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.5166580Z From https://github.com/ImL1s/kotlin-crypto-pure
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.5266850Z  * [new ref]         89e61c54a6704a8e26d77d6cbbc25447013a962f -> origin/main
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.5437510Z ##[endgroup]
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.5536750Z ##[group]Determining the checkout info
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.5575860Z ##[endgroup]
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.5582230Z [command]/opt/homebrew/bin/git sparse-checkout disable
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.5583430Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.5584480Z ##[group]Checking out the ref
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.5584950Z [command]/opt/homebrew/bin/git checkout --progress --force -B main refs/remotes/origin/main
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.5860030Z Switched to a new branch 'main'
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.5961350Z branch 'main' set up to track 'origin/main'.
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.6265580Z ##[endgroup]
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.6567240Z [command]/opt/homebrew/bin/git log -1 --format=%H
+iOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.6667780Z 89e61c54a6704a8e26d77d6cbbc25447013a962f
+iOS Build Check	Set up JDK 17	﻿2026-01-02T03:44:54.7413170Z ##[group]Run actions/setup-java@v4
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.7413660Z with:
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.7413810Z   java-version: 17
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.7413950Z   distribution: temurin
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.7414090Z   java-package: jdk
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.7414220Z   check-latest: false
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.7414360Z   server-id: github
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.7414500Z   server-username: GITHUB_ACTOR
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.7414680Z   server-password: GITHUB_TOKEN
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.7414850Z   overwrite-settings: true
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.7415000Z   job-status: success
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.7415350Z   token: ***
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.7415490Z ##[endgroup]
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.8950680Z ##[group]Installed distributions
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.9003490Z Resolved Java 17.0.17+10 from tool-cache
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.9006710Z Setting Java 17.0.17+10 as the default
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.9018070Z Creating toolchains.xml for JDK version 17 from temurin
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.9085600Z Writing to /Users/runner/.m2/toolchains.xml
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.9086480Z 
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.9086810Z Java configuration:
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.9087350Z   Distribution: temurin
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.9087650Z   Version: 17.0.17+10
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.9087990Z   Path: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.9088690Z 
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.9089120Z ##[endgroup]
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.9102330Z Creating settings.xml with server-id: github
+iOS Build Check	Set up JDK 17	2026-01-02T03:44:54.9102640Z Writing to /Users/runner/.m2/settings.xml
+iOS Build Check	Setup Gradle	﻿2026-01-02T03:44:54.9225760Z ##[group]Run gradle/gradle-build-action@v2
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9226060Z with:
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9226190Z   cache-disabled: false
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9226350Z   cache-read-only: false
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9226530Z   cache-write-only: false
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9226710Z   cache-overwrite-existing: false
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9226930Z   gradle-home-cache-includes: caches
+iOS Build Check	Setup Gradle	notifications
+iOS Build Check	Setup Gradle	
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9227180Z   gradle-home-cache-cleanup: false
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9227400Z   generate-job-summary: true
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9227560Z   dependency-graph: disabled
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9227770Z   gradle-home-cache-strict-match: false
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9227960Z   workflow-job-context: null
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9228250Z   github-token: ***
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9228380Z env:
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9228660Z   JAVA_HOME: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9229180Z   JAVA_HOME_17_ARM64: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+iOS Build Check	Setup Gradle	2026-01-02T03:44:54.9229570Z ##[endgroup]
+iOS Build Check	Setup Gradle	2026-01-02T03:44:55.3973120Z ##[group]Restore Gradle state from cache
+iOS Build Check	Setup Gradle	2026-01-02T03:44:55.4981830Z ##[warning]Failed to restore v8-gradle|macOS|ci-build-ios[37a6259cc0c1dae299a7866489dff0bd]-89e61c54a6704a8e26d77d6cbbc25447013a962f: Error: Cache service responded with 400
+iOS Build Check	Setup Gradle	2026-01-02T03:44:55.5009240Z Gradle User Home cache not found. Will initialize empty.
+iOS Build Check	Setup Gradle	2026-01-02T03:44:55.5010050Z ##[endgroup]
+iOS Build Check	Build iOS Framework	﻿2026-01-02T03:44:55.5100990Z ##[group]Run ./gradlew compileKotlinIosArm64
+iOS Build Check	Build iOS Framework	2026-01-02T03:44:55.5101390Z [36;1m./gradlew compileKotlinIosArm64[0m
+iOS Build Check	Build iOS Framework	2026-01-02T03:44:55.5141270Z shell: /bin/bash -e {0}
+iOS Build Check	Build iOS Framework	2026-01-02T03:44:55.5141500Z env:
+iOS Build Check	Build iOS Framework	2026-01-02T03:44:55.5141810Z   JAVA_HOME: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+iOS Build Check	Build iOS Framework	2026-01-02T03:44:55.5142310Z   JAVA_HOME_17_ARM64: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+iOS Build Check	Build iOS Framework	2026-01-02T03:44:55.5142680Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+iOS Build Check	Build iOS Framework	2026-01-02T03:44:55.5142910Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+iOS Build Check	Build iOS Framework	2026-01-02T03:44:55.5143160Z ##[endgroup]
+iOS Build Check	Build iOS Framework	2026-01-02T03:44:55.6712420Z Downloading https://services.gradle.org/distributions/gradle-8.13-all.zip
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:01.1014090Z ......................10%......................20%......................30%......................40%......................50%......................60%......................70%.......................80%......................90%......................100%
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:07.3261480Z 
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:07.3311820Z Welcome to Gradle 8.13!
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:07.3312730Z 
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:07.3313230Z Here are the highlights of this release:
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:07.3325480Z  - Daemon JVM auto-provisioning
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:07.3327880Z  - Enhancements for Scala plugin and JUnit testing
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:07.3328410Z  - Improvements for build authors and plugin developers
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:07.3328900Z 
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:07.3329350Z For more details see https://docs.gradle.org/8.13/release-notes.html
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:07.3329870Z 
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:07.3330140Z Starting a Gradle Daemon (subsequent builds will be faster)
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4478140Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts:2:11: Unresolved reference: libs
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4481310Z 
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4571430Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts:3:11: Unresolved reference: libs
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4572290Z > Configure project :
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4608200Z 
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4613650Z FAILURE: Build failed with an exception.
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4618820Z 
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4620000Z * Where:
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4637410Z Build file '/Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts' line: 2
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4638290Z 
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4639200Z * What went wrong:
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4640410Z Script compilation errors:
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4640840Z 
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4641460Z   Line 2:     alias(libs.plugins.kotlin.multiplatform)
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4642550Z                     ^ Unresolved reference: libs
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4642990Z 
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4643280Z   Line 3:     alias(libs.plugins.android.library)
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4643750Z                     ^ Unresolved reference: libs
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4644280Z 
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4644340Z 2 errors
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4644520Z 
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4644730Z * Try:
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4645080Z > Run with --stacktrace option to get the stack trace.
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4645500Z > Run with --info or --debug option to get more log output.
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4645760Z > Run with --scan to get full insights.
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4646230Z > Get more help at https://help.gradle.org.
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4646460Z 
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:26.4646610Z BUILD FAILED in 30s
+iOS Build Check	Build iOS Framework	2026-01-02T03:45:28.0180190Z ##[error]Process completed with exit code 1.
+iOS Build Check	Post Setup Gradle	﻿2026-01-02T03:45:28.0565620Z Post job cleanup.
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.4257330Z In final post-action step, saving state and writing summary
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.4259650Z Stopping all Gradle daemons before saving Gradle User Home state
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.4261780Z ##[group]Caching Gradle state
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.4369330Z Caching generated-gradle-jars with path '/Users/runner/.gradle/caches/8.13/generated-gradle-jars/gradle-api-8.13.jar' and cache key: generated-gradle-jars-697f81ec8d80712ce7da03f513960371
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.4408430Z Caching wrapper-zips with path '/Users/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku' and cache key: wrapper-zips-27b0df0fa405636de00fcbfa0ab79410
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.4546700Z Caching instrumented-jars with path '/Users/runner/.gradle/caches/jars-*/*' and cache key: instrumented-jars-b3720748ee000264dfa4ebde0d203eaa
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.4627150Z Caching kotlin-dsl with path '/Users/runner/.gradle/caches/*/kotlin-dsl/*/*' and cache key: kotlin-dsl-82df0f1a97027e9efbe23c51dd337fae
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.4880570Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.4881970Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.4918090Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.4975210Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.6806510Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/caches/jars-*/*,zstd-without-long,1.0' and key: instrumented-jars-b3720748ee000264dfa4ebde0d203eaa: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0WD9XaQAAAACkoxs6zauOSb4x1cUyUNKkUEhMMzBFREdFMDQxMgBFZGdl
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.7289270Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/caches/*/kotlin-dsl/*/*,zstd-without-long,1.0' and key: kotlin-dsl-82df0f1a97027e9efbe23c51dd337fae: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0WD9XaQAAAAA0D1HB5PE5QqUOGBG/FNV8UEhMMzBFREdFMDEyMgBFZGdl
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:28.9817110Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/caches/8.13/generated-gradle-jars/gradle-api-8.13.jar,zstd-without-long,1.0' and key: generated-gradle-jars-697f81ec8d80712ce7da03f513960371: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0WT9XaQAAAAD0rfVM1nJuQbN+2f66rO3OUEhMMzBFREdFMDEyMgBFZGdl
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:35.1792440Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku,zstd-without-long,1.0' and key: wrapper-zips-27b0df0fa405636de00fcbfa0ab79410: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0Xz9XaQAAAACl0dZ3UlDMQ5crHObuqwd8UEhMMzBFREdFMDIwNwBFZGdl
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:36.8108860Z Caching Gradle User Home with cache key: v8-gradle|macOS|ci-build-ios[37a6259cc0c1dae299a7866489dff0bd]-89e61c54a6704a8e26d77d6cbbc25447013a962f
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:36.8221360Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:36.8602640Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/caches,/Users/runner/.gradle/notifications,/Users/runner/.gradle/.gradle-build-action,zstd-without-long,1.0' and key: v8-gradle|macOS|ci-build-ios[37a6259cc0c1dae299a7866489dff0bd]-89e61c54a6704a8e26d77d6cbbc25447013a962f: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0YD9XaQAAAAAALhBeukf8TIFfS/ng3AP2UEhMMzBFREdFMDIwNwBFZGdl
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:36.8605690Z ##[endgroup]
+iOS Build Check	Post Setup Gradle	2026-01-02T03:45:36.8605990Z Writing job summary
+iOS Build Check	Post Set up JDK 17	﻿2026-01-02T03:45:36.8777380Z Post job cleanup.
+iOS Build Check	Post Run actions/checkout@v4	﻿2026-01-02T03:45:37.0300290Z Post job cleanup.
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.1268200Z [command]/opt/homebrew/bin/git version
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.1444030Z git version 2.50.1
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.1466360Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/86cfa986-031f-4a77-be0a-ba25bd7ad439/.gitconfig'
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.1473190Z Temporarily overriding HOME='/Users/runner/work/_temp/86cfa986-031f-4a77-be0a-ba25bd7ad439' before making global git config changes
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.1473840Z Adding repository directory to the temporary git global config as a safe directory
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.1482100Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.1743220Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.1744450Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.3107430Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.3112990Z http.https://github.com/.extraheader
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.3176350Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.3269100Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.3979590Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+iOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:37.4048820Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+iOS Build Check	Complete job	﻿2026-01-02T03:45:37.4968040Z Cleaning up orphan processes
+iOS Build Check	Complete job	2026-01-02T03:45:37.8312250Z Terminate orphan process: pid (4455) (java)
+watchOS Build Check	Set up job	﻿2026-01-02T03:44:49.3928430Z Current runner version: '2.330.0'
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3944140Z ##[group]Runner Image Provisioner
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3944670Z Hosted Compute Agent
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3945030Z Version: 20251211.462
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3945410Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3945870Z Build Date: 2025-12-11T16:28:49Z
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3946280Z Worker ID: {4bc9b518-54cc-4664-876a-dee6a459bdba}
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3946690Z ##[endgroup]
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3947050Z ##[group]Operating System
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3947420Z macOS
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3947710Z 15.7.2
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3947980Z 24G325
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3948250Z ##[endgroup]
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3948550Z ##[group]Runner Image
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3948870Z Image: macos-15-arm64
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3949240Z Version: 20251215.0075.1
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3949920Z Included Software: https://github.com/actions/runner-images/blob/macos-15-arm64/20251215.0075/images/macos/macos-15-arm64-Readme.md
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3950890Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-15-arm64%2F20251215.0075
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3951560Z ##[endgroup]
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3952220Z ##[group]GITHUB_TOKEN Permissions
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3953170Z Contents: read
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3953470Z Metadata: read
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3953760Z Packages: read
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3954050Z ##[endgroup]
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3955300Z Secret source: Actions
+watchOS Build Check	Set up job	2026-01-02T03:44:49.3955690Z Prepare workflow directory
+watchOS Build Check	Set up job	2026-01-02T03:44:49.4176240Z Prepare all required actions
+watchOS Build Check	Set up job	2026-01-02T03:44:49.4202860Z Getting action download info
+watchOS Build Check	Set up job	2026-01-02T03:44:49.7803930Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+watchOS Build Check	Set up job	2026-01-02T03:44:50.0517930Z Download action repository 'actions/setup-java@v4' (SHA:c1e323688fd81a25caa38c78aa6df2d33d3e20d9)
+watchOS Build Check	Set up job	2026-01-02T03:44:51.3547000Z Download action repository 'gradle/gradle-build-action@v2' (SHA:a8f75513eafdebd8141bd1cd4e30fcd194af8dfa)
+watchOS Build Check	Set up job	2026-01-02T03:44:52.6219380Z Complete job name: watchOS Build Check
+watchOS Build Check	Run actions/checkout@v4	﻿2026-01-02T03:44:52.6673950Z ##[group]Run actions/checkout@v4
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6674710Z with:
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6675180Z   repository: ImL1s/kotlin-crypto-pure
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6676040Z   token: ***
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6676450Z   ssh-strict: true
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6676900Z   ssh-user: git
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6677360Z   persist-credentials: true
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6677860Z   clean: true
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6678340Z   sparse-checkout-cone-mode: true
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6678910Z   fetch-depth: 1
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6679360Z   fetch-tags: false
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6679820Z   show-progress: true
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6680300Z   lfs: false
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6680750Z   submodules: false
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6681240Z   set-safe-directory: true
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.6681880Z ##[endgroup]
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.9504560Z Syncing repository: ImL1s/kotlin-crypto-pure
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.9506750Z ##[group]Getting Git version info
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.9508430Z Working directory is '/Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure'
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:52.9510020Z [command]/opt/homebrew/bin/git version
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0083390Z git version 2.50.1
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0112390Z ##[endgroup]
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0123430Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/cfd64990-2240-49af-8724-99abcb5d1b83/.gitconfig'
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0130810Z Temporarily overriding HOME='/Users/runner/work/_temp/cfd64990-2240-49af-8724-99abcb5d1b83' before making global git config changes
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0132730Z Adding repository directory to the temporary git global config as a safe directory
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0134580Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0280130Z Deleting the contents of '/Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure'
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0281860Z ##[group]Initializing the repository
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0282930Z [command]/opt/homebrew/bin/git init /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0404360Z hint: Using 'master' as the name for the initial branch. This default branch name
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0414830Z hint: is subject to change. To configure the initial branch name to use in all
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0435040Z hint: of your new repositories, which will suppress this warning, call:
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0465220Z hint:
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0466950Z hint: 	git config --global init.defaultBranch <name>
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0472090Z hint:
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0473180Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0474790Z hint: 'development'. The just-created branch can be renamed via this command:
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0519280Z hint:
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0521350Z hint: 	git branch -m <name>
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0522030Z hint:
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0522910Z hint: Disable this message with "git config set advice.defaultBranchName false"
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0524360Z Initialized empty Git repository in /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/.git/
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0527360Z [command]/opt/homebrew/bin/git remote add origin https://github.com/ImL1s/kotlin-crypto-pure
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0529500Z ##[endgroup]
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0530400Z ##[group]Disabling automatic garbage collection
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0531240Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0562170Z ##[endgroup]
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0563040Z ##[group]Setting up auth
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0565890Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.0614570Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1413330Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.1470200Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2557530Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.2888000Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.3734090Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.4046700Z ##[endgroup]
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.4131740Z ##[group]Fetching the repository
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:53.4134390Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +89e61c54a6704a8e26d77d6cbbc25447013a962f:refs/remotes/origin/main
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.1932530Z From https://github.com/ImL1s/kotlin-crypto-pure
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.1936310Z  * [new ref]         89e61c54a6704a8e26d77d6cbbc25447013a962f -> origin/main
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.2127410Z ##[endgroup]
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.2136580Z ##[group]Determining the checkout info
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.2170040Z ##[endgroup]
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.2178450Z [command]/opt/homebrew/bin/git sparse-checkout disable
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.2179560Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.2180720Z ##[group]Checking out the ref
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.2181210Z [command]/opt/homebrew/bin/git checkout --progress --force -B main refs/remotes/origin/main
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.2392730Z Switched to a new branch 'main'
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.2494280Z branch 'main' set up to track 'origin/main'.
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.2782810Z ##[endgroup]
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.3115450Z [command]/opt/homebrew/bin/git log -1 --format=%H
+watchOS Build Check	Run actions/checkout@v4	2026-01-02T03:44:54.3217070Z 89e61c54a6704a8e26d77d6cbbc25447013a962f
+watchOS Build Check	Set up JDK 17	﻿2026-01-02T03:44:54.3967960Z ##[group]Run actions/setup-java@v4
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.3968610Z with:
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.3968770Z   java-version: 17
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.3968940Z   distribution: temurin
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.3969120Z   java-package: jdk
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.3969290Z   check-latest: false
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.3969460Z   server-id: github
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.3969630Z   server-username: GITHUB_ACTOR
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.3969870Z   server-password: GITHUB_TOKEN
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.3970080Z   overwrite-settings: true
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.3970300Z   job-status: success
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.3970590Z   token: ***
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.3970740Z ##[endgroup]
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5460220Z ##[group]Installed distributions
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5701650Z Resolved Java 17.0.17+10 from tool-cache
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5702000Z Setting Java 17.0.17+10 as the default
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5702310Z Creating toolchains.xml for JDK version 17 from temurin
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5702630Z Writing to /Users/runner/.m2/toolchains.xml
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5702810Z 
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5702940Z Java configuration:
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5703180Z   Distribution: temurin
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5703420Z   Version: 17.0.17+10
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5703930Z   Path: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5704270Z 
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5704570Z ##[endgroup]
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5717940Z Creating settings.xml with server-id: github
+watchOS Build Check	Set up JDK 17	2026-01-02T03:44:54.5718250Z Writing to /Users/runner/.m2/settings.xml
+watchOS Build Check	Setup Gradle	﻿2026-01-02T03:44:54.5811210Z ##[group]Run gradle/gradle-build-action@v2
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5811530Z with:
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5811730Z   cache-disabled: false
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5811920Z   cache-read-only: false
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5812300Z   cache-write-only: false
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5812530Z   cache-overwrite-existing: false
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5812800Z   gradle-home-cache-includes: caches
+watchOS Build Check	Setup Gradle	notifications
+watchOS Build Check	Setup Gradle	
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5813090Z   gradle-home-cache-cleanup: false
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5813450Z   generate-job-summary: true
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5813670Z   dependency-graph: disabled
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5813890Z   gradle-home-cache-strict-match: false
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5814140Z   workflow-job-context: null
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5814480Z   github-token: ***
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5814650Z env:
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5814980Z   JAVA_HOME: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5815530Z   JAVA_HOME_17_ARM64: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.5815950Z ##[endgroup]
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:54.9201290Z ##[group]Restore Gradle state from cache
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:55.0428400Z ##[warning]Failed to restore v8-gradle|macOS|ci-build-watchos[37a6259cc0c1dae299a7866489dff0bd]-89e61c54a6704a8e26d77d6cbbc25447013a962f: Error: Cache service responded with 400
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:55.0448110Z Gradle User Home cache not found. Will initialize empty.
+watchOS Build Check	Setup Gradle	2026-01-02T03:44:55.0448630Z ##[endgroup]
+watchOS Build Check	Build watchOS Framework	﻿2026-01-02T03:44:55.0532180Z ##[group]Run ./gradlew compileKotlinWatchosArm64
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:44:55.0532620Z [36;1m./gradlew compileKotlinWatchosArm64[0m
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:44:55.0570960Z shell: /bin/bash -e {0}
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:44:55.0571180Z env:
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:44:55.0571510Z   JAVA_HOME: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:44:55.0573030Z   JAVA_HOME_17_ARM64: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:44:55.0573820Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:44:55.0574120Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:44:55.0574360Z ##[endgroup]
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:44:55.1990640Z Downloading https://services.gradle.org/distributions/gradle-8.13-all.zip
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:00.2769720Z ......................10%......................20%......................30%......................40%......................50%......................60%......................70%.......................80%......................90%......................100%
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:04.9919420Z 
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:04.9921730Z Welcome to Gradle 8.13!
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:04.9928810Z 
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:04.9929280Z Here are the highlights of this release:
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:04.9930480Z  - Daemon JVM auto-provisioning
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:04.9946100Z  - Enhancements for Scala plugin and JUnit testing
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:04.9946710Z  - Improvements for build authors and plugin developers
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:04.9951200Z 
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:04.9951610Z For more details see https://docs.gradle.org/8.13/release-notes.html
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:04.9952020Z 
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:04.9957360Z Starting a Gradle Daemon (subsequent builds will be faster)
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.3911020Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts:2:11: Unresolved reference: libs
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.3911760Z 
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.3935120Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts:3:11: Unresolved reference: libs
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.3936030Z > Configure project :
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.3961750Z 
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.3962220Z FAILURE: Build failed with an exception.
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.3962610Z 
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4014530Z * Where:
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4033320Z Build file '/Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts' line: 2
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4037070Z 
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4037530Z * What went wrong:
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4038390Z Script compilation errors:
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4040170Z 
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4044180Z   Line 2:     alias(libs.plugins.kotlin.multiplatform)
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4052950Z                     ^ Unresolved reference: libs
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4054170Z 
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4064950Z   Line 3:     alias(libs.plugins.android.library)
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4096490Z                     ^ Unresolved reference: libs
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4113420Z 
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4113960Z 2 errors
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4114200Z 
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4114460Z * Try:
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4115000Z > Run with --stacktrace option to get the stack trace.
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4115570Z > Run with --info or --debug option to get more log output.
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4116140Z > Run with --scan to get full insights.
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4116680Z > Get more help at https://help.gradle.org.
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4116930Z 
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:21.4117140Z BUILD FAILED in 26s
+watchOS Build Check	Build watchOS Framework	2026-01-02T03:45:23.0144150Z ##[error]Process completed with exit code 1.
+watchOS Build Check	Post Setup Gradle	﻿2026-01-02T03:45:23.0366340Z Post job cleanup.
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.3000980Z In final post-action step, saving state and writing summary
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.3006330Z Stopping all Gradle daemons before saving Gradle User Home state
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.3007530Z ##[group]Caching Gradle state
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.3098600Z Caching generated-gradle-jars with path '/Users/runner/.gradle/caches/8.13/generated-gradle-jars/gradle-api-8.13.jar' and cache key: generated-gradle-jars-697f81ec8d80712ce7da03f513960371
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.3126920Z Caching wrapper-zips with path '/Users/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku' and cache key: wrapper-zips-27b0df0fa405636de00fcbfa0ab79410
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.3255140Z Caching instrumented-jars with path '/Users/runner/.gradle/caches/jars-*/*' and cache key: instrumented-jars-b3720748ee000264dfa4ebde0d203eaa
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.3365380Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.3366760Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.4323710Z Caching kotlin-dsl with path '/Users/runner/.gradle/caches/*/kotlin-dsl/*/*' and cache key: kotlin-dsl-3163cfeab2e3f02f8da73954844c8446
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.5683590Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.5690680Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.5694520Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/caches/*/kotlin-dsl/*/*,zstd-without-long,1.0' and key: kotlin-dsl-3163cfeab2e3f02f8da73954844c8446: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0Uz9XaQAAAADccCeDguo1Q7/edcx0W2yiU04xRURHRTE1MTgARWRnZQ==
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.5889390Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/caches/jars-*/*,zstd-without-long,1.0' and key: instrumented-jars-b3720748ee000264dfa4ebde0d203eaa: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0VD9XaQAAAADWq3jcPIjZRpTxtWcqBJDwU04xRURHRTIyMTgARWRnZQ==
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:23.7715280Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/caches/8.13/generated-gradle-jars/gradle-api-8.13.jar,zstd-without-long,1.0' and key: generated-gradle-jars-697f81ec8d80712ce7da03f513960371: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0VD9XaQAAAABq/BkflsugSYfPRxmkQ3D/U04xRURHRTIyMTgARWRnZQ==
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:29.2483490Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku,zstd-without-long,1.0' and key: wrapper-zips-27b0df0fa405636de00fcbfa0ab79410: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0WT9XaQAAAAD8CyVhnQBbQaG+UUzLNPJkU04xRURHRTIxMDgARWRnZQ==
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:30.8112350Z Caching Gradle User Home with cache key: v8-gradle|macOS|ci-build-watchos[37a6259cc0c1dae299a7866489dff0bd]-89e61c54a6704a8e26d77d6cbbc25447013a962f
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:30.8227430Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:30.8586780Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/caches,/Users/runner/.gradle/notifications,/Users/runner/.gradle/.gradle-build-action,zstd-without-long,1.0' and key: v8-gradle|macOS|ci-build-watchos[37a6259cc0c1dae299a7866489dff0bd]-89e61c54a6704a8e26d77d6cbbc25447013a962f: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0Wz9XaQAAAADHl5RkXfYtRZFNf5jO4NQCU04xRURHRTIxMDgARWRnZQ==
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:30.8589870Z ##[endgroup]
+watchOS Build Check	Post Setup Gradle	2026-01-02T03:45:30.8590500Z Writing job summary
+watchOS Build Check	Post Set up JDK 17	﻿2026-01-02T03:45:30.8772820Z Post job cleanup.
+watchOS Build Check	Post Run actions/checkout@v4	﻿2026-01-02T03:45:31.0389020Z Post job cleanup.
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.1472750Z [command]/opt/homebrew/bin/git version
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.1604880Z git version 2.50.1
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.1632560Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/0b966684-2562-4ee7-9c33-9766c4724239/.gitconfig'
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.1633300Z Temporarily overriding HOME='/Users/runner/work/_temp/0b966684-2562-4ee7-9c33-9766c4724239' before making global git config changes
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.1636770Z Adding repository directory to the temporary git global config as a safe directory
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.1637390Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.1695180Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.1837160Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.2696070Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.2743470Z http.https://github.com/.extraheader
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.2752190Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.2808910Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.3534390Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+watchOS Build Check	Post Run actions/checkout@v4	2026-01-02T03:45:31.3590980Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+watchOS Build Check	Complete job	﻿2026-01-02T03:45:31.4582700Z Cleaning up orphan processes
+watchOS Build Check	Complete job	2026-01-02T03:45:31.5090490Z Terminate orphan process: pid (7496) (java)
+Android Unit Tests	Set up job	﻿2026-01-02T03:44:49.8386804Z Current runner version: '2.330.0'
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8415158Z ##[group]Runner Image Provisioner
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8416282Z Hosted Compute Agent
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8416882Z Version: 20251211.462
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8417493Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8418144Z Build Date: 2025-12-11T16:28:49Z
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8418884Z Worker ID: {5b853562-72eb-47b7-9b52-39633b0c8add}
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8419553Z ##[endgroup]
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8420078Z ##[group]Operating System
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8420684Z Ubuntu
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8421163Z 24.04.3
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8421600Z LTS
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8422077Z ##[endgroup]
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8422602Z ##[group]Runner Image
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8423095Z Image: ubuntu-24.04
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8423643Z Version: 20251215.174.1
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8424643Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251215.174/images/ubuntu/Ubuntu2404-Readme.md
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8426297Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251215.174
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8427654Z ##[endgroup]
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8428759Z ##[group]GITHUB_TOKEN Permissions
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8430577Z Contents: read
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8431134Z Metadata: read
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8431719Z Packages: read
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8432238Z ##[endgroup]
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8434342Z Secret source: Actions
+Android Unit Tests	Set up job	2026-01-02T03:44:49.8435170Z Prepare workflow directory
+Android Unit Tests	Set up job	2026-01-02T03:44:49.9127129Z Prepare all required actions
+Android Unit Tests	Set up job	2026-01-02T03:44:49.9181702Z Getting action download info
+Android Unit Tests	Set up job	2026-01-02T03:44:50.2395503Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+Android Unit Tests	Set up job	2026-01-02T03:44:50.3271284Z Download action repository 'actions/setup-java@v4' (SHA:c1e323688fd81a25caa38c78aa6df2d33d3e20d9)
+Android Unit Tests	Set up job	2026-01-02T03:44:51.1751735Z Download action repository 'gradle/gradle-build-action@v2' (SHA:a8f75513eafdebd8141bd1cd4e30fcd194af8dfa)
+Android Unit Tests	Set up job	2026-01-02T03:44:51.9638755Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+Android Unit Tests	Set up job	2026-01-02T03:44:52.3170553Z Complete job name: Android Unit Tests
+Android Unit Tests	Run actions/checkout@v4	﻿2026-01-02T03:44:52.3763200Z ##[group]Run actions/checkout@v4
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3763841Z with:
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3764110Z   repository: ImL1s/kotlin-crypto-pure
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3764592Z   token: ***
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3764832Z   ssh-strict: true
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3765054Z   ssh-user: git
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3765288Z   persist-credentials: true
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3765547Z   clean: true
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3765786Z   sparse-checkout-cone-mode: true
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3766239Z   fetch-depth: 1
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3766466Z   fetch-tags: false
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3766707Z   show-progress: true
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3766946Z   lfs: false
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3767158Z   submodules: false
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3767389Z   set-safe-directory: true
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3767871Z env:
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3768299Z   GITHUB_TOKEN: ***
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3768562Z   GITHUB_ACTOR: ImL1s
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.3768817Z ##[endgroup]
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.4835108Z Syncing repository: ImL1s/kotlin-crypto-pure
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.4836820Z ##[group]Getting Git version info
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.4837422Z Working directory is '/home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure'
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.4838170Z [command]/usr/bin/git version
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.4901241Z git version 2.52.0
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.4928747Z ##[endgroup]
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.4943431Z Temporarily overriding HOME='/home/runner/work/_temp/05df01b7-a235-412e-8b47-6504d5bfe6bb' before making global git config changes
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.4944409Z Adding repository directory to the temporary git global config as a safe directory
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.4957652Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.4999106Z Deleting the contents of '/home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure'
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5002758Z ##[group]Initializing the repository
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5007312Z [command]/usr/bin/git init /home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5106857Z hint: Using 'master' as the name for the initial branch. This default branch name
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5108049Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5109409Z hint: to use in all of your new repositories, which will suppress this warning,
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5110165Z hint: call:
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5110600Z hint:
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5111207Z hint: 	git config --global init.defaultBranch <name>
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5112227Z hint:
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5113021Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5113733Z hint: 'development'. The just-created branch can be renamed via this command:
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5114188Z hint:
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5114436Z hint: 	git branch -m <name>
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5114719Z hint:
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5115086Z hint: Disable this message with "git config set advice.defaultBranchName false"
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5115828Z Initialized empty Git repository in /home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/.git/
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5124697Z [command]/usr/bin/git remote add origin https://github.com/ImL1s/kotlin-crypto-pure
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5159102Z ##[endgroup]
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5159589Z ##[group]Disabling automatic garbage collection
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5163706Z [command]/usr/bin/git config --local gc.auto 0
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5192709Z ##[endgroup]
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5193153Z ##[group]Setting up auth
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5200331Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5230358Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5572620Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5602823Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5831642Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.5861956Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.6101114Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.6139271Z ##[endgroup]
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.6139974Z ##[group]Fetching the repository
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.6147920Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +89e61c54a6704a8e26d77d6cbbc25447013a962f:refs/remotes/origin/main
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9384409Z From https://github.com/ImL1s/kotlin-crypto-pure
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9385013Z  * [new ref]         89e61c54a6704a8e26d77d6cbbc25447013a962f -> origin/main
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9415304Z ##[endgroup]
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9415950Z ##[group]Determining the checkout info
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9419198Z ##[endgroup]
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9424503Z [command]/usr/bin/git sparse-checkout disable
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9463959Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9489406Z ##[group]Checking out the ref
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9493799Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9642911Z Switched to a new branch 'main'
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9644151Z branch 'main' set up to track 'origin/main'.
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9652017Z ##[endgroup]
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9688624Z [command]/usr/bin/git log -1 --format=%H
+Android Unit Tests	Run actions/checkout@v4	2026-01-02T03:44:52.9711826Z 89e61c54a6704a8e26d77d6cbbc25447013a962f
+Android Unit Tests	Set up JDK 17	﻿2026-01-02T03:44:52.9932595Z ##[group]Run actions/setup-java@v4
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9933067Z with:
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9933247Z   java-version: 17
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9933450Z   distribution: temurin
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9933655Z   java-package: jdk
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9933865Z   check-latest: false
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9934059Z   server-id: github
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9934254Z   server-username: GITHUB_ACTOR
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9934482Z   server-password: GITHUB_TOKEN
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9934711Z   overwrite-settings: true
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9934915Z   job-status: success
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9935226Z   token: ***
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9935401Z env:
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9935647Z   GITHUB_TOKEN: ***
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9935836Z   GITHUB_ACTOR: ImL1s
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:52.9936177Z ##[endgroup]
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.1980503Z ##[group]Installed distributions
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.2189951Z Resolved Java 17.0.17+10 from tool-cache
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.2190900Z Setting Java 17.0.17+10 as the default
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.2204052Z Creating toolchains.xml for JDK version 17 from temurin
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.2281036Z Writing to /home/runner/.m2/toolchains.xml
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.2281470Z 
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.2281625Z Java configuration:
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.2283701Z   Distribution: temurin
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.2284149Z   Version: 17.0.17+10
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.2285337Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.2285845Z 
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.2286591Z ##[endgroup]
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.2302874Z Creating settings.xml with server-id: github
+Android Unit Tests	Set up JDK 17	2026-01-02T03:44:53.2305649Z Writing to /home/runner/.m2/settings.xml
+Android Unit Tests	Setup Gradle	﻿2026-01-02T03:44:53.2462539Z ##[group]Run gradle/gradle-build-action@v2
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2462839Z with:
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2463024Z   cache-disabled: false
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2463232Z   cache-read-only: false
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2463433Z   cache-write-only: false
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2463654Z   cache-overwrite-existing: false
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2463922Z   gradle-home-cache-includes: caches
+Android Unit Tests	Setup Gradle	notifications
+Android Unit Tests	Setup Gradle	
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2464234Z   gradle-home-cache-cleanup: false
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2464484Z   generate-job-summary: true
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2464710Z   dependency-graph: disabled
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2464938Z   gradle-home-cache-strict-match: false
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2465196Z   workflow-job-context: null
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2465539Z   github-token: ***
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2465718Z env:
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2465959Z   GITHUB_TOKEN: ***
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2466445Z   GITHUB_ACTOR: ImL1s
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2466756Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2467203Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:53.2467618Z ##[endgroup]
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:54.3206457Z ##[group]Restore Gradle state from cache
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:54.3995361Z ##[warning]Failed to restore v8-gradle|Linux|ci-test-android[37a6259cc0c1dae299a7866489dff0bd]-89e61c54a6704a8e26d77d6cbbc25447013a962f: Error: Cache service responded with 400
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:54.4035106Z Gradle User Home cache not found. Will initialize empty.
+Android Unit Tests	Setup Gradle	2026-01-02T03:44:54.4036310Z ##[endgroup]
+Android Unit Tests	Run Android Unit Tests	﻿2026-01-02T03:44:54.4155610Z ##[group]Run ./gradlew testDebugUnitTest --continue
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:44:54.4156262Z [36;1m./gradlew testDebugUnitTest --continue[0m
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:44:54.4191847Z shell: /usr/bin/bash -e {0}
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:44:54.4192101Z env:
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:44:54.4192482Z   GITHUB_TOKEN: ***
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:44:54.4192689Z   GITHUB_ACTOR: ImL1s
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:44:54.4193010Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:44:54.4193459Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:44:54.4193823Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:44:54.4194106Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:44:54.4194347Z ##[endgroup]
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:44:54.7645628Z Downloading https://services.gradle.org/distributions/gradle-8.13-all.zip
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:44:57.4717600Z ......................10%......................20%......................30%......................40%......................50%......................60%......................70%.......................80%......................90%......................100%
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:00.8720834Z 
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:00.8735090Z Welcome to Gradle 8.13!
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:00.8739114Z 
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:00.8740202Z Here are the highlights of this release:
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:00.8741039Z  - Daemon JVM auto-provisioning
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:00.8743184Z  - Enhancements for Scala plugin and JUnit testing
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:00.8743830Z  - Improvements for build authors and plugin developers
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:00.8744215Z 
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:00.8744552Z For more details see https://docs.gradle.org/8.13/release-notes.html
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:00.8745035Z 
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:00.9678135Z Starting a Gradle Daemon (subsequent builds will be faster)
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.6729955Z e: file:///home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts:2:11: Unresolved reference: libs
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.6731470Z e: file:///home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts:3:11: Unresolved reference: libs
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.6732314Z 
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.6738269Z > Configure project :
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7729051Z 
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7730944Z FAILURE: Build failed with an exception.
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7732595Z 
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7733974Z * Where:
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7735797Z Build file '/home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts' line: 2
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7737792Z 
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7739107Z * What went wrong:
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7740624Z Script compilation errors:
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7742057Z 
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7743512Z   Line 2:     alias(libs.plugins.kotlin.multiplatform)
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7745184Z                     ^ Unresolved reference: libs
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7766537Z 
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7766880Z   Line 3:     alias(libs.plugins.android.library)
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7767424Z                     ^ Unresolved reference: libs
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7767752Z 
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7767907Z 2 errors
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7768070Z 
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7768192Z * Try:
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7768580Z > Run with --stacktrace option to get the stack trace.
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7769180Z > Run with --info or --debug option to get more log output.
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7769719Z > Run with --scan to get full insights.
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7770226Z > Get more help at https://help.gradle.org.
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7770566Z 
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:25.7770711Z BUILD FAILED in 31s
+Android Unit Tests	Run Android Unit Tests	2026-01-02T03:45:26.1063793Z ##[error]Process completed with exit code 1.
+Android Unit Tests	Upload Test Results	﻿2026-01-02T03:45:26.1123114Z ##[group]Run actions/upload-artifact@v4
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1123392Z with:
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1123573Z   name: android-test-results
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1123790Z   path: build/reports/tests/
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1124010Z   if-no-files-found: warn
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1124207Z   compression-level: 6
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1124398Z   overwrite: false
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1124596Z   include-hidden-files: false
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1124806Z env:
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1125293Z   GITHUB_TOKEN: ***
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1125486Z   GITHUB_ACTOR: ImL1s
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1125790Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1126531Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1126905Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1127174Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.1127406Z ##[endgroup]
+Android Unit Tests	Upload Test Results	2026-01-02T03:45:26.3234473Z ##[warning]No files were found with the provided path: build/reports/tests/. No artifacts will be uploaded.
+Android Unit Tests	Post Setup Gradle	﻿2026-01-02T03:45:26.3393566Z Post job cleanup.
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:26.5002184Z In final post-action step, saving state and writing summary
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:26.5009164Z Stopping all Gradle daemons before saving Gradle User Home state
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:26.5013748Z ##[group]Caching Gradle state
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:26.5540385Z Caching generated-gradle-jars with path '/home/runner/.gradle/caches/8.13/generated-gradle-jars/gradle-api-8.13.jar' and cache key: generated-gradle-jars-697f81ec8d80712ce7da03f513960371
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:26.5586632Z Caching wrapper-zips with path '/home/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku' and cache key: wrapper-zips-27b0df0fa405636de00fcbfa0ab79410
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:26.5810739Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --use-compress-program zstdmt
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:26.5846309Z Caching instrumented-jars with path '/home/runner/.gradle/caches/jars-*/*' and cache key: instrumented-jars-95b7e2b5493ea7df9cecfe22df7a3bdc
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:26.5859478Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --use-compress-program zstdmt
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:26.6085507Z Caching kotlin-dsl with path '/home/runner/.gradle/caches/*/kotlin-dsl/*/*' and cache key: kotlin-dsl-7f41e6c1f4c002bb2eb33871ffe2570e
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:26.6376473Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --use-compress-program zstdmt
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:26.7260039Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --use-compress-program zstdmt
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:26.7756824Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/jars-*/*,zstd-without-long,1.0' and key: instrumented-jars-95b7e2b5493ea7df9cecfe22df7a3bdc: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0Vj9XaQAAAADSoAl2VnQCQpzv9b4H/C8CQ0hHRURHRTE5MTUARWRnZQ==
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:26.8352563Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/*/kotlin-dsl/*/*,zstd-without-long,1.0' and key: kotlin-dsl-7f41e6c1f4c002bb2eb33871ffe2570e: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0Vj9XaQAAAACP1uAf+6D0SZGQw+9ALQyXQ0hJMzBFREdFMDIwNwBFZGdl
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:27.3916532Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/8.13/generated-gradle-jars/gradle-api-8.13.jar,zstd-without-long,1.0' and key: generated-gradle-jars-697f81ec8d80712ce7da03f513960371: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0Vz9XaQAAAADxPBRMFuCwSL1B1b4w/f9WQ0hJMzBFREdFMDIwNwBFZGdl
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:28.9401120Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku,zstd-without-long,1.0' and key: wrapper-zips-27b0df0fa405636de00fcbfa0ab79410: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0WD9XaQAAAABzMziDAoWRRq7r0cAWAwZoQ0hJMzBFREdFMDIwNwBFZGdl
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:29.9911776Z Caching Gradle User Home with cache key: v8-gradle|Linux|ci-test-android[37a6259cc0c1dae299a7866489dff0bd]-89e61c54a6704a8e26d77d6cbbc25447013a962f
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:30.0082917Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --use-compress-program zstdmt
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:30.0248860Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches,/home/runner/.gradle/notifications,/home/runner/.gradle/.gradle-build-action,zstd-without-long,1.0' and key: v8-gradle|Linux|ci-test-android[37a6259cc0c1dae299a7866489dff0bd]-89e61c54a6704a8e26d77d6cbbc25447013a962f: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0Wj9XaQAAAAABmBFM/emtRbJFlQ8evJArQ0hJMzBFREdFMDIwNwBFZGdl
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:30.0254416Z ##[endgroup]
+Android Unit Tests	Post Setup Gradle	2026-01-02T03:45:30.0254819Z Writing job summary
+Android Unit Tests	Post Set up JDK 17	﻿2026-01-02T03:45:30.0446965Z Post job cleanup.
+Android Unit Tests	Post Run actions/checkout@v4	﻿2026-01-02T03:45:30.2205086Z Post job cleanup.
+Android Unit Tests	Post Run actions/checkout@v4	2026-01-02T03:45:30.3138672Z [command]/usr/bin/git version
+Android Unit Tests	Post Run actions/checkout@v4	2026-01-02T03:45:30.3174854Z git version 2.52.0
+Android Unit Tests	Post Run actions/checkout@v4	2026-01-02T03:45:30.3216736Z Temporarily overriding HOME='/home/runner/work/_temp/09e242ab-2b8c-4a17-94ab-bf5fa7a70e7e' before making global git config changes
+Android Unit Tests	Post Run actions/checkout@v4	2026-01-02T03:45:30.3218074Z Adding repository directory to the temporary git global config as a safe directory
+Android Unit Tests	Post Run actions/checkout@v4	2026-01-02T03:45:30.3222283Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/kotlin-crypto-pure/kotlin-crypto-pure
+Android Unit Tests	Post Run actions/checkout@v4	2026-01-02T03:45:30.3255900Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Android Unit Tests	Post Run actions/checkout@v4	2026-01-02T03:45:30.3286928Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Android Unit Tests	Post Run actions/checkout@v4	2026-01-02T03:45:30.3509738Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Android Unit Tests	Post Run actions/checkout@v4	2026-01-02T03:45:30.3529979Z http.https://github.com/.extraheader
+Android Unit Tests	Post Run actions/checkout@v4	2026-01-02T03:45:30.3541989Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+Android Unit Tests	Post Run actions/checkout@v4	2026-01-02T03:45:30.3570838Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Android Unit Tests	Post Run actions/checkout@v4	2026-01-02T03:45:30.3791486Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Android Unit Tests	Post Run actions/checkout@v4	2026-01-02T03:45:30.3822838Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Android Unit Tests	Complete job	﻿2026-01-02T03:45:30.4143290Z Cleaning up orphan processes
+Android Unit Tests	Complete job	2026-01-02T03:45:30.4410967Z Terminate orphan process: pid (2206) (java)

@@ -165,6 +165,17 @@ kotlin {
         val watchosArm64Test by getting { dependsOn(nativeTest) }
         val watchosSimulatorArm64Test by getting { dependsOn(nativeTest) }
         val watchosX64Test by getting { dependsOn(nativeTest) }
+
+        val jvmMain by getting {
+            dependsOn(commonMain)
+        }
+
+        val jvmTest by getting {
+            dependsOn(commonTest)
+            dependencies {
+                implementation(kotlin("test-junit"))
+            }
+        }
     }
 }
 

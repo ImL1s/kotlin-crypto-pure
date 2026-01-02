@@ -10,8 +10,8 @@ internal actual fun platformHmacSha256(key: ByteArray, data: ByteArray): ByteArr
     val dataPtr = if (data.isNotEmpty()) data.refTo(0) else null
     CCHmac(
         kCCHmacAlgSHA256,
-        keyPtr, key.size.toULong(),
-        dataPtr, data.size.toULong(),
+        keyPtr, key.size.convert(),
+        dataPtr, data.size.convert(),
         macOut.refTo(0)
     )
     return macOut
@@ -24,8 +24,8 @@ internal actual fun platformHmacSha512(key: ByteArray, data: ByteArray): ByteArr
     val dataPtr = if (data.isNotEmpty()) data.refTo(0) else null
     CCHmac(
         kCCHmacAlgSHA512,
-        keyPtr, key.size.toULong(),
-        dataPtr, data.size.toULong(),
+        keyPtr, key.size.convert(),
+        dataPtr, data.size.convert(),
         macOut.refTo(0)
     )
     return macOut

@@ -1,0 +1,52 @@
+
+> Configure project :
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+w: The Default Kotlin Hierarchy Template was not applied to 'root project 'kotlin-crypto-pure'':
+Explicit .dependsOn() edges were configured for the following source sets:
+[iosArm64Main, iosArm64Test, iosMain, iosSimulatorArm64Main, iosSimulatorArm64Test, iosX64Main, iosX64Test, nativeMain, nativeTest, watchosArm64Main, watchosArm64Test, watchosMain, watchosSimulatorArm64Main, watchosSimulatorArm64Test, watchosX64Main, watchosX64Test]
+
+Consider removing dependsOn-calls or disabling the default template by adding
+    'kotlin.mpp.applyDefaultHierarchyTemplate=false'
+to your gradle.properties
+
+Learn more about hierarchy templates: https://kotl.in/hierarchy-template
+
+w: The project is using Kotlin Multiplatform with hierarchical structure and disabled 'cinterop commonization'
+See: https://kotlinlang.org/docs/mpp-share-on-platforms.html#use-native-libraries-in-the-hierarchical-structure
+
+'cinterop commonization' can be enabled in your 'gradle.properties'
+kotlin.mpp.enableCInteropCommonization=true
+
+To hide this message, add to your 'gradle.properties'
+kotlin.mpp.enableCInteropCommonization.nowarn=true 
+
+The following source sets are affected: 
+[iosMain, nativeMain, watchosMain]
+
+The following cinterops are affected: 
+[cinterop:compilation/compileKotlinIosArm64/CommonCrypto, cinterop:compilation/compileKotlinIosSimulatorArm64/CommonCrypto, cinterop:compilation/compileKotlinIosX64/CommonCrypto, cinterop:compilation/compileKotlinWatchosArm64/CommonCrypto, cinterop:compilation/compileKotlinWatchosSimulatorArm64/CommonCrypto, cinterop:compilation/compileKotlinWatchosX64/CommonCrypto]
+
+
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :compileKotlinJvm FAILED
+e: file:///D:/OtherProject/mine/crypto/kotlin-crypto-pure/src/commonMain/kotlin/io/github/iml1s/crypto/AesGcm.kt:78:1 Expected AesGcm has no actual declaration in module <kotlin-crypto-pure> for JVM
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileKotlinJvm'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 2s
+1 actionable task: 1 executed
