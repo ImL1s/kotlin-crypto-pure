@@ -14,6 +14,13 @@ import kotlin.test.*
  */
 class AesGcmTest {
 
+    // Test helpers using default values
+    private suspend fun encrypt(plaintext: ByteArray, password: String) =
+        AesGcm.encrypt(plaintext, password, AesGcmDefaults.SALT, AesGcmDefaults.ITERATIONS)
+
+    private suspend fun decrypt(encrypted: AesGcmResult, password: String) =
+        AesGcm.decrypt(encrypted, password, AesGcmDefaults.SALT, AesGcmDefaults.ITERATIONS)
+
     @BeforeTest
     fun setup() {
         platformAesGcmTestSetup()
@@ -25,7 +32,7 @@ class AesGcmTest {
         val password = "MySecurePassword123"
 
         // 加密
-        val encrypted = AesGcm.encrypt(plaintext, password)
+        val encrypted = encrypt(plaintext, password)
 
         // 驗證加密結果結構
         assertEquals(12, encrypted.nonce.size, "Nonce should be 12 bytes")
@@ -33,7 +40,7 @@ class AesGcmTest {
         assertTrue(encrypted.ciphertext.isNotEmpty(), "Ciphertext should not be empty")
 
         // 解密
-        val decrypted = AesGcm.decrypt(encrypted, password)
+        val decrypted = decrypt(encrypted, password)
 
         // 驗證解密結果
         assertContentEquals(plaintext, decrypted, "Decrypted should match plaintext")
@@ -64,7 +71,7 @@ class AesGcmTest {
         val password = "password"
 
         // 加密
-        val encrypted = AesGcm.encrypt(plaintext, password)
+        val encrypted = encrypt(plaintext, password)
 
         // 轉換為 Base64
         val base64 = encrypted.toBase64()
@@ -79,7 +86,7 @@ class AesGcmTest {
         assertContentEquals(encrypted.ciphertext, restored.ciphertext, "Ciphertext should match")
 
         // 驗證可以解密
-        val decrypted = AesGcm.decrypt(restored, password)
+        val decrypted = decrypt(restored, password)
         assertContentEquals(plaintext, decrypted, "Decrypted should match plaintext")
     }
 
@@ -89,8 +96,8 @@ class AesGcmTest {
         val password1 = "password1"
         val password2 = "password2"
 
-        val encrypted1 = AesGcm.encrypt(plaintext, password1)
-        val encrypted2 = AesGcm.encrypt(plaintext, password2)
+        val encrypted1 = encrypt(plaintext, password1)
+        val encrypted2 = encrypt(plaintext, password2)
 
         // 驗證密文不同
         assertFalse(
@@ -104,8 +111,8 @@ class AesGcmTest {
         val plaintext = "Same plaintext".encodeToByteArray()
         val password = "samePassword"
 
-        val encrypted1 = AesGcm.encrypt(plaintext, password)
-        val encrypted2 = AesGcm.encrypt(plaintext, password)
+        val encrypted1 = encrypt(plaintext, password)
+        val encrypted2 = encrypt(plaintext, password)
 
         // 驗證 nonce 不同 (隨機生成)
         assertFalse(
@@ -114,8 +121,8 @@ class AesGcmTest {
         )
 
         // 驗證兩者都能正確解密
-        val decrypted1 = AesGcm.decrypt(encrypted1, password)
-        val decrypted2 = AesGcm.decrypt(encrypted2, password)
+        val decrypted1 = decrypt(encrypted1, password)
+        val decrypted2 = decrypt(encrypted2, password)
 
         assertContentEquals(plaintext, decrypted1)
         assertContentEquals(plaintext, decrypted2)
@@ -127,11 +134,11 @@ class AesGcmTest {
         val correctPassword = "correct"
         val wrongPassword = "wrong"
 
-        val encrypted = AesGcm.encrypt(plaintext, correctPassword)
+        val encrypted = encrypt(plaintext, correctPassword)
 
         // 使用錯誤密碼解密應該失敗
         assertFails {
-            AesGcm.decrypt(encrypted, wrongPassword)
+            decrypt(encrypted, wrongPassword)
         }
     }
 
@@ -140,7 +147,7 @@ class AesGcmTest {
         val plaintext = "Original message".encodeToByteArray()
         val password = "password"
 
-        val encrypted = AesGcm.encrypt(plaintext, password)
+        val encrypted = encrypt(plaintext, password)
 
         // 篡改密文
         val tamperedCiphertext = encrypted.ciphertext.copyOf()
@@ -156,7 +163,7 @@ class AesGcmTest {
 
         // 解密篡改的數據應該失敗
         assertFails {
-            AesGcm.decrypt(tampered, password)
+            decrypt(tampered, password)
         }
     }
 
@@ -165,7 +172,7 @@ class AesGcmTest {
         val plaintext = "Original message".encodeToByteArray()
         val password = "password"
 
-        val encrypted = AesGcm.encrypt(plaintext, password)
+        val encrypted = encrypt(plaintext, password)
 
         // 篡改認證標籤
         val tamperedTag = encrypted.tag.copyOf()
@@ -179,7 +186,7 @@ class AesGcmTest {
 
         // 解密應該失敗
         assertFails {
-            AesGcm.decrypt(tampered, password)
+            decrypt(tampered, password)
         }
     }
 
@@ -190,7 +197,7 @@ class AesGcmTest {
 
         // 空明文應該拋出異常
         assertFails {
-            AesGcm.encrypt(plaintext, password)
+            encrypt(plaintext, password)
         }
     }
 
@@ -201,7 +208,7 @@ class AesGcmTest {
 
         // 空密碼應該拋出異常
         assertFails {
-            AesGcm.encrypt(plaintext, password)
+            encrypt(plaintext, password)
         }
     }
 
@@ -211,8 +218,8 @@ class AesGcmTest {
         val largePlaintext = ByteArray(10 * 1024) { it.toByte() }
         val password = "password"
 
-        val encrypted = AesGcm.encrypt(largePlaintext, password)
-        val decrypted = AesGcm.decrypt(encrypted, password)
+        val encrypted = encrypt(largePlaintext, password)
+        val decrypted = decrypt(encrypted, password)
 
         assertContentEquals(largePlaintext, decrypted, "Large plaintext should decrypt correctly")
     }
@@ -251,11 +258,11 @@ class AesGcmTest {
         val salt1 = "salt1".encodeToByteArray()
         val salt2 = "salt2".encodeToByteArray()
 
-        val encrypted = AesGcm.encrypt(plaintext, password, salt1)
+        val encrypted = AesGcm.encrypt(plaintext, password, salt1, AesGcmDefaults.ITERATIONS)
 
         // 使用不同鹽值解密應該失敗
         assertFails {
-            AesGcm.decrypt(encrypted, password, salt2)
+            AesGcm.decrypt(encrypted, password, salt2, AesGcmDefaults.ITERATIONS)
         }
     }
 

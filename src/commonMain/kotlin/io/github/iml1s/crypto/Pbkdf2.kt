@@ -1,4 +1,5 @@
 package io.github.iml1s.crypto
+// Force recompile
 
 /**
  * PBKDF2-HMAC-SHA512 跨平台實現
@@ -52,9 +53,24 @@ object Pbkdf2 {
      */
     fun deriveKey(
         password: ByteArray,
+        salt: ByteArray
+    ): ByteArray {
+        return deriveKey(password, salt, 2048, 64)
+    }
+
+    fun deriveKey(
+        password: ByteArray,
         salt: ByteArray,
-        iterations: Int = 2048,
-        keyLength: Int = 64
+        iterations: Int
+    ): ByteArray {
+        return deriveKey(password, salt, iterations, 64)
+    }
+
+    fun deriveKey(
+        password: ByteArray,
+        salt: ByteArray,
+        iterations: Int,
+        keyLength: Int
     ): ByteArray {
         require(iterations > 0) { "Iterations must be positive: $iterations" }
         require(keyLength > 0) { "Key length must be positive: $keyLength" }
@@ -100,9 +116,13 @@ object Pbkdf2 {
      *
      * @see <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki#from-mnemonic-to-seed">BIP39: From mnemonic to seed</a>
      */
+    fun bip39Seed(mnemonic: String): ByteArray {
+        return bip39Seed(mnemonic, "")
+    }
+
     fun bip39Seed(
         mnemonic: String,
-        passphrase: String = ""
+        passphrase: String
     ): ByteArray {
         // BIP39 規範：
         // 1. 密碼 = 助記詞（UTF-8 NFKD 正規化）

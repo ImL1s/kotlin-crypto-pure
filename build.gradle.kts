@@ -168,11 +168,16 @@ kotlin {
 
         val jvmMain by getting {
             dependsOn(commonMain)
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+                api("org.bouncycastle:bcprov-jdk18on:1.78.1")
+            }
         }
 
         val jvmTest by getting {
             dependsOn(commonTest)
             dependencies {
+                implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
             }
         }

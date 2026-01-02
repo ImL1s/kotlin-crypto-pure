@@ -90,37 +90,35 @@ expect object AesGcm {
     suspend fun encrypt(
         plaintext: ByteArray,
         password: String,
-        salt: ByteArray = "wearwallet_salt_v2".encodeToByteArray(),
-        iterations: Int = 100_000
+        salt: ByteArray,
+        iterations: Int
     ): AesGcmResult
 
-    /**
-     * AES-256-GCM 解密
-     *
-     * @param encrypted 加密結果
-     * @param password 密碼 (必須與加密時相同)
-     * @param salt 鹽值 (必須與加密時相同)
-     * @param iterations PBKDF2 迭代次數 (必須與加密時相同)
-     * @return 解密後的明文
-     * @throws IllegalArgumentException 參數無效
-     * @throws IllegalStateException 解密失敗或認證失敗
-     */
     suspend fun decrypt(
         encrypted: AesGcmResult,
         password: String,
-        salt: ByteArray = "wearwallet_salt_v2".encodeToByteArray(),
-        iterations: Int = 100_000
+        salt: ByteArray,
+        iterations: Int
     ): ByteArray
 }
 
 /**
+ * AES-GCM 預設參數
+ */
+object AesGcmDefaults {
+    val SALT: ByteArray get() = "wearwallet_salt_v2".encodeToByteArray()
+    const val ITERATIONS: Int = 100_000
+}
+
+/**
  * 便利擴展函數: String -> Base64 編碼的加密結果
+ * 使用預設 salt 和 iterations
  */
 suspend fun AesGcm.encryptString(
     plaintext: String,
     password: String,
-    salt: ByteArray = "wearwallet_salt_v2".encodeToByteArray(),
-    iterations: Int = 100_000
+    salt: ByteArray = AesGcmDefaults.SALT,
+    iterations: Int = AesGcmDefaults.ITERATIONS
 ): String {
     val result = encrypt(plaintext.encodeToByteArray(), password, salt, iterations)
     return result.toBase64()
@@ -128,12 +126,13 @@ suspend fun AesGcm.encryptString(
 
 /**
  * 便利擴展函數: Base64 編碼的加密結果 -> String
+ * 使用預設 salt 和 iterations
  */
 suspend fun AesGcm.decryptString(
     encryptedBase64: String,
     password: String,
-    salt: ByteArray = "wearwallet_salt_v2".encodeToByteArray(),
-    iterations: Int = 100_000
+    salt: ByteArray = AesGcmDefaults.SALT,
+    iterations: Int = AesGcmDefaults.ITERATIONS
 ): String {
     val encrypted = AesGcmResult.fromBase64(encryptedBase64)
     val decrypted = decrypt(encrypted, password, salt, iterations)

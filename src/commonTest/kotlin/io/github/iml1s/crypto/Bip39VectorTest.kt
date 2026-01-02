@@ -49,7 +49,7 @@ class Bip39VectorTest {
         )
 
         for ((index, v) in vectors.withIndex()) {
-            val derivedSeedBytes = platformDeriveSeed(v.mnemonic, v.passphrase)
+            val derivedSeedBytes = Pbkdf2.bip39Seed(v.mnemonic, v.passphrase)
             val derivedSeed = derivedSeedBytes.toHexString()
             assertEquals(v.seed, derivedSeed, "Seed derivation failed for vector $index")
         }
@@ -70,5 +70,3 @@ class Bip39VectorTest {
     }
 }
 
-// 需要平台特定的 pbkdf2 實現
-internal expect fun platformDeriveSeed(mnemonic: String, passphrase: String): ByteArray
