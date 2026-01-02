@@ -40,6 +40,25 @@ jobs:
           name: android-test-results
           path: build/reports/tests/
 
+  test-jvm:
+    name: JVM Unit Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+      
+      - name: Run JVM Unit Tests
+        run: ./gradlew jvmTest --continue
+
   build-ios:
     name: iOS Build Check
     runs-on: macos-latest

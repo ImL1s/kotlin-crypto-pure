@@ -42,16 +42,16 @@ actual object AesGcm {
         // 3. 使用 CommonCrypto 進行 GCM 加密
         memScoped {
             val tagLength = alloc<size_tVar>()
-            tagLength.value = 16.toULong()
+            tagLength.value = 16.convert()
 
             val dummyAAD = alloc<ByteVar>()
             val status = CCCryptorGCM(
                 kCCEncrypt,
                 kCCAlgorithmAES,
-                key.refTo(0), key.size.toULong(),
-                nonce.refTo(0), nonce.size.toULong(),
-                dummyAAD.ptr, 0.toULong(), // AAD
-                plaintext.refTo(0), plaintext.size.toULong(),
+                key.refTo(0), key.size.convert(),
+                nonce.refTo(0), nonce.size.convert(),
+                dummyAAD.ptr, 0.convert(), // AAD
+                plaintext.refTo(0), plaintext.size.convert(),
                 ciphertext.refTo(0),
                 tag.refTo(0), tagLength.ptr
             )
@@ -80,16 +80,16 @@ actual object AesGcm {
         val computedTag = ByteArray(encrypted.tag.size)
         memScoped {
             val tagLength = alloc<size_tVar>()
-            tagLength.value = computedTag.size.toULong()
+            tagLength.value = computedTag.size.convert()
 
             val dummyAAD = alloc<ByteVar>()
             val status = CCCryptorGCM(
                 kCCDecrypt,
                 kCCAlgorithmAES,
-                key.refTo(0), key.size.toULong(),
-                encrypted.nonce.refTo(0), encrypted.nonce.size.toULong(),
-                dummyAAD.ptr, 0.toULong(),
-                encrypted.ciphertext.refTo(0), encrypted.ciphertext.size.toULong(),
+                key.refTo(0), key.size.convert(),
+                encrypted.nonce.refTo(0), encrypted.nonce.size.convert(),
+                dummyAAD.ptr, 0.convert(),
+                encrypted.ciphertext.refTo(0), encrypted.ciphertext.size.convert(),
                 plaintext.refTo(0),
                 computedTag.refTo(0), tagLength.ptr
             )
@@ -112,7 +112,7 @@ actual object AesGcm {
      */
     private fun generateSecureRandomBytes(size: Int): ByteArray {
         val bytes = ByteArray(size)
-        val status = SecRandomCopyBytes(kSecRandomDefault, size.toULong(), bytes.refTo(0))
+        val status = SecRandomCopyBytes(kSecRandomDefault, size.convert(), bytes.refTo(0))
         if (status != errSecSuccess) {
             throw IllegalStateException("Failed to generate secure random bytes: $status")
         }

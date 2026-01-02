@@ -1,0 +1,299 @@
+watchOS Build Check	UNKNOWN STEP	﻿2026-01-02T04:33:23.4589350Z Current runner version: '2.330.0'
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4632220Z ##[group]Runner Image Provisioner
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4632800Z Hosted Compute Agent
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4633130Z Version: 20251211.462
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4633490Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4633920Z Build Date: 2025-12-11T16:28:49Z
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4634330Z Worker ID: {a17edbab-909a-4044-8961-3ae5abadb03f}
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4634740Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4635070Z ##[group]Operating System
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4635890Z macOS
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4636920Z 15.7.2
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4637700Z 24G325
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4639970Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4640340Z ##[group]Runner Image
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4640670Z Image: macos-15-arm64
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4640990Z Version: 20251215.0075.1
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4641690Z Included Software: https://github.com/actions/runner-images/blob/macos-15-arm64/20251215.0075/images/macos/macos-15-arm64-Readme.md
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4643510Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-15-arm64%2F20251215.0075
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4645600Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4648030Z ##[group]GITHUB_TOKEN Permissions
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4652100Z Contents: read
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4652420Z Metadata: read
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4652730Z Packages: read
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4653070Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4654600Z Secret source: Actions
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.4655020Z Prepare workflow directory
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.5041890Z Prepare all required actions
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.5073790Z Getting action download info
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:23.7205500Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:24.0469400Z Download action repository 'actions/setup-java@v4' (SHA:c1e323688fd81a25caa38c78aa6df2d33d3e20d9)
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:25.5574310Z Download action repository 'gradle/gradle-build-action@v2' (SHA:a8f75513eafdebd8141bd1cd4e30fcd194af8dfa)
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1106450Z Complete job name: watchOS Build Check
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1683760Z ##[group]Run actions/checkout@v4
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1684560Z with:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1685040Z   repository: ImL1s/kotlin-crypto-pure
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1686790Z   token: ***
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1687240Z   ssh-strict: true
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1687710Z   ssh-user: git
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1688180Z   persist-credentials: true
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1688720Z   clean: true
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1689220Z   sparse-checkout-cone-mode: true
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1689810Z   fetch-depth: 1
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1690280Z   fetch-tags: false
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1690760Z   show-progress: true
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1691260Z   lfs: false
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1691730Z   submodules: false
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1692240Z   set-safe-directory: true
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.1693650Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.5812010Z Syncing repository: ImL1s/kotlin-crypto-pure
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.5813880Z ##[group]Getting Git version info
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.5814960Z Working directory is '/Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure'
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.5816350Z [command]/opt/homebrew/bin/git version
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.6925250Z git version 2.50.1
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7267000Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7278690Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/711e8151-db94-4776-a19e-52cda4ebb868/.gitconfig'
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7311250Z Temporarily overriding HOME='/Users/runner/work/_temp/711e8151-db94-4776-a19e-52cda4ebb868' before making global git config changes
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7313400Z Adding repository directory to the temporary git global config as a safe directory
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7320700Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7323750Z Deleting the contents of '/Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure'
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7325280Z ##[group]Initializing the repository
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7326690Z [command]/opt/homebrew/bin/git init /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7609740Z hint: Using 'master' as the name for the initial branch. This default branch name
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7611480Z hint: is subject to change. To configure the initial branch name to use in all
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7618370Z hint: of your new repositories, which will suppress this warning, call:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7621860Z hint:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7623700Z hint: 	git config --global init.defaultBranch <name>
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7626130Z hint:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7628080Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7631360Z hint: 'development'. The just-created branch can be renamed via this command:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7633860Z hint:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7635540Z hint: 	git branch -m <name>
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7637090Z hint:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7639440Z hint: Disable this message with "git config set advice.defaultBranchName false"
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7643750Z Initialized empty Git repository in /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/.git/
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7651040Z [command]/opt/homebrew/bin/git remote add origin https://github.com/ImL1s/kotlin-crypto-pure
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7759330Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7760430Z ##[group]Disabling automatic garbage collection
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7761360Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7856670Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7857530Z ##[group]Setting up auth
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7858460Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.7975260Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.9346510Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:27.9401780Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:28.0107280Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:28.0208310Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:28.1262180Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:28.1366850Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:28.1373140Z ##[group]Fetching the repository
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:28.1382660Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +cd09272902d6bb39c13598d8e2c6050aca34c6f8:refs/remotes/origin/main
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.2166310Z From https://github.com/ImL1s/kotlin-crypto-pure
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.2168060Z  * [new ref]         cd09272902d6bb39c13598d8e2c6050aca34c6f8 -> origin/main
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.2277670Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.2278640Z ##[group]Determining the checkout info
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.2279630Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.2284670Z [command]/opt/homebrew/bin/git sparse-checkout disable
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.2379690Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.2459270Z ##[group]Checking out the ref
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.2462930Z [command]/opt/homebrew/bin/git checkout --progress --force -B main refs/remotes/origin/main
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3042130Z Switched to a new branch 'main'
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3143050Z branch 'main' set up to track 'origin/main'.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3448670Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3474010Z [command]/opt/homebrew/bin/git log -1 --format=%H
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3474720Z cd09272902d6bb39c13598d8e2c6050aca34c6f8
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3785080Z ##[group]Run actions/setup-java@v4
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3786920Z with:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3787050Z   java-version: 17
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3787230Z   distribution: temurin
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3787440Z   java-package: jdk
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3787640Z   check-latest: false
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3787780Z   server-id: github
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3787980Z   server-username: GITHUB_ACTOR
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3788790Z   server-password: GITHUB_TOKEN
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3789020Z   overwrite-settings: true
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3789240Z   job-status: success
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3789600Z   token: ***
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.3789790Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6132350Z ##[group]Installed distributions
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6250200Z Resolved Java 17.0.17+10 from tool-cache
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6258990Z Setting Java 17.0.17+10 as the default
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6281720Z Creating toolchains.xml for JDK version 17 from temurin
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6341920Z Writing to /Users/runner/.m2/toolchains.xml
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6343000Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6344060Z Java configuration:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6344810Z   Distribution: temurin
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6345430Z   Version: 17.0.17+10
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6346440Z   Path: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6347210Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6348480Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6387420Z Creating settings.xml with server-id: github
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6388250Z Writing to /Users/runner/.m2/settings.xml
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6612250Z ##[group]Run gradle/gradle-build-action@v2
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6612520Z with:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6613430Z   cache-disabled: false
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6614030Z   cache-read-only: false
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6614490Z   cache-write-only: false
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6614990Z   cache-overwrite-existing: false
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6615640Z   gradle-home-cache-includes: caches
+watchOS Build Check	UNKNOWN STEP	notifications
+watchOS Build Check	UNKNOWN STEP	
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6616370Z   gradle-home-cache-cleanup: false
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6616920Z   generate-job-summary: true
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6617450Z   dependency-graph: disabled
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6618010Z   gradle-home-cache-strict-match: false
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6618610Z   workflow-job-context: null
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6619630Z   github-token: ***
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6620030Z env:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6620760Z   JAVA_HOME: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6622220Z   JAVA_HOME_17_ARM64: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:29.6623210Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.1775340Z ##[group]Restore Gradle state from cache
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.3421050Z ##[warning]Failed to restore v8-gradle|macOS|ci-build-watchos[37a6259cc0c1dae299a7866489dff0bd]-cd09272902d6bb39c13598d8e2c6050aca34c6f8: Error: Cache service responded with 400
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.3477130Z Gradle User Home cache not found. Will initialize empty.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.3478120Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.3530850Z ##[group]Run ./gradlew compileKotlinWatchosArm64
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.3531350Z [36;1m./gradlew compileKotlinWatchosArm64[0m
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.3632340Z shell: /bin/bash -e {0}
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.3632690Z env:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.3633040Z   JAVA_HOME: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.3633630Z   JAVA_HOME_17_ARM64: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.3634080Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.3634360Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.3635090Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:30.6124300Z Downloading https://services.gradle.org/distributions/gradle-8.13-all.zip
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:38.0888260Z ......................10%......................20%......................30%......................40%......................50%......................60%......................70%.......................80%......................90%......................100%
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:45.7878190Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:45.7894460Z Welcome to Gradle 8.13!
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:45.7905820Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:45.7912790Z Here are the highlights of this release:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:45.7923590Z  - Daemon JVM auto-provisioning
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:45.7946380Z  - Enhancements for Scala plugin and JUnit testing
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:45.7947120Z  - Improvements for build authors and plugin developers
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:45.7948540Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:45.7948940Z For more details see https://docs.gradle.org/8.13/release-notes.html
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:45.7949490Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:33:45.7950370Z Starting a Gradle Daemon (subsequent builds will be faster)
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:14.6016300Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:14.6289860Z > Configure project :
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:14.6293890Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts:26:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:14.6295450Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts:37:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:14.6304420Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts:48:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:14.6324480Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts:60:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:14.6325660Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts:71:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:14.6326640Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build.gradle.kts:82:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.3856860Z w: The Default Kotlin Hierarchy Template was not applied to 'root project 'kotlin-crypto-pure'':
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.3958810Z Explicit .dependsOn() edges were configured for the following source sets:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.4060260Z [iosArm64Main, iosArm64Test, iosMain, iosSimulatorArm64Main, iosSimulatorArm64Test, iosX64Main, iosX64Test, jvmMain, jvmTest, nativeMain, nativeTest, watchosArm64Main, watchosArm64Test, watchosMain, watchosSimulatorArm64Main, watchosSimulatorArm64Test, watchosX64Main, watchosX64Test]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.4160740Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.4262150Z Consider removing dependsOn-calls or disabling the default template by adding
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.4372360Z     'kotlin.mpp.applyDefaultHierarchyTemplate=false'
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.4474340Z to your gradle.properties
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.4575450Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.4683770Z Learn more about hierarchy templates: https://kotl.in/hierarchy-template
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.4877680Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.4880440Z w: The project is using Kotlin Multiplatform with hierarchical structure and disabled 'cinterop commonization'
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.4987220Z See: https://kotlinlang.org/docs/mpp-share-on-platforms.html#use-native-libraries-in-the-hierarchical-structure
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.5093720Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.5206260Z 'cinterop commonization' can be enabled in your 'gradle.properties'
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.5307950Z kotlin.mpp.enableCInteropCommonization=true
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.5409520Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.5511100Z To hide this message, add to your 'gradle.properties'
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.5589760Z kotlin.mpp.enableCInteropCommonization.nowarn=true 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.5691340Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.5792710Z The following source sets are affected: 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.5997450Z [iosMain, nativeMain, watchosMain]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.6060540Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.6061620Z The following cinterops are affected: 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.6066170Z [cinterop:compilation/compileKotlinIosArm64/CommonCrypto, cinterop:compilation/compileKotlinIosSimulatorArm64/CommonCrypto, cinterop:compilation/compileKotlinIosX64/CommonCrypto, cinterop:compilation/compileKotlinWatchosArm64/CommonCrypto, cinterop:compilation/compileKotlinWatchosSimulatorArm64/CommonCrypto, cinterop:compilation/compileKotlinWatchosX64/CommonCrypto]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:16.6189130Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:17.0687090Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:17.0787390Z > Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:35:47.1548470Z > Task :cinteropCommonCryptoWatchosArm64
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:36:33.1080570Z Downloading native dependencies (LLVM, sysroot etc). This is a one-time action performed only on the first run of the compiler.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:36:35.8486500Z Done.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:36:35.8502020Z Extracting dependency: /Users/runner/.konan/dependencies/cache/llvm-16.0.0-aarch64-macos-essentials-63.tar.gz into /Users/runner/.konan/dependencies
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:36:38.2251990Z Done.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:36:38.2254040Z Extracting dependency: /Users/runner/.konan/dependencies/cache/libffi-3.3-1-macos-arm64.tar.gz into /Users/runner/.konan/dependencies
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6108970Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/src/nativeMain/kotlin/io/github/iml1s/crypto/AesGcm.native.kt:45:31 Assignment type mismatch: actual type is 'kotlin.ULong', but 'kotlin.UInt' was expected.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6111880Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6199320Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/src/nativeMain/kotlin/io/github/iml1s/crypto/AesGcm.native.kt:51:31 Argument type mismatch: actual type is 'kotlin.ULong', but 'kotlin.UInt' was expected.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6201350Z > Task :compileKotlinWatchosArm64 FAILED
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6208050Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/src/nativeMain/kotlin/io/github/iml1s/crypto/AesGcm.native.kt:52:33 Argument type mismatch: actual type is 'kotlin.ULong', but 'kotlin.UInt' was expected.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6212760Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/src/nativeMain/kotlin/io/github/iml1s/crypto/AesGcm.native.kt:53:31 Argument type mismatch: actual type is 'kotlin.ULong', but 'kotlin.UInt' was expected.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6232570Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/src/nativeMain/kotlin/io/github/iml1s/crypto/AesGcm.native.kt:54:37 Argument type mismatch: actual type is 'kotlin.ULong', but 'kotlin.UInt' was expected.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6236500Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/src/nativeMain/kotlin/io/github/iml1s/crypto/AesGcm.native.kt:83:31 Assignment type mismatch: actual type is 'kotlin.ULong', but 'kotlin.UInt' was expected.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6237830Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/src/nativeMain/kotlin/io/github/iml1s/crypto/AesGcm.native.kt:89:31 Argument type mismatch: actual type is 'kotlin.ULong', but 'kotlin.UInt' was expected.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6246630Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/src/nativeMain/kotlin/io/github/iml1s/crypto/AesGcm.native.kt:90:43 Argument type mismatch: actual type is 'kotlin.ULong', but 'kotlin.UInt' was expected.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6248060Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/src/nativeMain/kotlin/io/github/iml1s/crypto/AesGcm.native.kt:91:31 Argument type mismatch: actual type is 'kotlin.ULong', but 'kotlin.UInt' was expected.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6249250Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/src/nativeMain/kotlin/io/github/iml1s/crypto/AesGcm.native.kt:92:48 Argument type mismatch: actual type is 'kotlin.ULong', but 'kotlin.UInt' was expected.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6250450Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/src/nativeMain/kotlin/io/github/iml1s/crypto/AesGcm.native.kt:115:60 Argument type mismatch: actual type is 'kotlin.ULong', but 'kotlin.UInt' was expected.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6769780Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6769810Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6902150Z [Incubating] Problems report is available at: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build/reports/problems/problems-report.html
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.6916570Z FAILURE: Build failed with an exception.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7018820Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7018860Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7086500Z * What went wrong:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7087070Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7087710Z Execution failed for task ':compileKotlinWatchosArm64'.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7088010Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7088250Z > Compilation finished with errors
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7088850Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7089340Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7089340Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7089580Z * Try:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7090140Z For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7090970Z > Run with --stacktrace option to get the stack trace.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7091310Z 2 actionable tasks: 2 executed
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7092210Z > Run with --info or --debug option to get more log output.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7109480Z > Run with --scan to get full insights.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7110040Z > Get more help at https://help.gradle.org.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7110250Z 
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:07.7110650Z BUILD FAILED in 3m 37s
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:09.6709880Z ##[error]Process completed with exit code 1.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:09.7155150Z Post job cleanup.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:10.1439190Z In final post-action step, saving state and writing summary
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:10.1454090Z Stopping all Gradle daemons before saving Gradle User Home state
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:10.1456300Z Stopping Gradle daemons for /Users/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku/gradle-8.13
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:10.1485330Z [command]/Users/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku/gradle-8.13/bin/gradle --stop
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:10.9367370Z Stopping Daemon(s)
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:10.9377320Z 1 Daemon stopped
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:10.9595270Z ##[group]Caching Gradle state
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:10.9903810Z Caching generated-gradle-jars with path '/Users/runner/.gradle/caches/8.13/generated-gradle-jars/gradle-api-8.13.jar' and cache key: generated-gradle-jars-697f81ec8d80712ce7da03f513960371
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:10.9971100Z Caching wrapper-zips with path '/Users/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku' and cache key: wrapper-zips-27b0df0fa405636de00fcbfa0ab79410
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:11.0508740Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:11.0526030Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:11.7735910Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/caches/8.13/generated-gradle-jars/gradle-api-8.13.jar,zstd-without-long,1.0' and key: generated-gradle-jars-697f81ec8d80712ce7da03f513960371: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0eEtXaQAAAADnYPJvc2Q1QZDw9sjYxPKWUEhMMzBFREdFMDQxNwBFZGdl
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:11.8253730Z Caching dependencies with path '/Users/runner/.gradle/caches/modules-*/files-*/*/*/*/*' and cache key: dependencies-d2b1d975b45af2ba7a060cc84dc9a422
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:11.8371570Z Caching instrumented-jars with path '/Users/runner/.gradle/caches/jars-*/*' and cache key: instrumented-jars-15ce2be0574bdabe8c37e37e72c3086c
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:11.8448840Z Caching kotlin-dsl with path '/Users/runner/.gradle/caches/*/kotlin-dsl/*/*' and cache key: kotlin-dsl-b1a6e55eba69f7a624ee5201157bce14
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:11.8589420Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:11.9205010Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:11.9806250Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/caches/jars-*/*,zstd-without-long,1.0' and key: instrumented-jars-15ce2be0574bdabe8c37e37e72c3086c: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0eEtXaQAAAABN1qYY0tA2S5oQUZh+ZA5AUEhMMzBFREdFMDQxNwBFZGdl
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:12.3341720Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:12.5846630Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/caches/*/kotlin-dsl/*/*,zstd-without-long,1.0' and key: kotlin-dsl-b1a6e55eba69f7a624ee5201157bce14: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0eEtXaQAAAAAWsUpZcT0ISa7Gd9U9kPPuUEhMMzBFREdFMDQxNwBFZGdl
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:14.5784550Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/caches/modules-*/files-*/*/*/*/*,zstd-without-long,1.0' and key: dependencies-d2b1d975b45af2ba7a060cc84dc9a422: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0ektXaQAAAABHIitgGEC9RL7J6AmkHuCOUEhMMzBFREdFMDQxNwBFZGdl
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:24.2680350Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku,zstd-without-long,1.0' and key: wrapper-zips-27b0df0fa405636de00fcbfa0ab79410: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0hEtXaQAAAADizKwvby6STLCD+JckAcUYUEhMMzBFREdFMDExNgBFZGdl
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:26.6538850Z Caching Gradle User Home with cache key: v8-gradle|macOS|ci-build-watchos[37a6259cc0c1dae299a7866489dff0bd]-cd09272902d6bb39c13598d8e2c6050aca34c6f8
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:26.6670280Z [command]/opt/homebrew/bin/gtar --posix -cf cache.tzst --exclude cache.tzst -P -C /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure --files-from manifest.txt --delay-directory-restore --use-compress-program zstdmt
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:51.9002950Z ##[warning]Failed to save cache entry with path '/Users/runner/.gradle/caches,/Users/runner/.gradle/notifications,/Users/runner/.gradle/.gradle-build-action,zstd-without-long,1.0' and key: v8-gradle|macOS|ci-build-watchos[37a6259cc0c1dae299a7866489dff0bd]-cd09272902d6bb39c13598d8e2c6050aca34c6f8: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0oEtXaQAAAACPStzgBF/nRZG9seug7RfwUEhMMzBFREdFMDIwOABFZGdl
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:51.9033220Z ##[endgroup]
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:51.9033400Z Writing job summary
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:51.9475350Z Post job cleanup.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:52.2967450Z Post job cleanup.
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:52.5047850Z [command]/opt/homebrew/bin/git version
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:52.5674110Z git version 2.50.1
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:52.6224990Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/9c857ba3-2dc3-4197-bd3e-bbe81d56293a/.gitconfig'
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:52.6327020Z Temporarily overriding HOME='/Users/runner/work/_temp/9c857ba3-2dc3-4197-bd3e-bbe81d56293a' before making global git config changes
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:52.6428230Z Adding repository directory to the temporary git global config as a safe directory
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:52.6456940Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:52.6552020Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:52.6559970Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:52.8250020Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:52.8267730Z http.https://github.com/.extraheader
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:52.8268880Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:52.8270140Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:53.0273190Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:53.0582030Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+watchOS Build Check	UNKNOWN STEP	2026-01-02T04:37:53.2149150Z Cleaning up orphan processes
