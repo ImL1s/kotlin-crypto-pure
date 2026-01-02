@@ -112,7 +112,6 @@ kotlin {
                 api("fr.acinq.secp256k1:secp256k1-kmp:0.19.0")
                 api("fr.acinq.secp256k1:secp256k1-kmp-jni-android:0.19.0")
                 api("org.bouncycastle:bcprov-jdk18on:1.78.1")
-                api("com.github.trustwallet:wallet-core:4.0.27")
             }
         }
 

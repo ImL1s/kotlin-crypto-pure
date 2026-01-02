@@ -1,7 +1,5 @@
 package io.github.iml1s.crypto
 
-import wallet.core.jni.PrivateKey
-import wallet.core.jni.PublicKeyType
 import org.bouncycastle.crypto.digests.RIPEMD160Digest
 import java.security.MessageDigest
 
@@ -14,10 +12,7 @@ import java.security.MessageDigest
  * 使用 TrustWallet Core 計算 secp256k1 公鑰
  */
 public actual fun platformGetPublicKey(privateKey: ByteArray): ByteArray {
-
-    val key = PrivateKey(privateKey)
-    val publicKey = key.getPublicKeySecp256k1(true) // compressed = true
-    return publicKey.data()
+    return Secp256k1Provider.computePublicKey(privateKey, true)
 }
 
 /**
