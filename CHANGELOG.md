@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-01-03
+
+### Added
+- **Bech32 & Bech32m**: Support for BIP 173 and BIP 350
+  - Fully verified with official long test vectors (90 characters)
+  - Optimized checksum calculation for long strings
+- **Solana Support**: Address generation and Keypair utilities
+  - Pure Kotlin Ed25519 key generation
+  - Base58 address encoding
+- **Tron Support**: Address generation
+  - PubKey to Address (T-prefix) via Keccak256 and Base58Check
+- **Hex Utility**: Unified and optimized hex encoding/decoding
+  - Consolidated redundant helpers from `Bip32`, `Base58`, and `PureEthereumCrypto`
+- **UInt Extensions**: Shared `toBigEndianByteArray` helper
+
+### Fixed
+- **BigInteger**: Resolved `NoSuchElementException` in `toByteArray()` for zero magnitude values
+- **Bech32m Precision**: Fixed checksum calculation overflow on JVM using `Long`
+- **Base58 Checksum**: Removed redundant and inconsistent implementations
+
+### Changed
+- Refactored `Bip32` and `PureEthereumCrypto` for better utility use and architectural consistency
+
+
 ## [1.0.0] - 2024-12-27
 
 ### Added

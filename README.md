@@ -32,7 +32,8 @@
 | **PBKDF2** | HMAC-SHA512 with 2048 iterations (BIP39 compliant) |
 | **AES-GCM** | Authenticated encryption |
 | **Hashing** | SHA256, SHA512, Keccak256, RIPEMD160 |
-| **Encoding** | Base58, RLP |
+| **Encoding** | Base58, Bech32, Bech32m, RLP |
+| **Blockchain**| Solana, Tron, Ethereum, Bitcoin |
 
 ---
 
@@ -135,7 +136,7 @@ dependencyResolutionManagement {
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation("io.github.iml1s:kotlin-crypto-pure:1.0.0")
+            implementation("io.github.iml1s:kotlin-crypto-pure:1.1.0")
         }
     }
 }
@@ -252,7 +253,11 @@ secureKey.use { key ->
 | `PureEthereumCrypto` | Ethereum utilities |
 | `AesGcm` | Encryption/Decryption |
 | `Keccak256` | Ethereum hashing |
-| `Base58` | Bitcoin address encoding |
+| `Base58` | Bitcoin/Solana address encoding |
+| `Bech32` | Segwit/Taproot address encoding |
+| `Hex` | Unified hex encoding/decoding |
+| `Solana` | Solana keypair and address utils |
+| `Tron` | Tron address utilities |
 
 ---
 
