@@ -119,6 +119,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13.2")
+                implementation("fr.acinq.secp256k1:secp256k1-kmp-jni-jvm:0.19.0")
             }
         }
 
