@@ -50,7 +50,7 @@ object HmacSha512 {
      */
     fun hmac(key: ByteArray, data: ByteArray): ByteArray {
         require(key.isNotEmpty()) { "HMAC key cannot be empty" }
-        require(data.isNotEmpty()) { "HMAC data cannot be empty" }
+        // Note: RFC 2104 allows empty data (authenticates an empty message)
 
         return platformHmacSha512(key, data)
     }

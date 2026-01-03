@@ -162,12 +162,15 @@ val seed = Pbkdf2.bip39Seed(mnemonic, passphrase = "")
 
 ```kotlin
 import io.github.iml1s.crypto.Bip32
+import io.github.iml1s.crypto.Bip39
 
 // Derive master key from seed
-val masterKey = Bip32.derivePath(seed, "m")
+val seed = Bip39.generateSeed(mnemonic, "")
+val bip32 = Bip32.create(seed)
+val masterKey = bip32.derivePath("m")
 
 // Derive Ethereum account (BIP44)
-val ethKey = Bip32.derivePath(seed, "m/44'/60'/0'/0/0")
+val ethKey = bip32.derivePath("m/44'/60'/0'/0/0")
 
 // Get private key and chain code
 val privateKey = ethKey.privateKey  // 32 bytes
@@ -242,6 +245,25 @@ val tronAddress = Tron.getAddress(publicKey)
 // Returns: "T..."
 ```
 
+### TON (The Open Network)
+
+Generate standard Wallet V4R2 address from mnemonic.
+
+```kotlin
+import io.github.iml1s.crypto.Ton
+
+// 1. Derive KeyPair from Mnemonic (Ed25519)
+val keyPair = Ton.keyPairFromMnemonic("dose ice enrich trigger test fly arrow rub cloud ladder allow clay")
+
+// 2. Generate Wallet Address (V4R2)
+val address = Ton.getAddress(
+    publicKey = keyPair.publicKey,
+    workchain = 0,      // 0 for Mainnet, -1 for Masterchain
+    bounceable = true   // UQ... (Non-bounceable) or EQ... (Bounceable)
+)
+println(address) // EQ...
+```
+
 ---
 
 ## 🛡️ Security
@@ -286,6 +308,7 @@ secureKey.use { key ->
 | `Hex` | Unified hex encoding/decoding |
 | `Solana` | Solana keypair and address utils |
 | `Tron` | Tron address utilities |
+| `Ton` | TON address and key utilities |
 
 ---
 
