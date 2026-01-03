@@ -80,12 +80,9 @@ object Base58 {
 
     /**
      * SHA-256 哈希函數
-     * 注意：這裡需要平台特定實現，暫時使用簡化版本
      */
     private fun sha256(data: ByteArray): ByteArray {
-        // TODO: 使用平台特定的 SHA-256 實現
-        // 這裡暫時返回空實現，實際應該使用 CryptoUtils.sha256()
-        return ByteArray(32) // 臨時實現
+        return Secp256k1Pure.sha256(data)
     }
 
     /**

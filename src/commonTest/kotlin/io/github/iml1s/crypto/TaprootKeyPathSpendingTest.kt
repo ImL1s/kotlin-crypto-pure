@@ -76,7 +76,7 @@ class TaprootKeyPathSpendingTest {
         
         // Sign with auxrand32 = all zeros (as per BIP-341 test vectors)
         val auxrand32 = ByteArray(32) { 0 }
-        val signature = Secp256k1Pure.signSchnorr(sigHash, tweakedPrivkey, auxrand32)
+        val signature = Secp256k1Pure.schnorrSign(sigHash, tweakedPrivkey, auxrand32)
         
         // Append hashType (only if not default 0x00)
         val witness = if (hashType != 0) signature + byteArrayOf(hashType.toByte()) else signature
@@ -103,7 +103,7 @@ class TaprootKeyPathSpendingTest {
         val expectedWitness = "ff45f742a876139946a149ab4d9185574b98dc919d2eb6754f8abaa59d18b025637a3aa043b91817739554f4ed2026cf8022dbd83e351ce1fabc272841d2510a01"
         
         val auxrand32 = ByteArray(32) { 0 }
-        val signature = Secp256k1Pure.signSchnorr(sigHash, tweakedPrivkey, auxrand32)
+        val signature = Secp256k1Pure.schnorrSign(sigHash, tweakedPrivkey, auxrand32)
         val witness = signature + byteArrayOf(hashType.toByte())
         assertEquals(expectedWitness, witness.toHex(), "Vector 3: Witness mismatch")
     }
@@ -128,7 +128,7 @@ class TaprootKeyPathSpendingTest {
         val expectedWitness = "b4010dd48a617db09926f729e79c33ae0b4e94b79f04a1ae93ede6315eb3669de185a17d2b0ac9ee09fd4c64b678a0b61a0a86fa888a273c8511be83bfd6810f"
         
         val auxrand32 = ByteArray(32) { 0 }
-        val signature = Secp256k1Pure.signSchnorr(sigHash, tweakedPrivkey, auxrand32)
+        val signature = Secp256k1Pure.schnorrSign(sigHash, tweakedPrivkey, auxrand32)
         // No hashType byte for SIGHASH_DEFAULT
         assertEquals(expectedWitness, signature.toHex(), "Vector 4: Witness mismatch")
     }
@@ -153,7 +153,7 @@ class TaprootKeyPathSpendingTest {
         val expectedWitness = "a3785919a2ce3c4ce26f298c3d51619bc474ae24014bcdd31328cd8cfbab2eff3395fa0a16fe5f486d12f22a9cedded5ae74feb4bbe5351346508c5405bcfee002"
         
         val auxrand32 = ByteArray(32) { 0 }
-        val signature = Secp256k1Pure.signSchnorr(sigHash, tweakedPrivkey, auxrand32)
+        val signature = Secp256k1Pure.schnorrSign(sigHash, tweakedPrivkey, auxrand32)
         val witness = signature + byteArrayOf(hashType.toByte())
         assertEquals(expectedWitness, witness.toHex(), "Vector 6: Witness mismatch")
     }

@@ -39,6 +39,7 @@ class Secp256k1RFC6979Test {
         assertEquals(64, signature1.size, "簽名應為 64 bytes (Compact format: r || s)")
     }
 
+
     /**
      * 測試不同消息產生不同簽名
      */
@@ -120,8 +121,6 @@ class Secp256k1RFC6979Test {
     }
 
     // 輔助擴展函數
-    private fun String.hexToByteArray(): ByteArray {
-        require(length % 2 == 0) { "Hex string must have even length" }
-        return chunked(2).map { it.toInt(16).toByte() }.toByteArray()
-    }
+    private fun String.hexToByteArray(): ByteArray = Hex.decode(this)
+    private fun ByteArray.toHexString(): String = Hex.encode(this)
 }

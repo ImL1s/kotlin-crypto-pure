@@ -258,16 +258,6 @@ object PureEthereumCrypto {
         return result.toString()
     }
     
-    private fun ByteArray.toHexString(): String {
-        val hexChars = "0123456789abcdef"
-        val builder = StringBuilder(this.size * 2)
-        for (byte in this) {
-            val v = byte.toInt() and 0xFF
-            builder.append(hexChars[v shr 4])
-            builder.append(hexChars[v and 0x0F])
-        }
-        return builder.toString()
-    }
     
     private fun String.hexToBigInteger(): Secp256k1Pure.BigInteger {
         val len = length
@@ -299,13 +289,6 @@ object PureEthereumCrypto {
     }
 
     private fun String.hexToByteArray(): ByteArray {
-        val len = length
-        val data = ByteArray(len / 2)
-        for (i in 0 until len step 2) {
-            val digit1 = hexDigitToInt(this[i])
-            val digit2 = hexDigitToInt(this[i + 1])
-            data[i / 2] = ((digit1 shl 4) + digit2).toByte()
-        }
-        return data
+        return Hex.decode(this)
     }
 }

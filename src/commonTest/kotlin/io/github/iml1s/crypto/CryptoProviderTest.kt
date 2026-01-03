@@ -54,12 +54,12 @@ class CryptoProviderTest {
             val expectedSig = v.expectedSig.hexToByteArray()
             
             // 驗證官方簽名
-            val verifyResult = Crypto.verifySchnorr(msg, pk, expectedSig)
+            val verifyResult = Crypto.schnorrVerify(msg, pk, expectedSig)
             assertTrue(verifyResult, "Vector $idx: Should verify official signature")
             
             // 驗證我們的簽名
-            val ourSig = Crypto.signSchnorr(msg, sk)
-            val selfVerify = Crypto.verifySchnorr(msg, pk, ourSig)
+            val ourSig = Crypto.schnorrSign(msg, sk)
+            val selfVerify = Crypto.schnorrVerify(msg, pk, ourSig)
             assertTrue(selfVerify, "Vector $idx: Should verify our signature")
         }
     }

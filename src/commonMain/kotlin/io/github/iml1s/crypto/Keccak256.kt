@@ -51,14 +51,6 @@ object Keccak256 {
         return "0x" + addressBytes.toHexString()
     }
 
-    /**
-     * 將 ByteArray 轉換為小寫十六進制字串
-     */
-    private fun ByteArray.toHexString(): String {
-        return joinToString("") { byte ->
-            byte.toUByte().toString(16).padStart(2, '0')
-        }
-    }
 }
 
 /**

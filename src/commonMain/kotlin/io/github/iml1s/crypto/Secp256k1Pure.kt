@@ -693,7 +693,7 @@ object Secp256k1Pure {
      * @param auxRand 32-byte 輔助隨機數據 (a) - 用於防止側信道攻擊，可選（默認為 0）
      * @return 64-byte 簽名 (R || s)
      */
-    fun signSchnorr(message: ByteArray, privateKey: ByteArray, auxRand: ByteArray = ByteArray(32)): ByteArray {
+    fun schnorrSign(message: ByteArray, privateKey: ByteArray, auxRand: ByteArray = ByteArray(32)): ByteArray {
         require(message.size == 32) { "Message must be 32 bytes" }
         require(privateKey.size == 32) { "Private key must be 32 bytes" }
 
@@ -751,9 +751,8 @@ object Secp256k1Pure {
      * @param signature 64-byte 簽名 (R || s)
      * @return 是否有效
      */
-    fun verifySchnorr(message: ByteArray, publicKey: ByteArray, signature: ByteArray): Boolean {
-        if (message.size != 32) return false
-        if (publicKey.size != 32) return false
+    fun schnorrVerify(message: ByteArray, publicKey: ByteArray, signature: ByteArray): Boolean {
+        if (message.size != 32 || publicKey.size != 32 || signature.size != 64) return false
         if (signature.size != 64) return false
 
         try {
@@ -933,18 +932,13 @@ private fun ByteArray.toBigInteger(): Secp256k1Pure.BigInteger {
 }
 
 private fun String.hexToBigInteger(): Secp256k1Pure.BigInteger {
-    return this.hexToByteArray().toBigInteger()
-}
-
-private fun String.hexToByteArray(): ByteArray {
-    require(length % 2 == 0) { "Hex string must have even length" }
-    return chunked(2).map { it.toInt(16).toByte() }.toByteArray()
+    return Hex.decode(this).toBigInteger()
 }
 
 private fun Int.toBigInteger(): Secp256k1Pure.BigInteger {
-    return when {
-        this == 0 -> Secp256k1Pure.BigInteger.ZERO
-        this == 1 -> Secp256k1Pure.BigInteger.ONE
+    return when (this) {
+        0 -> Secp256k1Pure.BigInteger.ZERO
+        1 -> Secp256k1Pure.BigInteger.ONE
         else -> {
             val bytes = mutableListOf<Byte>()
             var value = this
@@ -957,9 +951,3 @@ private fun Int.toBigInteger(): Secp256k1Pure.BigInteger {
     }
 }
 
-private fun ByteArray.toHexString(): String {
-    return joinToString("") { byte ->
-        val hex = byte.toInt() and 0xFF
-        hex.toString(16).padStart(2, '0')
-    }
-}

@@ -46,7 +46,7 @@ interface CryptoProvider {
      * @param auxRand 32-byte 輔助隨機數 (可選)
      * @return 64-byte Schnorr 簽名
      */
-    fun signSchnorr(message: ByteArray, privateKey: ByteArray, auxRand: ByteArray = ByteArray(32)): ByteArray
+    fun schnorrSign(message: ByteArray, privateKey: ByteArray, auxRand: ByteArray = ByteArray(32)): ByteArray
     
     /**
      * BIP-340 Schnorr 驗證
@@ -55,7 +55,7 @@ interface CryptoProvider {
      * @param signature 64-byte Schnorr 簽名
      * @return 簽名是否有效
      */
-    fun verifySchnorr(message: ByteArray, publicKey: ByteArray, signature: ByteArray): Boolean
+    fun schnorrVerify(message: ByteArray, publicKey: ByteArray, signature: ByteArray): Boolean
     
     // ==================== Utility ====================
     
@@ -88,12 +88,12 @@ object DefaultCryptoProvider : CryptoProvider {
         return Secp256k1Pure.encodePublicKey(pubPoint, compressed)
     }
     
-    override fun signSchnorr(message: ByteArray, privateKey: ByteArray, auxRand: ByteArray): ByteArray {
-        return Secp256k1Pure.signSchnorr(message, privateKey, auxRand)
+    override fun schnorrSign(message: ByteArray, privateKey: ByteArray, auxRand: ByteArray): ByteArray {
+        return Secp256k1Pure.schnorrSign(message, privateKey, auxRand)
     }
     
-    override fun verifySchnorr(message: ByteArray, publicKey: ByteArray, signature: ByteArray): Boolean {
-        return Secp256k1Pure.verifySchnorr(message, publicKey, signature)
+    override fun schnorrVerify(message: ByteArray, publicKey: ByteArray, signature: ByteArray): Boolean {
+        return Secp256k1Pure.schnorrVerify(message, publicKey, signature)
     }
     
     override fun sha256(data: ByteArray): ByteArray {
@@ -115,7 +115,7 @@ object Crypto {
     fun sign(message: ByteArray, privateKey: ByteArray) = provider.sign(message, privateKey)
     fun verify(message: ByteArray, signature: ByteArray, publicKey: ByteArray) = provider.verify(message, signature, publicKey)
     fun generatePublicKey(privateKey: ByteArray, compressed: Boolean = true) = provider.generatePublicKey(privateKey, compressed)
-    fun signSchnorr(message: ByteArray, privateKey: ByteArray, auxRand: ByteArray = ByteArray(32)) = provider.signSchnorr(message, privateKey, auxRand)
-    fun verifySchnorr(message: ByteArray, publicKey: ByteArray, signature: ByteArray) = provider.verifySchnorr(message, publicKey, signature)
+    fun schnorrSign(message: ByteArray, privateKey: ByteArray, auxRand: ByteArray = ByteArray(32)) = provider.schnorrSign(message, privateKey, auxRand)
+    fun schnorrVerify(message: ByteArray, publicKey: ByteArray, signature: ByteArray) = provider.schnorrVerify(message, publicKey, signature)
     fun sha256(data: ByteArray) = provider.sha256(data)
 }

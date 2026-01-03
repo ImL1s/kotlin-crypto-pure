@@ -34,3 +34,7 @@ public object Hex {
         }
     }
 }
+
+public fun ByteArray.toHexString(): String = Hex.encode(this)
+public fun String.toHexString(): String = Hex.encode(this.encodeToByteArray())
+public fun String.hexToByteArray(): ByteArray = Hex.decode(this)

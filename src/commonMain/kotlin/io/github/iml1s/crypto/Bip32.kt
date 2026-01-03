@@ -255,17 +255,15 @@ data class ExtendedKey(
     /**
      * 獲取公鑰（壓縮格式，33 字節）
      *
-     * 使用平台特定的 secp256k1 實現
+     * 使用平台特定的 secp256k1 實現：
+     * - JVM: 使用 Secp256k1Pure.generatePublicKey
+     * - Android: 使用 secp256k1-kmp JNI
+     * - iOS/watchOS: 使用純 Kotlin 實現
      */
     fun getPublicKey(): ByteArray {
-        // TODO: 使用平台特定的 secp256k1 實現
-        // Android: TrustWallet Core 或 secp256k1-kmp
-        // iOS/watchOS: TrustWallet Core 或 CryptoKit
-
-        // 臨時實現：返回壓縮公鑰格式的佔位符
-        // 實際應該使用 secp256k1 點乘法計算 pubkey = privkey * G
         return platformGetPublicKey(privateKey)
     }
+
 
     /**
      * 獲取密鑰指紋（前4字節的公鑰哈希）

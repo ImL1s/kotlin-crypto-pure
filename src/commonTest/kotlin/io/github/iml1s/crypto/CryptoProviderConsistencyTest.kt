@@ -91,12 +91,12 @@ class CryptoProviderConsistencyTest {
             val expectedSig = vector.sig.hexToByteArray()
             
             // 驗證官方簽名
-            val verifyResult = Crypto.verifySchnorr(msg, pk, expectedSig)
+            val verifyResult = Crypto.schnorrVerify(msg, pk, expectedSig)
             assertTrue(verifyResult, "Vector ${vector.index}: Official signature should verify")
             
             // 我們的實現也應該產生可驗證的簽名
-            val ourSig = Crypto.signSchnorr(msg, sk)
-            val selfVerify = Crypto.verifySchnorr(msg, pk, ourSig)
+            val ourSig = Crypto.schnorrSign(msg, sk)
+            val selfVerify = Crypto.schnorrVerify(msg, pk, ourSig)
             assertTrue(selfVerify, "Vector ${vector.index}: Our signature should verify")
         }
     }
@@ -149,7 +149,7 @@ class CryptoProviderConsistencyTest {
         assertEquals(64, ecdsaSig.size, "ECDSA signature should be 64 bytes")
         
         // Schnorr 格式
-        val schnorrSig = Crypto.signSchnorr(message, privateKey)
+        val schnorrSig = Crypto.schnorrSign(message, privateKey)
         assertEquals(64, schnorrSig.size, "Schnorr signature should be 64 bytes")
     }
 

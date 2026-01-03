@@ -69,13 +69,13 @@ class SchnorrTest {
             assertTrue(generatedPk.contentEquals(pk), "Vector $idx: Public key mismatch")
 
             // 2. Verify known valid signature
-            val verifyResult = Secp256k1Pure.verifySchnorr(msg, pk, expectedSig)
-            assertTrue(verifyResult, "Vector $idx: Failed to verify known valid signature")
+            val verifyResult = Secp256k1Pure.schnorrVerify(msg, pk, expectedSig)
+            assertTrue(verifyResult, "BIP340 verification failed for vector $idx")
             
             // 3. Sign and verify our own signature
-            val ourSig = Secp256k1Pure.signSchnorr(msg, sk)
-            val selfVerify = Secp256k1Pure.verifySchnorr(msg, pk, ourSig)
-            assertTrue(selfVerify, "Vector $idx: Failed to verify generated signature")
+            val ourSig = Secp256k1Pure.schnorrSign(msg, sk)
+            val selfVerify = Secp256k1Pure.schnorrVerify(msg, pk, ourSig)
+            assertTrue(selfVerify, "Self verification failed for vector $idx")
             
             println("  Vector $idx passed!")
         }
