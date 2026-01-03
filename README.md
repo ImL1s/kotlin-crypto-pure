@@ -214,6 +214,34 @@ val address = PureEthereumCrypto.deriveAddressFromPrivateKey(privateKey)
 // Returns: "0x9858EfFD232B4033E47d90003D41EC34EcaEda94"
 ```
 
+### Solana Address & KeyPair
+
+```kotlin
+import io.github.iml1s.crypto.Solana
+
+// Generate new random KeyPair
+val keyPair = Solana.generateKeyPair()
+val privateKey = keyPair.privateKey // 32 bytes seed
+val publicKey = keyPair.publicKey   // 32 bytes
+
+// Get Address (Base58 encoded public key)
+val address = Solana.getAddress(publicKey)
+```
+
+### Tron Address Generation
+
+```kotlin
+import io.github.iml1s.crypto.Tron
+import io.github.iml1s.crypto.Secp256k1Pure
+
+// Generate public key first
+val publicKey = Secp256k1Pure.generatePublicKey(privateKey)
+
+// Get Tron Address (Base58Check with '41' prefix)
+val tronAddress = Tron.getAddress(publicKey)
+// Returns: "T..."
+```
+
 ---
 
 ## 🛡️ Security
