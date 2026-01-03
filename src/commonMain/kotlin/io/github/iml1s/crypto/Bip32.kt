@@ -117,14 +117,14 @@ object Bip32 {
             ByteArray(37).apply {
                 this[0] = 0x00
                 parent.privateKey.copyInto(this, 1, 0, 32)
-                actualIndex.toByteArray().copyInto(this, 33, 0, 4)
+                actualIndex.toBigEndianByteArray().copyInto(this, 33, 0, 4)
             }
         } else {
             // 普通派生：parent_public_key || index (33 bytes)
             val publicKey = parent.getPublicKey()
             ByteArray(37).apply {
                 publicKey.copyInto(this, 0, 0, 33)
-                actualIndex.toByteArray().copyInto(this, 33, 0, 4)
+                actualIndex.toBigEndianByteArray().copyInto(this, 33, 0, 4)
             }
         }
 
@@ -220,17 +220,6 @@ object Bip32 {
         return keyBigInt > BigInteger.ZERO && keyBigInt < SECP256K1_N
     }
 
-    /**
-     * UInt 轉 ByteArray（Big-Endian）
-     */
-    private fun UInt.toByteArray(): ByteArray {
-        return byteArrayOf(
-            (this shr 24).toByte(),
-            (this shr 16).toByte(),
-            (this shr 8).toByte(),
-            this.toByte()
-        )
-    }
 }
 
 /**
@@ -302,7 +291,7 @@ data class ExtendedKey(
             privateKey.copyInto(this, 46)
         }
 
-        return base58CheckEncode(data)
+        return Base58.encodeWithChecksum(data)
     }
 
     /**
@@ -329,44 +318,9 @@ data class ExtendedKey(
             publicKey.copyInto(this, 45)
         }
 
-        return base58CheckEncode(data)
+        return Base58.encodeWithChecksum(data)
     }
 
-    /**
-     * Base58Check 編碼
-     */
-    private fun base58CheckEncode(data: ByteArray): String {
-        val checksum = platformSha256(platformSha256(data)).sliceArray(0 until 4)
-        val dataWithChecksum = data + checksum
-        return base58Encode(dataWithChecksum)
-    }
-
-    /**
-     * Base58 編碼（Bitcoin 字母表）
-     */
-    private fun base58Encode(data: ByteArray): String {
-        val alphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
-        var num = BigInteger.fromByteArray(data, Sign.POSITIVE)
-        val base = BigInteger(58)
-        val result = StringBuilder()
-
-        while (num > BigInteger.ZERO) {
-            val remainder = (num % base).intValue()
-            result.insert(0, alphabet[remainder])
-            num /= base
-        }
-
-        // 處理前導零字節
-        for (b in data) {
-            if (b.toInt() == 0) {
-                result.insert(0, alphabet[0])
-            } else {
-                break
-            }
-        }
-
-        return result.toString()
-    }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

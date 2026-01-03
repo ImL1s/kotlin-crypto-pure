@@ -38,3 +38,11 @@ public object Hex {
 public fun ByteArray.toHexString(): String = Hex.encode(this)
 public fun String.toHexString(): String = Hex.encode(this.encodeToByteArray())
 public fun String.hexToByteArray(): ByteArray = Hex.decode(this)
+public fun UInt.toBigEndianByteArray(): ByteArray {
+    return byteArrayOf(
+        (this shr 24).toByte(),
+        (this shr 16).toByte(),
+        (this shr 8).toByte(),
+        this.toByte()
+    )
+}

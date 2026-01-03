@@ -65,7 +65,7 @@ object PureEthereumCrypto {
                 // CKDpub
                 // I = HMAC-SHA512(c_par, serP(K_par) || ser32(i))
                 // currentKeyData IS serP(K_par) (compressed usually)
-                val dataToHmac = currentKeyData + index.toByteArray()
+                val dataToHmac = currentKeyData + index.toBigEndianByteArray()
                 // Use HmacSha512 (assuming available as per derivePrivateKey)
                 val i = HmacSha512.hmac(currentChainCode, dataToHmac)
                 val il = i.copyOfRange(0, 32)
@@ -73,7 +73,7 @@ object PureEthereumCrypto {
                 
                 // Ki = point(Il) + Kpar
                 val ilInt = Secp256k1Pure.BigInteger(il)
-                val n = "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141".hexToBigInteger()
+                val n = Secp256k1Pure.BigInteger.fromHex("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141")
                 
                 if (ilInt >= n || ilInt == Secp256k1Pure.BigInteger.ZERO) {
                     throw IllegalStateException("Invalid IL")
@@ -135,12 +135,12 @@ object PureEthereumCrypto {
                  val dataToHmac: ByteArray
                  if (isHardened) {
                      // 0x00 || key || index
-                     dataToHmac = byteArrayOf(0) + currentKeyData + index.toByteArray()
+                     dataToHmac = byteArrayOf(0) + currentKeyData + index.toBigEndianByteArray()
                  } else {
                      // point(key) || index
                      val point = Secp256k1Pure.generatePublicKeyPoint(currentKeyData)
                      val pubBytes = Secp256k1Pure.encodePublicKey(point, compressed = true)
-                     dataToHmac = pubBytes + index.toByteArray()
+                     dataToHmac = pubBytes + index.toBigEndianByteArray()
                  }
                  
                  val i = HmacSha512.hmac(currentChainCode, dataToHmac)
@@ -150,7 +150,7 @@ object PureEthereumCrypto {
                  // ki = IL + kpar (mod n)
                  val ilInt = Secp256k1Pure.BigInteger(il)
                  val kparInt = Secp256k1Pure.BigInteger(currentKeyData)
-                 val n = "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141".hexToBigInteger()
+                 val n = Secp256k1Pure.BigInteger.fromHex("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141")
                  
                  if (ilInt >= n || ilInt == Secp256k1Pure.BigInteger.ZERO) {
                       throw IllegalStateException("Invalid IL")
@@ -178,7 +178,7 @@ object PureEthereumCrypto {
                  currentChainCode = ir
              }
              
-             return "0x" + currentKeyData.toHexString()
+             return "0x" + Hex.encode(currentKeyData)
              
          } catch (e: Exception) {
              throw e
@@ -193,7 +193,7 @@ object PureEthereumCrypto {
     fun getEthereumAddress(privateKeyHex: String): String {
         try {
             val keyClean = if (privateKeyHex.startsWith("0x")) privateKeyHex.substring(2) else privateKeyHex
-            val privateKey = keyClean.hexToByteArray()
+            val privateKey = Hex.decode(keyClean)
             
             val publicKeyPoint = Secp256k1Pure.generatePublicKeyPoint(privateKey)
             val uncompressed = Secp256k1Pure.encodePublicKey(publicKeyPoint, compressed = false)
@@ -248,7 +248,7 @@ object PureEthereumCrypto {
         val addressLower = cleanAddress.lowercase()
         
         // Hash the lowercase address string
-        val hash = Keccak256.hash(addressLower.encodeToByteArray()).toHexString()
+        val hash = Hex.encode(Keccak256.hash(addressLower.encodeToByteArray()))
         
         val result = StringBuilder("0x")
         for (i in addressLower.indices) {
@@ -271,36 +271,4 @@ object PureEthereumCrypto {
     }
     
     
-    private fun String.hexToBigInteger(): Secp256k1Pure.BigInteger {
-        val len = length
-        val data = ByteArray(len / 2)
-        for (i in 0 until len step 2) {
-            val digit1 = hexDigitToInt(this[i])
-            val digit2 = hexDigitToInt(this[i + 1])
-            data[i / 2] = ((digit1 shl 4) + digit2).toByte()
-        }
-        return Secp256k1Pure.BigInteger(data)
-    }
-    
-    private fun hexDigitToInt(c: Char): Int {
-        return when (c) {
-            in '0'..'9' -> c - '0'
-            in 'a'..'f' -> c - 'a' + 10
-            in 'A'..'F' -> c - 'A' + 10
-            else -> throw IllegalArgumentException("Invalid hex character: $c")
-        }
-    }
-
-    private fun UInt.toByteArray(): ByteArray {
-         return byteArrayOf(
-             (this shr 24).toByte(),
-             (this shr 16).toByte(),
-             (this shr 8).toByte(),
-             this.toByte()
-         )
-    }
-
-    private fun String.hexToByteArray(): ByteArray {
-        return Hex.decode(this)
-    }
 }

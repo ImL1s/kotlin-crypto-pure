@@ -395,11 +395,8 @@ class Pbkdf2Test {
         }
     }
 
-    /**
-     * 獲取當前時間戳（跨平台）
-     */
     private fun currentTimeMillis(): Long {
-        // 簡化實現，實際應使用 kotlinx.datetime
-        return 0L // TODO: 實現跨平台時間測量
+        return kotlinx.datetime.Clock.System.now().toEpochMilliseconds()
     }
+
 }
