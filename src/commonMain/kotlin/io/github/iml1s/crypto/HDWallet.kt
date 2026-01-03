@@ -20,6 +20,9 @@ class HDWallet {
         const val COINTYPE_LTC = 2
         const val COINTYPE_DOGE = 3
         const val COINTYPE_BCH = 145
+        const val COINTYPE_TRON = 195
+        const val COINTYPE_SOLANA = 501
+
         
         // Network versions for extended keys
         const val XPRV_VERSION = 0x0488ADE4
@@ -222,12 +225,25 @@ class HDWallet {
             "litecoin" -> 0x30
             "dogecoin" -> 0x1E
             "bitcoincash" -> 0x00
+            "tron" -> return Tron.getAddress(key.publicKey)
             else -> throw IllegalArgumentException("Unsupported network: $network")
         }
         
-        return Base58Check.encode(byteArrayOf(version.toByte()) + publicKeyHash)
+        return Base58.encodeWithChecksum(byteArrayOf(version.toByte()) + publicKeyHash)
+
     }
     
+    /**
+     * Generate Native Segwit (P2WPKH) address (Bech32)
+     */
+    fun getSegwitAddress(key: ExtendedKey, hrp: String = "bc"): String {
+        // P2WPKH: witness_version (0) + hash160(pubKey)
+        val pubKeyHash = hash160(key.publicKey)
+        val witnessProg = Bech32.convertBits(pubKeyHash, 8, 5, true)
+        val data = byteArrayOf(0) + witnessProg
+        return Bech32.encode(hrp, data, Bech32.Spec.BECH32)
+    }
+
     // Cryptographic helper functions
     
     private fun hmacSha512(key: ByteArray, data: ByteArray): ByteArray {
@@ -305,67 +321,5 @@ class HDWallet {
         val point2 = Secp256k1Pure.generatePublicKeyPoint(privateKey)
         val result = Secp256k1Pure.addPoints(point1, point2)
         return Secp256k1Pure.encodePublicKey(result, compressed = true)
-    }
-}
-
-/**
- * Base58Check encoding/decoding
- */
-object Base58Check {
-    private const val ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
-    
-    fun encode(data: ByteArray): String {
-        val checksum = Secp256k1Pure.sha256(Secp256k1Pure.sha256(data)).sliceArray(0..3)
-        val dataWithChecksum = data + checksum
-        
-        // Convert to base58
-        var num = Secp256k1Pure.BigInteger(dataWithChecksum)
-        val base = Secp256k1Pure.BigInteger(byteArrayOf(58))
-        val zero = Secp256k1Pure.BigInteger.ZERO
-        
-        val encoded = StringBuilder()
-        while (num > zero) {
-            val remainder = (num % base).toByteArray().last().toInt() and 0xFF
-            encoded.append(ALPHABET[remainder % 58])
-            num = num / base
-        }
-        
-        // Add leading zeros
-        for (byte in dataWithChecksum) {
-            if (byte.toInt() == 0) {
-                encoded.append(ALPHABET[0])
-            } else {
-                break
-            }
-        }
-        
-        return encoded.reverse().toString()
-    }
-    
-    fun decode(encoded: String): ByteArray {
-        // Decode from base58
-        var num = Secp256k1Pure.BigInteger.ZERO
-        val base = Secp256k1Pure.BigInteger(byteArrayOf(58))
-        
-        for (char in encoded) {
-            val digit = ALPHABET.indexOf(char)
-            if (digit == -1) throw IllegalArgumentException("Invalid base58 character: $char")
-            num = num * base + Secp256k1Pure.BigInteger(byteArrayOf(digit.toByte()))
-        }
-        
-        var bytes = num.toByteArray()
-        
-        // Add leading zeros
-        val leadingZeros = encoded.takeWhile { it == ALPHABET[0] }.length
-        bytes = ByteArray(leadingZeros) + bytes
-        
-        // Verify checksum
-        val data = bytes.dropLast(4).toByteArray()
-        val checksum = bytes.takeLast(4).toByteArray()
-        val calculatedChecksum = Secp256k1Pure.sha256(Secp256k1Pure.sha256(data)).sliceArray(0..3)
-        
-        require(checksum.contentEquals(calculatedChecksum)) { "Invalid checksum" }
-        
-        return data
     }
 }

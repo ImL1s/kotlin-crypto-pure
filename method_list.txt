@@ -1,0 +1,21 @@
+Compiled from "Ed25519PrivateKey.kt"
+public final class io.github.andreypfau.curve25519.ed25519.Ed25519PrivateKey {
+  public static final io.github.andreypfau.curve25519.ed25519.Ed25519PrivateKey$Companion Companion;
+  private final byte[] data;
+  public static final int SIZE_BYTES;
+  public io.github.andreypfau.curve25519.ed25519.Ed25519PrivateKey(byte[]);
+  public final byte[] getData$curve25519_kotlin();
+  public final byte[] toByteArray();
+  public final byte[] toByteArray(byte[], int);
+  public static byte[] toByteArray$default(io.github.andreypfau.curve25519.ed25519.Ed25519PrivateKey, byte[], int, int, java.lang.Object);
+  public final byte[] seed();
+  public final byte[] seed(byte[], int);
+  public static byte[] seed$default(io.github.andreypfau.curve25519.ed25519.Ed25519PrivateKey, byte[], int, int, java.lang.Object);
+  public final io.github.andreypfau.curve25519.ed25519.Ed25519PublicKey publicKey();
+  public final byte[] sign(byte[]);
+  public final byte[] sign(byte[], byte[], int);
+  public static byte[] sign$default(io.github.andreypfau.curve25519.ed25519.Ed25519PrivateKey, byte[], byte[], int, int, java.lang.Object);
+  public final byte[] sharedKey(io.github.andreypfau.curve25519.ed25519.Ed25519PublicKey, byte[], int);
+  public static byte[] sharedKey$default(io.github.andreypfau.curve25519.ed25519.Ed25519PrivateKey, io.github.andreypfau.curve25519.ed25519.Ed25519PublicKey, byte[], int, int, java.lang.Object);
+  static {};
+}

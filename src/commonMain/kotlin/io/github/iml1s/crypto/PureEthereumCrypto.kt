@@ -210,6 +210,18 @@ object PureEthereumCrypto {
         }
     }
 
+    /**
+     * Get raw Ethereum address bytes (last 20 bytes of Keccak256 of uncompressed public key)
+     */
+    fun getEthereumAddressBytes(publicKey: ByteArray): ByteArray {
+        val point = Secp256k1Pure.decodePublicKey(publicKey)
+        val uncompressed = Secp256k1Pure.encodePublicKey(point, compressed = false)
+        val dataToHash = uncompressed.copyOfRange(1, uncompressed.size)
+        val hash = Keccak256.hash(dataToHash)
+        return hash.copyOfRange(12, 32)
+    }
+
+
     // Helpers
     
     private fun parseDerivationPath(path: String): List<UInt> {

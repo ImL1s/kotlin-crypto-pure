@@ -588,7 +588,9 @@ object Secp256k1Pure {
             return cleanHex.hexToByteArray()
         }
         
-        fun toByteArray(): ByteArray = magnitude.toByteArray()
+        fun toByteArray(): ByteArray = magnitude.toByteArray().let { if (it.isEmpty()) byteArrayOf(0) else it }
+
+
         
         fun toInt(): Int = magnitude.intValue()
         
