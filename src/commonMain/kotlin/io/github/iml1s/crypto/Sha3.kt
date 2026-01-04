@@ -96,13 +96,13 @@ object Sha3 {
         return output
     }
     
-    private fun xorBlock(state: LongArray, block: ByteArray, rate: Int) {
+    internal fun xorBlock(state: LongArray, block: ByteArray, rate: Int) {
         for (i in 0 until rate / 8) {
             state[i] = state[i] xor bytesToLong(block, i * 8)
         }
     }
     
-    private fun keccakF1600(state: LongArray) {
+    internal fun keccakF1600(state: LongArray) {
         val c = LongArray(5)
         val d = LongArray(5)
         val b = Array(5) { LongArray(5) }
@@ -140,11 +140,11 @@ object Sha3 {
         }
     }
     
-    private fun rotl64(x: Long, n: Int): Long {
+    internal fun rotl64(x: Long, n: Int): Long {
         return (x shl n) or (x ushr (64 - n))
     }
     
-    private fun bytesToLong(b: ByteArray, off: Int): Long {
+    internal fun bytesToLong(b: ByteArray, off: Int): Long {
         return (b[off].toLong() and 0xffL) or
                 ((b[off + 1].toLong() and 0xffL) shl 8) or
                 ((b[off + 2].toLong() and 0xffL) shl 16) or

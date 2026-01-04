@@ -1,0 +1,140 @@
+Initialized native services in: C:\Users\aa223\.gradle\native
+Initialized jansi services in: C:\Users\aa223\.gradle\native
+Found daemon DaemonInfo{pid=61556, address=[1145355e-23bd-4b08-8055-52bc4329183a port:55810, addresses:[/127.0.0.1]], state=Idle, lastBusy=1767298347502, context=DefaultDaemonContext[uid=705c84f8-322c-4097-80b1-d8aa0279e47d,javaHome=C:\Program Files\Eclipse Adoptium\jdk-21.0.9.10-hotspot,javaVersion=21,javaVendor=Eclipse Adoptium,daemonRegistryDir=C:\Users\aa223\.gradle\daemon,pid=61556,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=TW,-Duser.language=zh,-Duser.variant]} however its context does not match the desired criteria.
+At least one daemon option is different.
+Wanted: DaemonRequestContext{jvmCriteria=C:\Program Files\Eclipse Adoptium\jdk-21.0.9.10-hotspot (no JDK specified, using current Java home), daemonOpts=[-XX:MaxMetaspaceSize=1g, -XX:+HeapDumpOnOutOfMemoryError, -Xmx4g, -Dfile.encoding=UTF-8, -Duser.country=TW, -Duser.language=zh, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+Actual: DefaultDaemonContext[uid=705c84f8-322c-4097-80b1-d8aa0279e47d,javaHome=C:\Program Files\Eclipse Adoptium\jdk-21.0.9.10-hotspot,javaVersion=21,javaVendor=Eclipse Adoptium,daemonRegistryDir=C:\Users\aa223\.gradle\daemon,pid=61556,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=TW,-Duser.language=zh,-Duser.variant]
+
+  Looking for a different daemon...
+The client will now receive all logging from the daemon (pid: 60364). The daemon log file: C:\Users\aa223\.gradle\daemon\8.13\daemon-60364.out.log
+Starting 14th build in daemon [uptime: 21 mins 16.179 secs, performance: 100%, GC rate: 0.00/s, heap usage: 0% of 4 GiB, non-heap usage: 12% of 1 GiB]
+Using 32 worker leases.
+Now considering [D:\OtherProject\mine\crypto\kotlin-crypto-pure] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Settings evaluated using settings file 'D:\OtherProject\mine\crypto\kotlin-crypto-pure\settings.gradle.kts'.
+Using local directory build cache for the root build (location = C:\Users\aa223\.gradle\caches\build-cache-1, remove unused entries = after 7 days).
+Projects loaded. Root project using build file 'D:\OtherProject\mine\crypto\kotlin-crypto-pure\build.gradle.kts'.
+Included projects: [root project 'kotlin-crypto-pure']
+
+> Configure project :
+Evaluating root project 'kotlin-crypto-pure' using build file 'D:\OtherProject\mine\crypto\kotlin-crypto-pure\build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.multiplatform', version: '2.1.0']
+Resolved plugin [id: 'com.android.library', version: '8.5.2']
+Resolved plugin [id: 'org.gradle.maven-publish']
+Using Kotlin Gradle Plugin gradle85 variant
+Using default execution profile
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+w: The Default Kotlin Hierarchy Template was not applied to 'root project 'kotlin-crypto-pure'':
+Explicit .dependsOn() edges were configured for the following source sets:
+[iosArm64Main, iosArm64Test, iosMain, iosSimulatorArm64Main, iosSimulatorArm64Test, iosX64Main, iosX64Test, jvmMain, jvmTest, nativeMain, nativeTest, watchosArm64Main, watchosArm64Test, watchosMain, watchosSimulatorArm64Main, watchosSimulatorArm64Test, watchosX64Main, watchosX64Test]
+
+Consider removing dependsOn-calls or disabling the default template by adding
+    'kotlin.mpp.applyDefaultHierarchyTemplate=false'
+to your gradle.properties
+
+Learn more about hierarchy templates: https://kotl.in/hierarchy-template
+
+All projects evaluated.
+Task name matched 'jvmTest'
+Selected primary task 'jvmTest' from project :
+Tasks to be executed: [task ':checkKotlinGradlePluginConfigurationErrors', task ':compileKotlinJvm', task ':jvmProcessResources', task ':jvmMainClasses', task ':jvmJar', task ':compileTestKotlinJvm', task ':jvmTestProcessResources', task ':jvmTestClasses', task ':jvmTest']
+Tasks that were excluded: []
+Resolve mutations for :checkKotlinGradlePluginConfigurationErrors (Thread[#2359,Execution worker,5,main]) started.
+:checkKotlinGradlePluginConfigurationErrors (Thread[#2366,Execution worker Thread 8,5,main]) started.
+
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :compileKotlinJvm (Thread[#2366,Execution worker Thread 8,5,main]) started.
+:compileKotlinJvm (Thread[#2366,Execution worker Thread 8,5,main]) started.
+
+> Task :compileKotlinJvm UP-TO-DATE
+Build cache key for task ':compileKotlinJvm' is f054ea274b017a6b5475b92eeb51e19b
+Skipping task ':compileKotlinJvm' as it is up-to-date.
+Resolve mutations for :jvmProcessResources (Thread[#2366,Execution worker Thread 8,5,main]) started.
+:jvmProcessResources (Thread[#2360,Execution worker Thread 2,5,main]) started.
+
+> Task :jvmProcessResources NO-SOURCE
+Skipping task ':jvmProcessResources' as it has no source files and no previous output files.
+Resolve mutations for :jvmMainClasses (Thread[#2360,Execution worker Thread 2,5,main]) started.
+:jvmMainClasses (Thread[#2379,Execution worker Thread 20,5,main]) started.
+
+> Task :jvmMainClasses UP-TO-DATE
+Skipping task ':jvmMainClasses' as it has no actions.
+Resolve mutations for :jvmJar (Thread[#2379,Execution worker Thread 20,5,main]) started.
+:jvmJar (Thread[#2375,Execution worker Thread 17,5,main]) started.
+
+> Task :jvmJar UP-TO-DATE
+Caching disabled for task ':jvmJar' because:
+  Not worth caching
+Skipping task ':jvmJar' as it is up-to-date.
+Resolve mutations for :compileTestKotlinJvm (Thread[#2375,Execution worker Thread 17,5,main]) started.
+:compileTestKotlinJvm (Thread[#2375,Execution worker Thread 17,5,main]) started.
+
+> Task :compileTestKotlinJvm UP-TO-DATE
+Build cache key for task ':compileTestKotlinJvm' is ade5104e4ff2b15d8f391354b3bd7665
+Skipping task ':compileTestKotlinJvm' as it is up-to-date.
+Resolve mutations for :jvmTestProcessResources (Thread[#2375,Execution worker Thread 17,5,main]) started.
+:jvmTestProcessResources (Thread[#2375,Execution worker Thread 17,5,main]) started.
+
+> Task :jvmTestProcessResources NO-SOURCE
+Skipping task ':jvmTestProcessResources' as it has no source files and no previous output files.
+Resolve mutations for :jvmTestClasses (Thread[#2375,Execution worker Thread 17,5,main]) started.
+:jvmTestClasses (Thread[#2387,Execution worker Thread 28,5,main]) started.
+
+> Task :jvmTestClasses UP-TO-DATE
+Skipping task ':jvmTestClasses' as it has no actions.
+Resolve mutations for :jvmTest (Thread[#2387,Execution worker Thread 28,5,main]) started.
+:jvmTest (Thread[#2387,Execution worker Thread 28,5,main]) started.
+Gradle Test Executor 12 started executing tests.
+Gradle Test Executor 12 finished executing tests.
+
+> Task :jvmTest FAILED
+Build cache key for task ':jvmTest' is 06d37a9ce775367717cf43c0edea6daa
+Task ':jvmTest' is not up-to-date because:
+  Task has failed previously.
+Starting process 'Gradle Test Executor 12'. Working directory: D:\OtherProject\mine\crypto\kotlin-crypto-pure Command: C:\Program Files\Eclipse Adoptium\jdk-21.0.9.10-hotspot\bin\java.exe -Dorg.gradle.internal.worker.tmpdir=D:\OtherProject\mine\crypto\kotlin-crypto-pure\build\tmp\jvmTest\work @C:\Users\aa223\.gradle\.tmp\gradle-worker-classpath3173497921868406374txt -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=TW -Duser.language=zh -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 12'
+Successfully started process 'Gradle Test Executor 12'
+
+Sr25519Test[jvm] > testSignVerifyRoundtrip[jvm] STANDARD_OUT
+    DEBUG: Sign k = 812c858412ed0ac14b86bfd37f4fc53b36cd3dfcfbce217a0d1cd5fefe9e634b
+    DEBUG: Sign s = 56437329f5bf35ba964daf483627841c3f726da487028429f87216a9de9c997e
+    DEBUG: Verify s = 56437329f5bf35ba964daf483627841c3f726da487028429f87216a9de9c997e
+    DEBUG: Verify k = 812c858412ed0ac14b86bfd37f4fc53b36cd3dfcfbce217a0d1cd5fefe9e634b
+    DEBUG: Verify sB = -91, 28, 103, 95, 124, 54, 14, 42, -82, -115, 102, -85, 19, -42, 38, 20, 71, 54, 21, -70, 84, -37, -51, 96, -13, 92, 98, 113, 99, 63, 31, 98
+
+Sr25519Test[jvm] > testSignVerifyRoundtrip[jvm] FAILED
+    java.lang.AssertionError: Signature verification failed
+        at org.junit.Assert.fail(Assert.java:89)
+        at kotlin.test.junit.JUnitAsserter.fail(JUnitSupport.kt:56)
+        at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:694)
+        at kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+        at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:704)
+        at kotlin.test.junit.JUnitAsserter.assertTrue(JUnitSupport.kt:30)
+        at kotlin.test.AssertionsKt__AssertionsKt.assertTrue(Assertions.kt:44)
+        at kotlin.test.AssertionsKt.assertTrue(Unknown Source)
+        at io.github.iml1s.crypto.Sr25519Test.testSignVerifyRoundtrip(Sr25519Test.kt:27)
+
+1 test completed, 1 failed
+Finished generating test XML results (0.001 secs) into: D:\OtherProject\mine\crypto\kotlin-crypto-pure\build\test-results\jvmTest
+Generating HTML test report...
+Finished generating test html results (0.005 secs) into: D:\OtherProject\mine\crypto\kotlin-crypto-pure\build\reports\tests\jvmTest
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':jvmTest'.
+> There were failing tests. See the report at: file:///D:/OtherProject/mine/crypto/kotlin-crypto-pure/build/reports/tests/jvmTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 3s
+4 actionable tasks: 1 executed, 3 up-to-date
+Watched directory hierarchies: [D:\OtherProject\mine\crypto\kotlin-crypto-pure]

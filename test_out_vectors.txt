@@ -1,0 +1,47 @@
+
+> Configure project :
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+w: The Default Kotlin Hierarchy Template was not applied to 'root project 'kotlin-crypto-pure'':
+Explicit .dependsOn() edges were configured for the following source sets:
+[iosArm64Main, iosArm64Test, iosMain, iosSimulatorArm64Main, iosSimulatorArm64Test, iosX64Main, iosX64Test, jvmMain, jvmTest, nativeMain, nativeTest, watchosArm64Main, watchosArm64Test, watchosMain, watchosSimulatorArm64Main, watchosSimulatorArm64Test, watchosX64Main, watchosX64Test]
+
+Consider removing dependsOn-calls or disabling the default template by adding
+    'kotlin.mpp.applyDefaultHierarchyTemplate=false'
+to your gradle.properties
+
+Learn more about hierarchy templates: https://kotl.in/hierarchy-template
+
+
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :compileKotlinJvm UP-TO-DATE
+> Task :jvmProcessResources NO-SOURCE
+> Task :jvmMainClasses UP-TO-DATE
+> Task :jvmJar UP-TO-DATE
+> Task :jvmTestProcessResources NO-SOURCE
+> Task :compileTestKotlinJvm
+> Task :jvmTestClasses
+
+> Task :jvmTest FAILED
+
+Sr25519Test[jvm] > testKeypairFromKnownSeed[jvm] FAILED
+    org.junit.ComparisonFailure at Sr25519Test.kt:57
+
+Sr25519Test[jvm] > testVerifyKnownSignature[jvm] FAILED
+    java.lang.AssertionError at Sr25519Test.kt:78
+
+3 tests completed, 2 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':jvmTest'.
+> There were failing tests. See the report at: file:///D:/OtherProject/mine/crypto/kotlin-crypto-pure/build/reports/tests/jvmTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 5s
+4 actionable tasks: 2 executed, 2 up-to-date

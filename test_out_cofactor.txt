@@ -1,0 +1,52 @@
+
+> Configure project :
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+w: The Default Kotlin Hierarchy Template was not applied to 'root project 'kotlin-crypto-pure'':
+Explicit .dependsOn() edges were configured for the following source sets:
+[iosArm64Main, iosArm64Test, iosMain, iosSimulatorArm64Main, iosSimulatorArm64Test, iosX64Main, iosX64Test, jvmMain, jvmTest, nativeMain, nativeTest, watchosArm64Main, watchosArm64Test, watchosMain, watchosSimulatorArm64Main, watchosSimulatorArm64Test, watchosX64Main, watchosX64Test]
+
+Consider removing dependsOn-calls or disabling the default template by adding
+    'kotlin.mpp.applyDefaultHierarchyTemplate=false'
+to your gradle.properties
+
+Learn more about hierarchy templates: https://kotl.in/hierarchy-template
+
+
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :jvmProcessResources NO-SOURCE
+> Task :jvmTestProcessResources NO-SOURCE
+
+> Task :compileKotlinJvm
+w: file:///D:/OtherProject/mine/crypto/kotlin-crypto-pure/src/commonMain/kotlin/io/github/iml1s/crypto/AesGcm.kt:78:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///D:/OtherProject/mine/crypto/kotlin-crypto-pure/src/commonMain/kotlin/io/github/iml1s/crypto/Digest.kt:61:13 Check for instance is always 'true'.
+w: file:///D:/OtherProject/mine/crypto/kotlin-crypto-pure/src/commonMain/kotlin/io/github/iml1s/crypto/Digest.kt:80:13 Check for instance is always 'true'.
+w: file:///D:/OtherProject/mine/crypto/kotlin-crypto-pure/src/commonMain/kotlin/io/github/iml1s/crypto/Secp256k1Provider.kt:12:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///D:/OtherProject/mine/crypto/kotlin-crypto-pure/src/jvmMain/kotlin/io/github/iml1s/crypto/Actuals.jvm.kt:86:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///D:/OtherProject/mine/crypto/kotlin-crypto-pure/src/jvmMain/kotlin/io/github/iml1s/crypto/AesGcm.jvm.kt:10:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. You can use -Xexpect-actual-classes flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+
+> Task :jvmMainClasses
+> Task :jvmJar
+> Task :compileTestKotlinJvm
+> Task :jvmTestClasses
+
+> Task :jvmTest FAILED
+
+Sr25519Test[jvm] > testVerifyKnownSignature[jvm] FAILED
+    java.lang.AssertionError at Sr25519Test.kt:78
+
+3 tests completed, 1 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':jvmTest'.
+> There were failing tests. See the report at: file:///D:/OtherProject/mine/crypto/kotlin-crypto-pure/build/reports/tests/jvmTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 8s
+4 actionable tasks: 4 executed
