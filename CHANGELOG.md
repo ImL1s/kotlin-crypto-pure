@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-01-05
+### Added
+- **Sr25519 (Schnorrkel)**: Full support for Polkadot/Substrate signing scheme
+  - **Merlin Transcript**: Strobe-128 protocol with exact rate/padding compatibility
+  - **Ristretto255**: RFC 9496 compliant arithmetic
+  - **Verification**: Validated against Polkadot-JS official test vectors
+- **MuSig2**: BIP-327 Schnorr multi-signature aggregation and signing
+- **Advanced Crypto**:
+  - **BIP32-Ed25519**: Khovratovich derivation scheme (Cardano HD)
+  - **SHA3**: Pure Kotlin implementation (SHA3-256, SHA3-512)
+  - **SHA512**: Unified cross-platform implementation
+- **New Chain Support**:
+  - **Cardano (ADA)**: Shelley address generation (Base & Enterprise), Bech32, HD Wallets
+  - **Polkadot (DOT)**: SS58 address encoding/decoding
+  - **Ripple (XRP)**: Custom Base58 alphabet + double SHA256 checksum
+  - **Cosmos (ATOM)**: Bech32 address generation
+  - **Avalanche**: C-Chain (EVM) and X-Chain (Bech32) support
+  - **Near Protocol**: Ed25519 hex addresses
+  - **Sui**: Blake2b-256 addresses
+  - **Aptos**: SHA3-256 addresses
+
+## [1.2.0] - 2026-01-04
+### Added
+- **TON (The Open Network)**: Full support
+  - Mnemonic-based KeyPair derivation (Ed25519)
+  - Wallet V4R2 address generation
+  - CRC16-CCITT checksum
+- **PBKDF2**: Generalized support for custom iteration counts
+
 ## [1.1.0] - 2026-01-03
 
 ### Added

@@ -33,7 +33,9 @@
 | **AES-GCM** | Authenticated encryption |
 | **Hashing** | SHA256, SHA512, Keccak256, RIPEMD160 |
 | **Encoding** | Base58, Bech32, Bech32m, RLP |
-| **Blockchain**| Solana, Tron, Ethereum, Bitcoin, TON, Ripple (XRP), Polkadot (DOT), Cardano (ADA) |
+| **Encoding** | Base58, Bech32, Bech32m, RLP |
+| **Blockchain**| Solana, Tron, Ethereum, Bitcoin, TON, Ripple (XRP), Polkadot (DOT), Cardano (ADA), Aptos, Sui, Near, Cosmos, Avalanche |
+| **Advanced** | **Sr25519** (Schnorrkel), **MuSig2** (Schnorr Multi-sig), **BIP32-Ed25519** (Khovratovich) |
 
 ---
 
@@ -357,6 +359,58 @@ val aptosAddress = Aptos.getAddress(publicKey)
 // Returns: "0x..."
 ```
 
+### Sr25519 (Schnorrkel)
+Generate keys and sign messages compatible with Polkadot/Substrate.
+
+```kotlin
+import io.github.iml1s.crypto.Sr25519
+
+// 1. Generate KeyPair from Seed
+val keyPair = Sr25519.keypairFromSeed(seed32Bytes)
+
+// 2. Sign a message
+val signature = Sr25519.sign(
+    publicKey = keyPair.publicKey,
+    secretKey = keyPair.secretKey,
+    message = "Hello Substrate".encodeToByteArray(),
+    context = "substrate".encodeToByteArray() // Optional context
+)
+
+// 3. Verify
+val isValid = Sr25519.verify(
+    publicKey = keyPair.publicKey,
+    message = "Hello Substrate".encodeToByteArray(),
+    signature = signature,
+    context = "substrate".encodeToByteArray()
+)
+```
+
+### MuSig2 (Schnorr Multi-Signature)
+Aggregate keys and signatures (BIP-327).
+
+```kotlin
+import io.github.iml1s.crypto.MuSig2
+
+// 1. Key Aggregation
+val pubKeys = listOf(pubKey1, pubKey2, pubKey3)
+val aggCtx = MuSig2.aggregateKeys(pubKeys)
+val aggPubKey = aggCtx.aggPubKey
+
+// 2. Signing (Round 1)
+val secNonce = MuSig2.genNonce()
+val pubNonce = secNonce.pubNonce
+
+// ... Exchange public nonces ...
+
+// 3. Signing (Round 2)
+val aggNonce = MuSig2.aggregateNonces(listOf(pubNonce1, pubNonce2, pubNonce3))
+val partialSig = MuSig2.sign(secKey, secNonce, aggNonce, aggPubKey, message)
+
+// 4. Aggregation & Verification
+val finalSig = MuSig2.aggregateSigs(listOf(partialSig1, partialSig2, partialSig3), aggNonce)
+val isValid = MuSig2.verify(aggPubKey, message, finalSig)
+```
+
 ---
 
 ## 🛡️ Security
@@ -410,6 +464,8 @@ secureKey.use { key ->
 | `Near` | Near Protocol utils |
 | `Sui` | Sui address generation |
 | `Aptos` | Aptos address generation |
+| `Sr25519` | Schnorrkel signing/verification |
+| `MuSig2` | Schnorr multi-signature aggregation |
 
 ---
 
