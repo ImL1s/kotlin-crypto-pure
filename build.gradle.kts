@@ -16,9 +16,8 @@ kotlin {
             freeCompilerArgs.add("-opt-in=kotlin.ExperimentalStdlibApi")
         }
         // Enable publishing for Android target
-        publishLibraryVariants("release")
+        publishLibraryVariants("release", "debug")
     }
-
     iosArm64() {
         compilations.getByName("main") {
             cinterops {
