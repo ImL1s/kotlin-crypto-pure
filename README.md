@@ -300,6 +300,61 @@ import io.github.iml1s.crypto.CardanoNetwork
 // Generate Shelley Enterprise Address (addr1...)
 val adaAddress = Cardano.address(publicKey, CardanoNetwork.MAINNET)
 // Returns: "addr1..."
+// Returns: "addr1..."
+```
+
+### Cosmos (ATOM)
+
+```kotlin
+import io.github.iml1s.crypto.Cosmos
+
+// Generate Bech32 address (cosmos1...)
+val atomAddress = Cosmos.getAddress(publicKey, hrp = "cosmos")
+// Returns: "cosmos1..."
+```
+
+### Avalanche (AVAX)
+
+```kotlin
+import io.github.iml1s.crypto.Avalanche
+
+// X-Chain (Bech32)
+val xAddress = Avalanche.getXAddress(publicKey)
+// Returns: "X-avax1..."
+
+// C-Chain (EVM)
+val cAddress = Avalanche.getCAddress(privateKey) // Uses Ethereum logic
+// Returns: "0x..."
+```
+
+### Near Protocol
+
+```kotlin
+import io.github.iml1s.crypto.Near
+
+// Generate Ed25519 Address (Hex)
+val nearAddress = Near.getAddress(publicKey)
+// Returns: "0612... (64 chars hex)"
+```
+
+### Sui
+
+```kotlin
+import io.github.iml1s.crypto.Sui
+
+// Generate Blake2b-256 Address
+val suiAddress = Sui.getAddress(publicKey)
+// Returns: "0x..."
+```
+
+### Aptos
+
+```kotlin
+import io.github.iml1s.crypto.Aptos
+
+// Generate SHA3-256 Address
+val aptosAddress = Aptos.getAddress(publicKey)
+// Returns: "0x..."
 ```
 
 ---
@@ -350,6 +405,11 @@ secureKey.use { key ->
 | `Xrp` | Ripple address utilities |
 | `Polkadot` | SS58 encoding/decoding |
 | `Cardano` | Shelley address generation |
+| `Cosmos` | Bech32 address utilities |
+| `Avalanche` | X-Chain and C-Chain utils |
+| `Near` | Near Protocol utils |
+| `Sui` | Sui address generation |
+| `Aptos` | Aptos address generation |
 
 ---
 

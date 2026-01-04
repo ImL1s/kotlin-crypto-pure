@@ -52,7 +52,7 @@ object Bech32 {
      * Decode Bech32/Bech32m string
      */
     fun decode(bech32: String): Bech32Data {
-        require(bech32.length <= 90) { "Bech32 string too long" }
+        require(bech32.length <= 2000) { "Bech32 string too long" }
         
         // Check case
         var hasLower = false

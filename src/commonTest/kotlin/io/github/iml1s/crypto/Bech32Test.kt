@@ -64,7 +64,7 @@ class Bech32Test {
         val invalid = listOf(
             " 1nwldj5", // HRP character out of range
             "0x1nwldj5", // HRP character out of range
-            "an84characterslonghumanreadablepartthatcontainsthenumber1andtheexcludedcharactersbio1569pvx", // max length exceeded
+            // "an84characterslonghumanreadablepartthatcontainsthenumber1andtheexcludedcharactersbio1569pvx", // REMOVED: limit increased for Cardano
             "pzry9x0s0muk", // No separator character
             "1pzry9x0s0muk", // Empty HRP
             "x1b4n0q5v", // Invalid data character
