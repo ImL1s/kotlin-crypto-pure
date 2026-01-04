@@ -3,6 +3,11 @@
 
 #include <CommonCrypto/CommonCrypto.h>
 #include <CommonCrypto/CommonCryptor.h>
+#include <CommonCrypto/CommonDigest.h>
+
+static inline void Custom_CC_SHA512(const void *data, CC_LONG len, void *md) {
+    CC_SHA512(data, len, md);
+}
 
 CCCryptorStatus CCCryptorGCM(
     CCOperation op,             /* kCCEncrypt, kCCDecrypt */

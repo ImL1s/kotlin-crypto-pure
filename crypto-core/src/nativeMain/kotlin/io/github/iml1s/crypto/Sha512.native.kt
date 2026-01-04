@@ -8,10 +8,10 @@ actual fun platformSha512(data: ByteArray): ByteArray {
     val result = ByteArray(CC_SHA512_DIGEST_LENGTH)
     data.usePinned { pinned ->
         result.usePinned { resultPinned ->
-            CC_SHA512(
-                pinned.addressOf(0) as CPointer<UByteVar>?,
+            Custom_CC_SHA512(
+                pinned.addressOf(0) as CPointer<out CPointed>?,
                 data.size.toUInt(),
-                resultPinned.addressOf(0) as CPointer<UByteVar>?
+                resultPinned.addressOf(0)
             )
         }
     }
