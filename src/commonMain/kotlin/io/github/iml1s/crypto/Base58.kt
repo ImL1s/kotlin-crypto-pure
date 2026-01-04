@@ -5,34 +5,32 @@ package io.github.iml1s.crypto
  * 用於 Solana 地址和交易簽名的編碼
  */
 object Base58 {
-    private const val ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
-    private val INDEXES = IntArray(128) { -1 }
+    const val BTC_ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
+    // pre-computed indexes for standard alphabet
+    private val BTC_INDEXES = IntArray(128) { -1 }
 
     init {
-        for (i in ALPHABET.indices) {
-            INDEXES[ALPHABET[i].code] = i
+        for (i in BTC_ALPHABET.indices) {
+            BTC_INDEXES[BTC_ALPHABET[i].code] = i
         }
     }
 
     /**
-     * 將 byte array 編碼為 Base58 字串
-     *
-     * 🔧 重要：此函數會在內部複製輸入數組，不會修改原始數據
+     * Encode to Base58 using specified alphabet
      */
-    fun encode(input: ByteArray): String {
+    fun encode(input: ByteArray, alphabet: String = BTC_ALPHABET): String {
         if (input.isEmpty()) return ""
 
-        // 🔧 修復：複製輸入以避免修改原始數據
-        // divmod 函數會修改傳入的數組，所以必須先複製
+        // 🔧 Fix: copy input to avoid modification
         val inputCopy = input.copyOf()
 
-        // 計算前導零的數量
+        // Count leading zeros
         var zeroCount = 0
         while (zeroCount < inputCopy.size && inputCopy[zeroCount].toInt() == 0) {
             ++zeroCount
         }
 
-        // 將輸入轉換為 base 58
+        // Convert to base 58
         val temp = ByteArray(inputCopy.size * 2)
         var j = temp.size
 
@@ -42,17 +40,17 @@ object Base58 {
             if (inputCopy[startAt].toInt() == 0) {
                 ++startAt
             }
-            temp[--j] = ALPHABET[mod.toInt()].code.toByte()
+            temp[--j] = alphabet[mod.toInt()].code.toByte()
         }
 
-        // 跳過前導零
-        while (j < temp.size && temp[j].toInt() == ALPHABET[0].code) {
+        // Skip leading zeros
+        while (j < temp.size && temp[j].toInt() == alphabet[0].code) {
             ++j
         }
 
-        // 將前導零轉換為 '1'
+        // Add leading zeros ('1' in standard alphabet)
         while (--zeroCount >= 0) {
-            temp[--j] = ALPHABET[0].code.toByte()
+            temp[--j] = alphabet[0].code.toByte()
         }
 
         val output = temp.copyOfRange(j, temp.size)
@@ -60,55 +58,50 @@ object Base58 {
     }
 
     /**
-     * Base58Check 編碼（包含校驗和）
-     *
-     * 用於 Bitcoin 地址等需要校驗和的場景
-     *
-     * @param input 輸入數據
-     * @return Base58Check 編碼的字串
+     * Base58Check Encode (Checksum)
      */
-    fun encodeWithChecksum(input: ByteArray): String {
-        // 計算雙重 SHA-256 哈希作為校驗和
+    fun encodeWithChecksum(input: ByteArray, alphabet: String = BTC_ALPHABET): String {
         val hash = sha256(sha256(input))
         val checksum = hash.copyOfRange(0, 4)
-
-        // 將校驗和附加到輸入數據後
         val dataWithChecksum = input + checksum
-
-        return encode(dataWithChecksum)
+        return encode(dataWithChecksum, alphabet)
     }
 
-    /**
-     * SHA-256 哈希函數
-     */
     private fun sha256(data: ByteArray): ByteArray {
         return Secp256k1Pure.sha256(data)
     }
 
     /**
-     * 將 Base58 字串解碼為 byte array
+     * Decode Base58 string
      */
-    fun decode(input: String): ByteArray {
+    fun decode(input: String, alphabet: String = BTC_ALPHABET): ByteArray {
         if (input.isEmpty()) return ByteArray(0)
 
-        // 轉換為 bytes
+        // Use cached indexes for default alphabet, or build temporary map
+        val indexes = if (alphabet === BTC_ALPHABET) BTC_INDEXES else buildIndexes(alphabet)
+
+        // Check character validity
         val input58 = ByteArray(input.length)
         for (i in input.indices) {
             val c = input[i]
-            var digit = if (c.code < 128) INDEXES[c.code] else -1
+            val code = c.code
+            var digit = -1
+             if (code < 128) {
+                 digit = indexes[code]
+             }
             if (digit < 0) {
                 throw IllegalArgumentException("Invalid Base58 character: $c")
             }
             input58[i] = digit.toByte()
         }
 
-        // 計算前導零
+        // Count leading zeros
         var zeroCount = 0
         while (zeroCount < input58.size && input58[zeroCount].toInt() == 0) {
             ++zeroCount
         }
 
-        // 轉換為 base 256
+        // Convert to base 256
         val temp = ByteArray(input.length)
         var j = temp.size
 
@@ -121,7 +114,7 @@ object Base58 {
             temp[--j] = mod
         }
 
-        // 跳過前導零
+        // Skip leading zeros
         while (j < temp.size && temp[j].toInt() == 0) {
             ++j
         }
@@ -131,8 +124,19 @@ object Base58 {
         }
     }
 
+    private fun buildIndexes(alphabet: String): IntArray {
+        val indexes = IntArray(128) { -1 }
+        for (i in alphabet.indices) {
+            val code = alphabet[i].code
+            if (code < 128) {
+                indexes[code] = i
+            }
+        }
+        return indexes
+    }
+
     /**
-     * 除法和取模運算
+     * DivMod logic
      */
     private fun divmod(number: ByteArray, startAt: Int, base: Int, divisor: Int): Byte {
         var remainder = 0

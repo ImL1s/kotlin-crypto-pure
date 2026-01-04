@@ -33,7 +33,7 @@
 | **AES-GCM** | Authenticated encryption |
 | **Hashing** | SHA256, SHA512, Keccak256, RIPEMD160 |
 | **Encoding** | Base58, Bech32, Bech32m, RLP |
-| **Blockchain**| Solana, Tron, Ethereum, Bitcoin |
+| **Blockchain**| Solana, Tron, Ethereum, Bitcoin, TON, Ripple (XRP), Polkadot (DOT), Cardano (ADA) |
 
 ---
 
@@ -264,6 +264,44 @@ val address = Ton.getAddress(
 println(address) // EQ...
 ```
 
+### Ripple (XRP)
+
+```kotlin
+import io.github.iml1s.crypto.Xrp
+
+// Generate XRP Address (Base58 with 'r' prefix)
+val xrpAddress = Xrp.getAddress(publicKey)
+// Returns: "r..."
+
+// Validate Address
+val isValid = Xrp.isValidAddress(xrpAddress)
+```
+
+### Polkadot (DOT)
+
+```kotlin
+import io.github.iml1s.crypto.Polkadot
+
+// Encode Public Key to SS58 Address
+// Network 0 = Polkadot (1...), 42 = Substrate (5...)
+val dotAddress = Polkadot.encode(publicKey, network = 0)
+// Returns: "1..."
+
+// Decode
+val (network, pubKey) = Polkadot.decode(dotAddress)
+```
+
+### Cardano (ADA)
+
+```kotlin
+import io.github.iml1s.crypto.Cardano
+import io.github.iml1s.crypto.CardanoNetwork
+
+// Generate Shelley Enterprise Address (addr1...)
+val adaAddress = Cardano.address(publicKey, CardanoNetwork.MAINNET)
+// Returns: "addr1..."
+```
+
 ---
 
 ## 🛡️ Security
@@ -309,6 +347,9 @@ secureKey.use { key ->
 | `Solana` | Solana keypair and address utils |
 | `Tron` | Tron address utilities |
 | `Ton` | TON address and key utilities |
+| `Xrp` | Ripple address utilities |
+| `Polkadot` | SS58 encoding/decoding |
+| `Cardano` | Shelley address generation |
 
 ---
 
