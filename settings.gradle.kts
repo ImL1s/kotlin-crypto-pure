@@ -16,3 +16,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "kotlin-crypto-pure"
+
+include(":crypto-core")
+include(":demo-cli")
+include(":demo-app")

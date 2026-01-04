@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.crypto.TaprootBip341Test" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:38:39.757Z" hostname="WIN_DESKTOP" time="0.688">
+  <properties/>
+  <testcase name="testScriptPubKeyDerivation[jvm]" classname="io.github.iml1s.crypto.TaprootBip341Test" time="0.687"/>
+  <testcase name="testTapLeafHash[jvm]" classname="io.github.iml1s.crypto.TaprootBip341Test" time="0.001"/>
+  <testcase name="testTaggedHash[jvm]" classname="io.github.iml1s.crypto.TaprootBip341Test" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

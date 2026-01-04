@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.crypto.OfficialRfcTestVectors" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:37:59.484Z" hostname="WIN_DESKTOP" time="0.002">
+  <properties/>
+  <testcase name="ss58_alice_polkadot[jvm]" classname="io.github.iml1s.crypto.OfficialRfcTestVectors" time="0.001"/>
+  <testcase name="xrp_genesis_account[jvm]" classname="io.github.iml1s.crypto.OfficialRfcTestVectors" time="0.001"/>
+  <testcase name="cardano_testnet_address_format[jvm]" classname="io.github.iml1s.crypto.OfficialRfcTestVectors" time="0.0"/>
+  <testcase name="ss58_decode_roundtrip[jvm]" classname="io.github.iml1s.crypto.OfficialRfcTestVectors" time="0.0"/>
+  <testcase name="ss58_alice_substrate[jvm]" classname="io.github.iml1s.crypto.OfficialRfcTestVectors" time="0.0"/>
+  <testcase name="blake2b_224_consistency[jvm]" classname="io.github.iml1s.crypto.OfficialRfcTestVectors" time="0.0"/>
+  <testcase name="blake2b_512_abc[jvm]" classname="io.github.iml1s.crypto.OfficialRfcTestVectors" time="0.0"/>
+  <testcase name="xrp_address_validation[jvm]" classname="io.github.iml1s.crypto.OfficialRfcTestVectors" time="0.0"/>
+  <testcase name="cardano_enterprise_address_format[jvm]" classname="io.github.iml1s.crypto.OfficialRfcTestVectors" time="0.0"/>
+  <testcase name="blake2b_512_emptyInput[jvm]" classname="io.github.iml1s.crypto.OfficialRfcTestVectors" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

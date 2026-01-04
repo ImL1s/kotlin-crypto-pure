@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.crypto.Bip32Test" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:36:38.833Z" hostname="WIN_DESKTOP" time="8.199">
+  <properties/>
+  <testcase name="testDerivePath[jvm]" classname="io.github.iml1s.crypto.Bip32Test" time="5.714"/>
+  <testcase name="testDeriveChild[jvm]" classname="io.github.iml1s.crypto.Bip32Test" time="2.484"/>
+  <testcase name="testMasterKeyFromSeed[jvm]" classname="io.github.iml1s.crypto.Bip32Test" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

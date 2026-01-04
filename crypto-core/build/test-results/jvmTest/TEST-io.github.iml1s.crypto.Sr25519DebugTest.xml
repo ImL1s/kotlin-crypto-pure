@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.crypto.Sr25519DebugTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:38:34.797Z" hostname="WIN_DESKTOP" time="0.06">
+  <properties/>
+  <testcase name="testBasepointOnCurve[jvm]" classname="io.github.iml1s.crypto.Sr25519DebugTest" time="0.014"/>
+  <testcase name="testRistrettoEncodingRoundtrip[jvm]" classname="io.github.iml1s.crypto.Sr25519DebugTest" time="0.005"/>
+  <testcase name="testConstants[jvm]" classname="io.github.iml1s.crypto.Sr25519DebugTest" time="0.0"/>
+  <testcase name="testPointAddition[jvm]" classname="io.github.iml1s.crypto.Sr25519DebugTest" time="0.01"/>
+  <testcase name="testSchnorrEquation[jvm]" classname="io.github.iml1s.crypto.Sr25519DebugTest" time="0.031"/>
+  <system-out><![CDATA[L * B bytes: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+B bytes: -30,-14,-82,10,106,-68,78,113,-88,-124,-87,97,-59,0,81,95,88,-29,11,106,-91,-126,-35,-115,-74,-90,89,69,-32,-115,45,118
+B2 bytes: -30,-14,-82,10,106,-68,78,113,-88,-124,-87,97,-59,0,81,95,88,-29,11,106,-91,-126,-35,-115,-74,-90,89,69,-32,-115,45,118
+P+P bytes: 106, 73, 50, 16, -9, 73, -100, -47, 127, -20, -75, 16, -82, 12, -22, 35, -95, 16, -24, -43, -71, 1, -8, -84, -83, -45, 9, 92, 115, -93, -71, 25
+P*2 bytes: 106, 73, 50, 16, -9, 73, -100, -47, 127, -20, -75, 16, -82, 12, -22, 35, -95, 16, -24, -43, -71, 1, -8, -84, -83, -45, 9, 92, 115, -93, -71, 25
+sB: 46, -45, 70, -33, 65, 112, 113, -8, -106, -12, 40, 109, 61, 4, -51, 2, -53, -60, 80, 125, 2, 10, -96, -123, 65, 3, -63, 2, -49, -17, -108, 8
+RHS: 46, -45, 70, -33, 65, 112, 113, -8, -106, -12, 40, 109, 61, 4, -51, 2, -53, -60, 80, 125, 2, 10, -96, -123, 65, 3, -63, 2, -49, -17, -108, 8
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

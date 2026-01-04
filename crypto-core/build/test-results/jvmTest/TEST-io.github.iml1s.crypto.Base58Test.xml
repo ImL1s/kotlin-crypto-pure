@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.crypto.Base58Test" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:36:38.810Z" hostname="WIN_DESKTOP" time="0.016">
+  <properties/>
+  <testcase name="testEncoding[jvm]" classname="io.github.iml1s.crypto.Base58Test" time="0.001"/>
+  <testcase name="testEmpty[jvm]" classname="io.github.iml1s.crypto.Base58Test" time="0.0"/>
+  <testcase name="testBase58WithChecksum[jvm]" classname="io.github.iml1s.crypto.Base58Test" time="0.014"/>
+  <testcase name="testRoundTrip[jvm]" classname="io.github.iml1s.crypto.Base58Test" time="0.001"/>
+  <testcase name="testDecoding[jvm]" classname="io.github.iml1s.crypto.Base58Test" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

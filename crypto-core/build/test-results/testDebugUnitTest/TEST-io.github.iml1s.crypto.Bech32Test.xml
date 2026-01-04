@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.crypto.Bech32Test" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:39:34.451Z" hostname="WIN_DESKTOP" time="0.003">
+  <properties/>
+  <testcase name="testBip173Valid" classname="io.github.iml1s.crypto.Bech32Test" time="0.001"/>
+  <testcase name="testBip350Valid" classname="io.github.iml1s.crypto.Bech32Test" time="0.0"/>
+  <testcase name="testInvalid" classname="io.github.iml1s.crypto.Bech32Test" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

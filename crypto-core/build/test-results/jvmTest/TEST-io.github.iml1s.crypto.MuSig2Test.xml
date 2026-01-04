@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.crypto.MuSig2Test" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:37:27.243Z" hostname="WIN_DESKTOP" time="32.228">
+  <properties/>
+  <testcase name="testSchnorrVerify_ValidSignature[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="1.46"/>
+  <testcase name="testKeyAggVector3_DuplicateKeys[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="2.19"/>
+  <testcase name="testKeySort[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="0.001"/>
+  <testcase name="testIndividualPk[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="0.473"/>
+  <testcase name="testKeyAggError_PublicKeyExceedsFieldSize[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="0.699"/>
+  <testcase name="testFullSigningFlow[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="14.097"/>
+  <testcase name="testKeyAggVector4_MixedDuplicates[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="2.394"/>
+  <testcase name="testKeyAggError_InvalidPrefix[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="0.002"/>
+  <testcase name="testKeyAggError_InvalidPublicKey[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="0.717"/>
+  <testcase name="testTaggedHash[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="0.0"/>
+  <testcase name="testKeyAggVector1[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="1.876"/>
+  <testcase name="testKeyAggVector2[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="1.872"/>
+  <testcase name="testNonceAgg[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="4.301"/>
+  <testcase name="testNonceGen[jvm]" classname="io.github.iml1s.crypto.MuSig2Test" time="2.146"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

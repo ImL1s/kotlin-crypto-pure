@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.crypto.CardanoHdTest" tests="2" skipped="1" failures="0" errors="0" timestamp="2026-01-04T15:36:47.149Z" hostname="WIN_DESKTOP" time="0.004">
+  <properties/>
+  <testcase name="testHardenedDerivation[jvm]" classname="io.github.iml1s.crypto.CardanoHdTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="testV2Compliance[jvm]" classname="io.github.iml1s.crypto.CardanoHdTest" time="0.003"/>
+  <system-out><![CDATA[RUNNING NEW CODE V2 COMPLIANCE
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -141,7 +141,30 @@ kotlin {
             implementation("io.github.iml1s:kotlin-crypto-pure:1.1.0")
         }
     }
+    }
 }
+```
+
+---
+
+## 🦄 Demo Suite
+
+The repository includes a comprehensive demo suite showcasing real-world usage.
+
+### 💻 CLI Tool
+A multi-platform command-line tool to generate wallets.
+
+```bash
+# Run on JVM
+./gradlew :demo-cli:jvmRun
+```
+
+### 📱 Desktop App
+A Compose Multiplatform UI application.
+
+```bash
+# Run Desktop App
+./gradlew :demo-app:desktopRun
 ```
 
 ---

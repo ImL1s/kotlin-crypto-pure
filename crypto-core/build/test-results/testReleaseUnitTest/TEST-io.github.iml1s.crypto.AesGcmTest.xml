@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.crypto.AesGcmTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:41:35.156Z" hostname="WIN_DESKTOP" time="0.688">
+  <properties/>
+  <testcase name="test different passwords produce different ciphertext" classname="io.github.iml1s.crypto.AesGcmTest" time="0.267"/>
+  <testcase name="test basic encrypt and decrypt" classname="io.github.iml1s.crypto.AesGcmTest" time="0.044"/>
+  <testcase name="test too short base64 data" classname="io.github.iml1s.crypto.AesGcmTest" time="0.005"/>
+  <testcase name="test invalid base64 format" classname="io.github.iml1s.crypto.AesGcmTest" time="0.002"/>
+  <testcase name="test large plaintext" classname="io.github.iml1s.crypto.AesGcmTest" time="0.036"/>
+  <testcase name="test unicode and special characters" classname="io.github.iml1s.crypto.AesGcmTest" time="0.038"/>
+  <testcase name="test custom salt and iterations" classname="io.github.iml1s.crypto.AesGcmTest" time="0.018"/>
+  <testcase name="test AesGcmResult base64 encoding" classname="io.github.iml1s.crypto.AesGcmTest" time="0.033"/>
+  <testcase name="test wrong salt fails decryption" classname="io.github.iml1s.crypto.AesGcmTest" time="0.036"/>
+  <testcase name="test empty plaintext" classname="io.github.iml1s.crypto.AesGcmTest" time="0.001"/>
+  <testcase name="test decrypt with wrong password fails" classname="io.github.iml1s.crypto.AesGcmTest" time="0.034"/>
+  <testcase name="test tampered tag fails authentication" classname="io.github.iml1s.crypto.AesGcmTest" time="0.034"/>
+  <testcase name="test empty password" classname="io.github.iml1s.crypto.AesGcmTest" time="0.002"/>
+  <testcase name="test same password and plaintext produce different nonces" classname="io.github.iml1s.crypto.AesGcmTest" time="0.066"/>
+  <testcase name="test encrypt and decrypt string" classname="io.github.iml1s.crypto.AesGcmTest" time="0.033"/>
+  <testcase name="test tampered ciphertext fails authentication" classname="io.github.iml1s.crypto.AesGcmTest" time="0.035"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

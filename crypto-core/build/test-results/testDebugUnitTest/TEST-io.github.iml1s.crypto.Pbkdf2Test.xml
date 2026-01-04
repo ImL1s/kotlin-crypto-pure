@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.crypto.Pbkdf2Test" tests="17" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:40:45.589Z" hostname="WIN_DESKTOP" time="0.018">
+  <properties/>
+  <testcase name="testBip39Vector1_12Words_TrezorPassphrase" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.002"/>
+  <testcase name="testNegativeIterations_ShouldFail" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.0"/>
+  <testcase name="testBip39Vector5_DifferentMnemonic" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.001"/>
+  <testcase name="testMinimumKeyLength" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.0"/>
+  <testcase name="testZeroKeyLength_ShouldFail" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.0"/>
+  <testcase name="testEmptyPassword_ShouldFail" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.0"/>
+  <testcase name="testRfc6070Vector2_MultipleIterations" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.001"/>
+  <testcase name="testZeroIterations_ShouldFail" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.0"/>
+  <testcase name="testLargeKeyLength" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.0"/>
+  <testcase name="testBip39Vector2_24Words_TrezorPassphrase" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.001"/>
+  <testcase name="testBip39Vector3_DifferentMnemonic" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.002"/>
+  <testcase name="testBip39Vector4_NoPassphrase" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.003"/>
+  <testcase name="testEmptySalt_ShouldWork" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.0"/>
+  <testcase name="testPerformance_Bip39Standard" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.002"/>
+  <testcase name="testRfc6070Vector1" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.001"/>
+  <testcase name="testRfc6070Vector3_HighIterations" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.002"/>
+  <testcase name="testCrossPlatformConsistency" classname="io.github.iml1s.crypto.Pbkdf2Test" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

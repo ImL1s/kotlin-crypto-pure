@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.crypto.CryptoProviderConsistencyTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:36:47.159Z" hostname="WIN_DESKTOP" time="34.37">
+  <properties/>
+  <testcase name="testSchnorrSignatureVerification[jvm]" classname="io.github.iml1s.crypto.CryptoProviderConsistencyTest" time="12.931"/>
+  <testcase name="testEcdsaConsistency[jvm]" classname="io.github.iml1s.crypto.CryptoProviderConsistencyTest" time="19.957"/>
+  <testcase name="testSignatureFormats[jvm]" classname="io.github.iml1s.crypto.CryptoProviderConsistencyTest" time="1.474"/>
+  <testcase name="testSha256Consistency[jvm]" classname="io.github.iml1s.crypto.CryptoProviderConsistencyTest" time="0.002"/>
+  <testcase name="testPublicKeyDerivationConsistency[jvm]" classname="io.github.iml1s.crypto.CryptoProviderConsistencyTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

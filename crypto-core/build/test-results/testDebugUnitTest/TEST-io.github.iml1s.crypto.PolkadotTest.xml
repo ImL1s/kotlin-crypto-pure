@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.crypto.PolkadotTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:40:45.608Z" hostname="WIN_DESKTOP" time="0.001">
+  <properties/>
+  <testcase name="testAlicePolkadotAddress" classname="io.github.iml1s.crypto.PolkadotTest" time="0.001"/>
+  <testcase name="testAliceSubstrateAddress" classname="io.github.iml1s.crypto.PolkadotTest" time="0.0"/>
+  <testcase name="testDecode" classname="io.github.iml1s.crypto.PolkadotTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

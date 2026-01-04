@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.iml1s.crypto.MultiChainPhase2Test" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:40:45.575Z" hostname="WIN_DESKTOP" time="0.01">
+  <properties/>
+  <testcase name="near_account_validation" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.001"/>
+  <testcase name="aptos_address_format" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.001"/>
+  <testcase name="sui_address_validation" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.001"/>
+  <testcase name="sha3_256_empty_input" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.0"/>
+  <testcase name="avalanche_xchain_format" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.001"/>
+  <testcase name="aptos_uses_sha3_not_keccak" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.0"/>
+  <testcase name="keccak256_empty_input" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.0"/>
+  <testcase name="cosmos_address_validation" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.001"/>
+  <testcase name="avalanche_cchain_uses_same_logic_as_ethereum" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.004"/>
+  <testcase name="sui_address_format" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.0"/>
+  <testcase name="cosmos_address_format" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.0"/>
+  <testcase name="near_implicit_account_format" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.0"/>
+  <testcase name="avalanche_pchain_format" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.001"/>
+  <testcase name="sha3_256_abc" classname="io.github.iml1s.crypto.MultiChainPhase2Test" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
