@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   test-android:
-    name: Android Unit Tests
+    name: Android Core Tests
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -30,18 +30,11 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
       
-      - name: Run Android Unit Tests
-        run: ./gradlew testDebugUnitTest --continue
-      
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: android-test-results
-          path: build/reports/tests/
+      - name: Run Core Android Unit Tests
+        run: ./gradlew :crypto-core:testDebugUnitTest --continue
 
   test-jvm:
-    name: JVM Unit Tests
+    name: JVM Unit Tests (Core & CLI)
     runs-on: ubuntu-latest
     
     steps:
@@ -56,8 +49,30 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
       
-      - name: Run JVM Unit Tests
-        run: ./gradlew jvmTest --continue
+      - name: Run Core JVM Tests
+        run: ./gradlew :crypto-core:jvmTest --continue
+        
+      - name: Run Demo CLI E2E Tests
+        run: ./gradlew :demo-cli:jvmTest --continue
+
+  build-demo-app:
+    name: Demo App Build Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+      
+      - name: Build Desktop App
+        run: ./gradlew :demo-app:desktopJar
 
   build-ios:
     name: iOS Build Check
@@ -76,7 +91,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
       
       - name: Build iOS Framework
-        run: ./gradlew compileKotlinIosArm64
+        run: ./gradlew :crypto-core:compileKotlinIosArm64
 
   build-watchos:
     name: watchOS Build Check
@@ -95,4 +110,4 @@ jobs:
         uses: gradle/gradle-build-action@v2
       
       - name: Build watchOS Framework
-        run: ./gradlew compileKotlinWatchosArm64
+        run: ./gradlew :crypto-core:compileKotlinWatchosArm64
