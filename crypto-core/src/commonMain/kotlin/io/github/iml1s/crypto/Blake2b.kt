@@ -131,10 +131,10 @@ object Blake2b {
             v[i + 8] = IV[i]
         }
 
-        v[12] = v[12] xor t
-        v[13] = v[13] xor 0 // t high 64
+        v[12] = v[12].xor(t)
+        v[13] = v[13].xor(0) // t high 64
         if (isLast) {
-            v[14] = v[14] xor -1L
+            v[14] = v[14].xor(-1L)
         }
 
         // Load M
@@ -158,7 +158,7 @@ object Blake2b {
 
         // Update H
         for (i in 0..7) {
-            h[i] = h[i] xor v[i] xor v[i + 8]
+            h[i] = h[i].xor(v[i]).xor(v[i + 8])
         }
     }
 

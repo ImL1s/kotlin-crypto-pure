@@ -5,8 +5,10 @@
 #include <CommonCrypto/CommonCryptor.h>
 #include <CommonCrypto/CommonDigest.h>
 
-static inline void Custom_CC_SHA512(const void *data, CC_LONG len, void *md) {
-    CC_SHA512(data, len, md);
+#include <stdint.h>
+
+static inline void Custom_CC_SHA512(const void *data, uint32_t len, void *md) {
+    CC_SHA512(data, len, (unsigned char *)md);
 }
 
 CCCryptorStatus CCCryptorGCM(
