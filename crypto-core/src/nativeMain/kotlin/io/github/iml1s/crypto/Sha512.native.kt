@@ -1,7 +1,7 @@
 package io.github.iml1s.crypto
 
 import kotlinx.cinterop.*
-import platform.CoreCrypto.*
+import commonCrypto.*
 
 @OptIn(ExperimentalForeignApi::class)
 actual fun platformSha512(data: ByteArray): ByteArray {
