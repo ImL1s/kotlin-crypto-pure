@@ -41,20 +41,20 @@ object Blake2b {
         // Initialize State
         val chainValue = IV.clone()
         val keyLen = key?.size ?: 0
-        chainValue[0] = chainValue[0] xor (0x01010000L or (keyLen.toLong() shl 8) or digestSize.toLong())
+        chainValue[0] = chainValue[0].xor(0x01010000L or (keyLen.toLong() shl 8) or digestSize.toLong())
 
         if (salt != null) {
             val s = ByteArray(16)
             salt.copyInto(s)
-            chainValue[4] = chainValue[4] xor bytesToLong(s, 0)
-            chainValue[5] = chainValue[5] xor bytesToLong(s, 8)
+            chainValue[4] = chainValue[4].xor(bytesToLong(s, 0))
+            chainValue[5] = chainValue[5].xor(bytesToLong(s, 8))
         }
 
         if (personalization != null) {
             val p = ByteArray(16)
             personalization.copyInto(p)
-            chainValue[6] = chainValue[6] xor bytesToLong(p, 0)
-            chainValue[7] = chainValue[7] xor bytesToLong(p, 8)
+            chainValue[6] = chainValue[6].xor(bytesToLong(p, 0))
+            chainValue[7] = chainValue[7].xor(bytesToLong(p, 8))
         }
 
         val buffer = ByteArray(128)
@@ -164,13 +164,13 @@ object Blake2b {
 
     private fun G(v: LongArray, a: Int, b: Int, c: Int, d: Int, x: Long, y: Long) {
         v[a] = v[a] + v[b] + x
-        v[d] = rotr64(v[d] xor v[a], 32)
+        v[d] = rotr64(v[d].xor(v[a]), 32)
         v[c] = v[c] + v[d]
-        v[b] = rotr64(v[b] xor v[c], 24)
+        v[b] = rotr64(v[b].xor(v[c]), 24)
         v[a] = v[a] + v[b] + y
-        v[d] = rotr64(v[d] xor v[a], 16)
+        v[d] = rotr64(v[d].xor(v[a]), 16)
         v[c] = v[c] + v[d]
-        v[b] = rotr64(v[b] xor v[c], 63)
+        v[b] = rotr64(v[b].xor(v[c]), 63)
     }
 
     private fun rotr64(x: Long, n: Int): Long {
