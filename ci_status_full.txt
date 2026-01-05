@@ -1,0 +1,123 @@
+
+* main CI · 20697704129
+Triggered via push about 8 minutes ago
+
+JOBS
+✓ Android Core Tests in 6m56s (ID 59415448430)
+X watchOS Build Check in 4m47s (ID 59415448432)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Set up JDK 17
+  ✓ Setup Gradle
+  X Build watchOS Framework
+  ✓ Post Setup Gradle
+  ✓ Post Set up JDK 17
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ Demo App Build Check in 3m6s (ID 59415448435)
+X iOS Build Check in 5m5s (ID 59415448440)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Set up JDK 17
+  ✓ Setup Gradle
+  X Build iOS Framework
+  ✓ Post Setup Gradle
+  ✓ Post Set up JDK 17
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* JVM Unit Tests (Core & CLI) (ID 59415448441)
+
+ANNOTATIONS
+! Failed to save cache entry with path '/home/runner/.gradle/caches,/home/runner/.gradle/notifications,/home/runner/.gradle/.gradle-build-action,zstd-without-long,1.0' and key: v8-gradle|Linux|ci-test-android[37a6259cc0c1dae299a7866489dff0bd]-431099a9662cdfe0fb0a4bcfc45c5ac901f2ff51: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0k7taaQAAAADAFCeKaDt0SrELM/jymoYZRE0yRURHRTA3MDcARWRnZQ==
+Android Core Tests: .github#26
+
+! Failed to save cache entry with path '/home/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku,zstd-without-long,1.0' and key: wrapper-zips-27b0df0fa405636de00fcbfa0ab79410: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0kbtaaQAAAACxGxj+tSbkQojhc4k78DQORE0yRURHRTA3MDcARWRnZQ==
+Android Core Tests: .github#23
+
+! Failed to save cache entry with path '/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*,zstd-without-long,1.0' and key: dependencies-36e6e74a7c55483d667afdedf6501974: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0kLtaaQAAAAC/2TxfN74qR57x/uHZCQKMRE0yRURHRTA3MDcARWRnZQ==
+Android Core Tests: .github#22
+
+! Failed to save cache entry with path '/home/runner/.gradle/caches/8.13/generated-gradle-jars/gradle-api-8.13.jar,zstd-without-long,1.0' and key: generated-gradle-jars-697f81ec8d80712ce7da03f513960371: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0j7taaQAAAAB6jFPVnfwKQI4VtA8z6wH4RE0yRURHRTA3MDcARWRnZQ==
+Android Core Tests: .github#20
+
+! Failed to save cache entry with path '/home/runner/.gradle/caches/*/kotlin-dsl/*/*,zstd-without-long,1.0' and key: kotlin-dsl-f37ea44656728e6163304b447d113bbe: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0j7taaQAAAAArdYmPkUKQS5DwocVsz4a1RE0yRURHRTA3MDcARWRnZQ==
+Android Core Tests: .github#19
+
+! Failed to save cache entry with path '/home/runner/.gradle/caches/jars-*/*,zstd-without-long,1.0' and key: instrumented-jars-c77d8e7cf8a0e4c1c3d16398ccce2998: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0j7taaQAAAACWBwLJ+B14QK1mgaR1P8MqRE0yRURHRTA3MDcARWRnZQ==
+Android Core Tests: .github#18
+
+! Failed to restore v8-gradle|Linux|ci-test-android[37a6259cc0c1dae299a7866489dff0bd]-431099a9662cdfe0fb0a4bcfc45c5ac901f2ff51: Error: Cache service responded with 400
+Android Core Tests: .github#23
+
+! Failed to save cache entry with path '/Users/runner/.gradle/caches,/Users/runner/.gradle/notifications,/Users/runner/.gradle/.gradle-build-action,zstd-without-long,1.0' and key: v8-gradle|macOS|ci-build-watchos[37a6259cc0c1dae299a7866489dff0bd]-431099a9662cdfe0fb0a4bcfc45c5ac901f2ff51: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0ELtaaQAAAAAlzPK1XseoRLrwtGd9gNh+UEhMMzBFREdFMDQxNwBFZGdl
+watchOS Build Check: .github#26
+
+! Failed to save cache entry with path '/Users/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku,zstd-without-long,1.0' and key: wrapper-zips-27b0df0fa405636de00fcbfa0ab79410: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>09bpaaQAAAADRUPEVpvhlT6iW2Z1d2TpNUEhMMzBFREdFMDEyMABFZGdl
+watchOS Build Check: .github#23
+
+! Failed to save cache entry with path '/Users/runner/.gradle/caches/modules-*/files-*/*/*/*/*,zstd-without-long,1.0' and key: dependencies-513559ae45b56a68d4f09ee68909475b: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>057paaQAAAADFO3EesaQOSI+Z7wgkHaqOUEhMMzBFREdFMDIxNgBFZGdl
+watchOS Build Check: .github#22
+
+! Failed to save cache entry with path '/Users/runner/.gradle/caches/*/kotlin-dsl/*/*,zstd-without-long,1.0' and key: kotlin-dsl-f37ea44656728e6163304b447d113bbe: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>05rpaaQAAAACEZDuMhdqcSK14r+fdVqmcUEhMMzBFREdFMDIxNgBFZGdl
+watchOS Build Check: .github#21
+
+! Failed to save cache entry with path '/Users/runner/.gradle/caches/8.13/generated-gradle-jars/gradle-api-8.13.jar,zstd-without-long,1.0' and key: generated-gradle-jars-697f81ec8d80712ce7da03f513960371: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>05LpaaQAAAADqNJlOtlb2SqcMiV7ZqA58UEhMMzBFREdFMDIxNgBFZGdl
+watchOS Build Check: .github#19
+
+! Failed to save cache entry with path '/Users/runner/.gradle/caches/jars-*/*,zstd-without-long,1.0' and key: instrumented-jars-15ce2be0574bdabe8c37e37e72c3086c: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>05LpaaQAAAAAcp3hmu0NyQYZYz9jZKBF9UEhMMzBFREdFMDExNgBFZGdl
+watchOS Build Check: .github#18
+
+X Process completed with exit code 1.
+watchOS Build Check: .github#91
+
+! Failed to restore v8-gradle|macOS|ci-build-watchos[37a6259cc0c1dae299a7866489dff0bd]-431099a9662cdfe0fb0a4bcfc45c5ac901f2ff51: Error: Cache service responded with 400
+watchOS Build Check: .github#21
+
+! Failed to save cache entry with path '/home/runner/.gradle/caches,/home/runner/.gradle/notifications,/home/runner/.gradle/.gradle-build-action,zstd-without-long,1.0' and key: v8-gradle|Linux|ci-build-demo-app[37a6259cc0c1dae299a7866489dff0bd]-431099a9662cdfe0fb0a4bcfc45c5ac901f2ff51: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0rLpaaQAAAAA6bFiaYEI5T4ufr6Qqis8rUEFPRURHRTA1MTMARWRnZQ==
+Demo App Build Check: .github#26
+
+! Failed to save cache entry with path '/home/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku,zstd-without-long,1.0' and key: wrapper-zips-27b0df0fa405636de00fcbfa0ab79410: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0qrpaaQAAAAB1M3qzPxCJToLFJO0xZmCDUEFPRURHRTA1MTMARWRnZQ==
+Demo App Build Check: .github#23
+
+! Failed to save cache entry with path '/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*,zstd-without-long,1.0' and key: dependencies-dbe7c48c294eef2828d8cefb3b882e4a: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0qbpaaQAAAAB3X3XDUg3lQq5bQdblvp9zUEFPRURHRTA1MTMARWRnZQ==
+Demo App Build Check: .github#22
+
+! Failed to save cache entry with path '/home/runner/.gradle/caches/8.13/generated-gradle-jars/gradle-api-8.13.jar,zstd-without-long,1.0' and key: generated-gradle-jars-697f81ec8d80712ce7da03f513960371: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0qLpaaQAAAACQslw7sSZ6Q6KD0o0PICPTUEFPRURHRTA1MTMARWRnZQ==
+Demo App Build Check: .github#20
+
+! Failed to save cache entry with path '/home/runner/.gradle/caches/*/kotlin-dsl/*/*,zstd-without-long,1.0' and key: kotlin-dsl-f37ea44656728e6163304b447d113bbe: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0qLpaaQAAAAB5+P5OJZSCRran+lfLjZP+UEFPRURHRTA1MTMARWRnZQ==
+Demo App Build Check: .github#19
+
+! Failed to save cache entry with path '/home/runner/.gradle/caches/jars-*/*,zstd-without-long,1.0' and key: instrumented-jars-c77d8e7cf8a0e4c1c3d16398ccce2998: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0qLpaaQAAAAChQbDMjaCpQqwR7q4TQCpcUEFPRURHRTA1MTMARWRnZQ==
+Demo App Build Check: .github#18
+
+! Failed to restore v8-gradle|Linux|ci-build-demo-app[37a6259cc0c1dae299a7866489dff0bd]-431099a9662cdfe0fb0a4bcfc45c5ac901f2ff51: Error: Cache service responded with 400
+Demo App Build Check: .github#21
+
+! Failed to save cache entry with path '/Users/runner/.gradle/caches,/Users/runner/.gradle/notifications,/Users/runner/.gradle/.gradle-build-action,zstd-without-long,1.0' and key: v8-gradle|macOS|ci-build-ios[37a6259cc0c1dae299a7866489dff0bd]-431099a9662cdfe0fb0a4bcfc45c5ac901f2ff51: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0ILtaaQAAAACt3KIJhnyBSrKvyTP22d/PU04xRURHRTE2MDgARWRnZQ==
+iOS Build Check: .github#26
+
+! Failed to save cache entry with path '/Users/runner/.gradle/wrapper/dists/gradle-8.13-all/54h0s9kvb6g2sinako7ub77ku,zstd-without-long,1.0' and key: wrapper-zips-27b0df0fa405636de00fcbfa0ab79410: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0AbtaaQAAAACTe6KoMZhGRoaSVjDLRCnVU04xRURHRTEzMjEARWRnZQ==
+iOS Build Check: .github#23
+
+! Failed to save cache entry with path '/Users/runner/.gradle/caches/modules-*/files-*/*/*/*/*,zstd-without-long,1.0' and key: dependencies-a4d4fa6f4a7c6221c41297cb5042a5c7: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>09rpaaQAAAAAuETZD1WgPSKr2DasM6phHU04xRURHRTE5MTgARWRnZQ==
+iOS Build Check: .github#22
+
+! Failed to save cache entry with path '/Users/runner/.gradle/caches/*/kotlin-dsl/*/*,zstd-without-long,1.0' and key: kotlin-dsl-f37ea44656728e6163304b447d113bbe: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>09LpaaQAAAAA7bkXxtAYvQIwy6cJvaFTzU04xRURHRTE5MTgARWRnZQ==
+iOS Build Check: .github#21
+
+! Failed to save cache entry with path '/Users/runner/.gradle/caches/8.13/generated-gradle-jars/gradle-api-8.13.jar,zstd-without-long,1.0' and key: generated-gradle-jars-697f81ec8d80712ce7da03f513960371: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>087paaQAAAACMuU0n4NXZQ7oQo2gD1uYaU04xRURHRTE5MTgARWRnZQ==
+iOS Build Check: .github#19
+
+! Failed to save cache entry with path '/Users/runner/.gradle/caches/jars-*/*,zstd-without-long,1.0' and key: instrumented-jars-15ce2be0574bdabe8c37e37e72c3086c: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>087paaQAAAABMTHOo7+3ZRo/ON1AoZBgLU04xRURHRTE5MTgARWRnZQ==
+iOS Build Check: .github#18
+
+X Process completed with exit code 1.
+iOS Build Check: .github#93
+
+! Failed to restore v8-gradle|macOS|ci-build-ios[37a6259cc0c1dae299a7866489dff0bd]-431099a9662cdfe0fb0a4bcfc45c5ac901f2ff51: Error: Cache service responded with 400
+iOS Build Check: .github#21
+
+
+For more information about a job, try: gh run view --job=<job-id>
+View this run on GitHub: https://github.com/ImL1s/kotlin-crypto-pure/actions/runs/20697704129

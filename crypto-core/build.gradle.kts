@@ -18,13 +18,24 @@ kotlin {
         // Enable publishing for Android target
         publishLibraryVariants("release", "debug")
     }
-    iosArm64()
-    iosSimulatorArm64()
-    iosX64()
-
-    watchosArm64()
-    watchosSimulatorArm64()
-    watchosX64()
+    listOf(
+        iosArm64(),
+        iosSimulatorArm64(),
+        iosX64(),
+        watchosArm64(),
+        watchosSimulatorArm64(),
+        watchosX64()
+    ).forEach { target ->
+        target.compilations.getByName("main") {
+            cinterops {
+                val CommonCrypto by creating {
+                    defFile = project.file("src/nativeInterop/cinterop/CommonCrypto.def")
+                    packageName = "commonCrypto"
+                    includeDirs("src/nativeInterop/cinterop")
+                }
+            }
+        }
+    }
 
     sourceSets {
         val commonMain by getting {

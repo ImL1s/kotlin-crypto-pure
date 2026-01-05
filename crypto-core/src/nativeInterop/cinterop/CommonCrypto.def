@@ -1,0 +1,5 @@
+package = commonCrypto
+headerFilter = CommonCrypto/*
+headers = CommonCrypto_Custom.h
+compilerOpts = -Isrc/nativeInterop/cinterop
+linkerOpts = -framework CommonCrypto

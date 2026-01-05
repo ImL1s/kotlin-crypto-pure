@@ -164,10 +164,19 @@ class Ristretto255(
             val data = ByteArray(len / 2)
             var i = 0
             while (i < len) {
-                data[i / 2] = ((Character.digit(s[i], 16) shl 4) + Character.digit(s[i + 1], 16)).toByte()
+                data[i / 2] = ((hexDigitToInt(s[i]) shl 4) + hexDigitToInt(s[i + 1])).toByte()
                 i += 2
             }
             return data
+        }
+
+        private fun hexDigitToInt(c: Char): Int {
+            return when (c) {
+                in '0'..'9' -> c - '0'
+                in 'a'..'f' -> c - 'a' + 10
+                in 'A'..'F' -> c - 'A' + 10
+                else -> throw IllegalArgumentException("Invalid hex character: $c")
+            }
         }
     }
     

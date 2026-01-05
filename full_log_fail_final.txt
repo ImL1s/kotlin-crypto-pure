@@ -1,0 +1,184 @@
+watchOS Build Check	Build watchOS Framework	﻿2026-01-04T19:41:03.3177580Z ##[group]Run ./gradlew :crypto-core:compileKotlinWatchosArm64
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:03.3178230Z [36;1m./gradlew :crypto-core:compileKotlinWatchosArm64[0m
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:03.3229090Z shell: /bin/bash -e {0}
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:03.3229350Z env:
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:03.3229720Z   JAVA_HOME: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:03.3230240Z   JAVA_HOME_17_ARM64: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:03.3230630Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:03.3230910Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:03.3231160Z ##[endgroup]
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:03.5209990Z Downloading https://services.gradle.org/distributions/gradle-8.13-all.zip
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:09.5616610Z ......................10%......................20%......................30%......................40%......................50%......................60%......................70%.......................80%......................90%......................100%
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:14.8444940Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:14.8447930Z Welcome to Gradle 8.13!
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:14.8453060Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:14.8453520Z Here are the highlights of this release:
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:14.8455120Z  - Daemon JVM auto-provisioning
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:14.8456330Z  - Enhancements for Scala plugin and JUnit testing
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:14.8459410Z  - Improvements for build authors and plugin developers
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:14.8460540Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:14.8461100Z For more details see https://docs.gradle.org/8.13/release-notes.html
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:14.8461400Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:41:14.8461910Z Starting a Gradle Daemon (subsequent builds will be faster)
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:10.8214630Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:10.8325530Z > Configure project :crypto-core
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:10.8448240Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/build.gradle.kts:25:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:10.8593910Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/build.gradle.kts:36:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:10.8707930Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/build.gradle.kts:47:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:10.8817200Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/build.gradle.kts:59:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:10.8919760Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/build.gradle.kts:70:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:10.9020190Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/build.gradle.kts:81:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:11.7902220Z w: The Default Kotlin Hierarchy Template was not applied to 'project ':crypto-core'':
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:11.7917430Z Explicit .dependsOn() edges were configured for the following source sets:
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:11.7919460Z [iosArm64Main, iosArm64Test, iosMain, iosSimulatorArm64Main, iosSimulatorArm64Test, iosX64Main, iosX64Test, jvmMain, jvmTest, nativeMain, nativeTest, watchosArm64Main, watchosArm64Test, watchosMain, watchosSimulatorArm64Main, watchosSimulatorArm64Test, watchosX64Main, watchosX64Test]
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:11.7920360Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:11.7920650Z Consider removing dependsOn-calls or disabling the default template by adding
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:11.7921110Z     'kotlin.mpp.applyDefaultHierarchyTemplate=false'
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:11.8080180Z to your gradle.properties
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:11.8113760Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:11.8164780Z Learn more about hierarchy templates: https://kotl.in/hierarchy-template
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:11.8166700Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:13.5783490Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:13.5802580Z > Configure project :demo-cli
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:13.5803800Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/demo-cli/build.gradle.kts:7:9: Experimental API in the Kotlin Gradle Plugin: No stability guarantees can be provided. The API could get removed in the future without replacement
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:13.5806950Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/demo-cli/build.gradle.kts:8:13: Experimental API in the Kotlin Gradle Plugin: No stability guarantees can be provided. The API could get removed in the future without replacement
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:13.8154320Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:13.8155520Z > Task :crypto-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:42:43.8256180Z > Task :crypto-core:cinteropCommonCryptoWatchosArm64
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:03.6992230Z Downloading native dependencies (LLVM, sysroot etc). This is a one-time action performed only on the first run of the compiler.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:06.3835530Z Done.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:06.3836640Z Extracting dependency: /Users/runner/.konan/dependencies/cache/llvm-16.0.0-aarch64-macos-essentials-63.tar.gz into /Users/runner/.konan/dependencies
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:08.7587960Z Done.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:08.7590050Z Extracting dependency: /Users/runner/.konan/dependencies/cache/libffi-3.3-1-macos-arm64.tar.gz into /Users/runner/.konan/dependencies
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.2987000Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:42:29 Unresolved reference 'clone'.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.2987920Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.3091860Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:44:25 Cannot infer type for this parameter. Please specify it explicitly.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.3092850Z > Task :crypto-core:compileKotlinWatchosArm64 FAILED
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.3194370Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:44:39 Unresolved reference 'xor'.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.3296690Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:49:29 Cannot infer type for this parameter. Please specify it explicitly.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.3398680Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:49:43 Unresolved reference 'xor'.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.3500490Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:50:29 Cannot infer type for this parameter. Please specify it explicitly.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.3602780Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:50:43 Unresolved reference 'xor'.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.3707120Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:56:29 Cannot infer type for this parameter. Please specify it explicitly.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.3809200Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:56:43 Unresolved reference 'xor'.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.3911050Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:57:29 Cannot infer type for this parameter. Please specify it explicitly.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4013000Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:57:43 Unresolved reference 'xor'.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4114380Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Ristretto255.kt:167:33 Unresolved reference 'Character'.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4161870Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4163080Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Ristretto255.kt:167:68 Unresolved reference 'Character'.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4164290Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/nativeMain/kotlin/io/github/iml1s/crypto/Sha512.native.kt:8:28 Unresolved reference 'CC_SHA512_DIGEST_LENGTH'.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4164830Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4164980Z FAILURE: Build failed with an exception.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4165210Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4165260Z * What went wrong:
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4165630Z Execution failed for task ':crypto-core:compileKotlinWatchosArm64'.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4165980Z > Compilation finished with errors
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4166100Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4166210Z * Try:
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4166490Z > Run with --stacktrace option to get the stack trace.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4167480Z > Run with --info or --debug option to get more log output.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4167820Z > Run with --scan to get full insights.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4169150Z > Get more help at https://help.gradle.org.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4169510Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4171850Z BUILD FAILED in 2m 27s
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4172410Z [Incubating] Problems report is available at: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build/reports/problems/problems-report.html
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4172890Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4173070Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4174930Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4175450Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4175950Z 
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4176540Z For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:31.4177050Z 2 actionable tasks: 2 executed
+watchOS Build Check	Build watchOS Framework	2026-01-04T19:43:32.8856110Z ##[error]Process completed with exit code 1.
+iOS Build Check	Build iOS Framework	﻿2026-01-04T19:41:01.0580690Z ##[group]Run ./gradlew :crypto-core:compileKotlinIosArm64
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:01.0581140Z [36;1m./gradlew :crypto-core:compileKotlinIosArm64[0m
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:01.0638900Z shell: /bin/bash -e {0}
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:01.0639130Z env:
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:01.0639450Z   JAVA_HOME: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:01.0639970Z   JAVA_HOME_17_ARM64: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/arm64/Contents/Home
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:01.0640370Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:01.0640590Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:01.0640770Z ##[endgroup]
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:01.3253220Z Downloading https://services.gradle.org/distributions/gradle-8.13-all.zip
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:06.2831110Z ......................10%......................20%......................30%......................40%......................50%......................60%......................70%.......................80%......................90%......................100%
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:11.3634840Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:11.3736000Z Welcome to Gradle 8.13!
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:11.3768860Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:11.3781270Z Here are the highlights of this release:
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:11.3781930Z  - Daemon JVM auto-provisioning
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:11.3782900Z  - Enhancements for Scala plugin and JUnit testing
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:11.3783280Z  - Improvements for build authors and plugin developers
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:11.3783680Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:11.3784240Z For more details see https://docs.gradle.org/8.13/release-notes.html
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:11.3784560Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:41:11.3784740Z Starting a Gradle Daemon (subsequent builds will be faster)
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:00.0497260Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:00.0599480Z > Configure project :crypto-core
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:00.0701140Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/build.gradle.kts:25:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:00.0803970Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/build.gradle.kts:36:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:00.0906360Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/build.gradle.kts:47:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:00.1036020Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/build.gradle.kts:59:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:00.1139080Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/build.gradle.kts:70:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:00.1241130Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/build.gradle.kts:81:21: 'defFile: File' is deprecated. Deprecated because it is a non-lazy property.
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:01.3385870Z w: The Default Kotlin Hierarchy Template was not applied to 'project ':crypto-core'':
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:01.3435630Z Explicit .dependsOn() edges were configured for the following source sets:
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:01.3436890Z [iosArm64Main, iosArm64Test, iosMain, iosSimulatorArm64Main, iosSimulatorArm64Test, iosX64Main, iosX64Test, jvmMain, jvmTest, nativeMain, nativeTest, watchosArm64Main, watchosArm64Test, watchosMain, watchosSimulatorArm64Main, watchosSimulatorArm64Test, watchosX64Main, watchosX64Test]
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:01.3438510Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:01.3440760Z Consider removing dependsOn-calls or disabling the default template by adding
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:01.3441230Z     'kotlin.mpp.applyDefaultHierarchyTemplate=false'
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:01.3441590Z to your gradle.properties
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:01.3441850Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:01.3442320Z Learn more about hierarchy templates: https://kotl.in/hierarchy-template
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:01.3442760Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:03.7491770Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:03.7605970Z > Configure project :demo-cli
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:03.7718120Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/demo-cli/build.gradle.kts:7:9: Experimental API in the Kotlin Gradle Plugin: No stability guarantees can be provided. The API could get removed in the future without replacement
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:03.7828950Z w: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/demo-cli/build.gradle.kts:8:13: Experimental API in the Kotlin Gradle Plugin: No stability guarantees can be provided. The API could get removed in the future without replacement
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:03.9689600Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:03.9690700Z > Task :crypto-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:34.0098640Z > Task :crypto-core:cinteropCommonCryptoIosArm64
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:52.9356760Z Downloading native dependencies (LLVM, sysroot etc). This is a one-time action performed only on the first run of the compiler.
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:56.3622610Z Done.
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:56.3624230Z Extracting dependency: /Users/runner/.konan/dependencies/cache/llvm-16.0.0-aarch64-macos-essentials-63.tar.gz into /Users/runner/.konan/dependencies
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:58.8147290Z Done.
+iOS Build Check	Build iOS Framework	2026-01-04T19:42:58.8148510Z Extracting dependency: /Users/runner/.konan/dependencies/cache/libffi-3.3-1-macos-arm64.tar.gz into /Users/runner/.konan/dependencies
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3540350Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:42:29 Unresolved reference 'clone'.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3544030Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3558980Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:44:25 Cannot infer type for this parameter. Please specify it explicitly.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3559910Z > Task :crypto-core:compileKotlinIosArm64 FAILED
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3561380Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:44:39 Unresolved reference 'xor'.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3564220Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:49:29 Cannot infer type for this parameter. Please specify it explicitly.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3566440Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:49:43 Unresolved reference 'xor'.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3585350Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:50:29 Cannot infer type for this parameter. Please specify it explicitly.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3586740Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:50:43 Unresolved reference 'xor'.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3587930Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:56:29 Cannot infer type for this parameter. Please specify it explicitly.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3589170Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:56:43 Unresolved reference 'xor'.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3590510Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:57:29 Cannot infer type for this parameter. Please specify it explicitly.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3592040Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Blake2b.kt:57:43 Unresolved reference 'xor'.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3593230Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Ristretto255.kt:167:33 Unresolved reference 'Character'.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3594480Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/commonMain/kotlin/io/github/iml1s/crypto/Ristretto255.kt:167:68 Unresolved reference 'Character'.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.3597030Z e: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/crypto-core/src/nativeMain/kotlin/io/github/iml1s/crypto/Sha512.native.kt:8:28 Unresolved reference 'CC_SHA512_DIGEST_LENGTH'.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5088240Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5088300Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5171000Z FAILURE: Build failed with an exception.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5171760Z [Incubating] Problems report is available at: file:///Users/runner/work/kotlin-crypto-pure/kotlin-crypto-pure/build/reports/problems/problems-report.html
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5180150Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5180160Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5180580Z * What went wrong:
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5181060Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5196230Z Execution failed for task ':crypto-core:compileKotlinIosArm64'.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5196550Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5199970Z > Compilation finished with errors
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5200100Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5200200Z * Try:
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5200410Z > Run with --stacktrace option to get the stack trace.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5200840Z > Run with --info or --debug option to get more log output.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5201260Z > Run with --scan to get full insights.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5201710Z > Get more help at https://help.gradle.org.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5202100Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5202170Z BUILD FAILED in 2m 19s
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5202730Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5203100Z 
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5204060Z For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:20.5204610Z 2 actionable tasks: 2 executed
+iOS Build Check	Build iOS Framework	2026-01-04T19:43:21.9517800Z ##[error]Process completed with exit code 1.
