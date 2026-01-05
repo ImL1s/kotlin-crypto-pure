@@ -45,9 +45,9 @@ actual object AesGcm {
             tagLength.value = 16.convert()
 
             val dummyAAD = alloc<ByteVar>()
-            val status = CCCryptorGCM(
-                kCCEncrypt,
-                kCCAlgorithmAES,
+            val status = Custom_CCCryptorGCM(
+                kCCEncrypt.convert(),
+                kCCAlgorithmAES.convert(),
                 key.refTo(0), key.size.convert(),
                 nonce.refTo(0), nonce.size.convert(),
                 dummyAAD.ptr, 0.convert(), // AAD
@@ -83,9 +83,9 @@ actual object AesGcm {
             tagLength.value = computedTag.size.convert()
 
             val dummyAAD = alloc<ByteVar>()
-            val status = CCCryptorGCM(
-                kCCDecrypt,
-                kCCAlgorithmAES,
+            val status = Custom_CCCryptorGCM(
+                kCCDecrypt.convert(),
+                kCCAlgorithmAES.convert(),
                 key.refTo(0), key.size.convert(),
                 encrypted.nonce.refTo(0), encrypted.nonce.size.convert(),
                 dummyAAD.ptr, 0.convert(),
