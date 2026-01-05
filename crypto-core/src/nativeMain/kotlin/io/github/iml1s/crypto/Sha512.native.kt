@@ -1,19 +1,7 @@
 package io.github.iml1s.crypto
 
-import kotlinx.cinterop.*
-import commonCrypto.*
+import org.kotlincrypto.hash.sha2.Sha512
 
-@OptIn(ExperimentalForeignApi::class)
 actual fun platformSha512(data: ByteArray): ByteArray {
-    val result = ByteArray(CC_SHA512_DIGEST_LENGTH)
-    data.usePinned { pinned ->
-        result.usePinned { resultPinned ->
-            Custom_CC_SHA512(
-                pinned.addressOf(0) as CPointer<out CPointed>?,
-                data.size.toUInt(),
-                resultPinned.addressOf(0)
-            )
-        }
-    }
-    return result
+    return Sha512().digest(data)
 }
