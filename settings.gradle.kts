@@ -22,7 +22,7 @@ include(":demo-cli")
 include(":demo-app")
 include(":kotlin-wallet-sdk")
 
-// Composite Builds for Unified SDK
+// Composite Builds for Unified SDK (Standardized at version 1.3.0)
 fun includeBuildIfExists(path: String) {
     if (file(path).exists()) {
         includeBuild(path)
