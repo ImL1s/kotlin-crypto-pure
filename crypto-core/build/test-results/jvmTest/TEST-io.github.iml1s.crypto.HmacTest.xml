@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.github.iml1s.crypto.HmacTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:37:27.241Z" hostname="WIN_DESKTOP" time="0.0">
-  <properties/>
-  <testcase name="testHmacSha256[jvm]" classname="io.github.iml1s.crypto.HmacTest" time="0.0"/>
-  <testcase name="testHmacSha512[jvm]" classname="io.github.iml1s.crypto.HmacTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

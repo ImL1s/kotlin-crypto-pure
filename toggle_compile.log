@@ -1,0 +1,198 @@
+
+> Configure project :kotlin-address
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :kotlin-tx-builder
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :kotlin-utxo
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, watchosArm64, watchosSimulatorArm64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+w: The Default Kotlin Hierarchy Template was not applied to 'project ':kotlin-utxo'':
+Explicit .dependsOn() edges were configured for the following source sets:
+[androidMain, iosArm64Main, iosMain, iosSimulatorArm64Main, iosX64Main, jvmMain, watchosArm64Main, watchosMain, watchosSimulatorArm64Main]
+
+Consider removing dependsOn-calls or disabling the default template by adding
+    'kotlin.mpp.applyDefaultHierarchyTemplate=false'
+to your gradle.properties
+
+Learn more about hierarchy templates: https://kotl.in/hierarchy-template
+
+
+> Configure project :kotlin-blockchain-client
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+w: The Default Kotlin Hierarchy Template was not applied to 'project ':kotlin-blockchain-client'':
+Explicit .dependsOn() edges were configured for the following source sets:
+[iosArm64Main, iosMain, iosSimulatorArm64Main, iosX64Main, watchosArm64Main, watchosMain, watchosSimulatorArm64Main, watchosX64Main]
+
+Consider removing dependsOn-calls or disabling the default template by adding
+    'kotlin.mpp.applyDefaultHierarchyTemplate=false'
+to your gradle.properties
+
+Learn more about hierarchy templates: https://kotl.in/hierarchy-template
+
+
+> Configure project :kotlin-solana:amount
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :kotlin-solana:base58
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :kotlin-solana:mplbubblegum
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :kotlin-solana:mpltokenmetadata
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :kotlin-solana:readapi
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :kotlin-solana:rpc
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :kotlin-solana:signer
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :kotlin-solana:solana
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :kotlin-solana:solanaeddsa
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :kotlin-solana:solanapublickeys
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :crypto-core
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+w: The Default Kotlin Hierarchy Template was not applied to 'project ':crypto-core'':
+Explicit .dependsOn() edges were configured for the following source sets:
+[iosArm64Main, iosArm64Test, iosMain, iosSimulatorArm64Main, iosSimulatorArm64Test, iosX64Main, iosX64Test, jvmMain, jvmTest, nativeMain, nativeTest, watchosArm64Main, watchosArm64Test, watchosMain, watchosSimulatorArm64Main, watchosSimulatorArm64Test, watchosX64Main, watchosX64Test]
+
+Consider removing dependsOn-calls or disabling the default template by adding
+    'kotlin.mpp.applyDefaultHierarchyTemplate=false'
+to your gradle.properties
+
+Learn more about hierarchy templates: https://kotl.in/hierarchy-template
+
+
+> Configure project :demo-cli
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+macosArm64, macosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Task :kotlin-address:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :kotlin-wallet-sdk:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :kotlin-utxo:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :kotlin-blockchain-client:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :crypto-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :kotlin-tx-builder:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :demo-app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :demo-app:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :kotlin-tx-builder:jvmProcessResources NO-SOURCE
+> Task :kotlin-blockchain-client:jvmProcessResources NO-SOURCE
+> Task :kotlin-wallet-sdk:jvmProcessResources NO-SOURCE
+> Task :demo-app:copyNonXmlValueResourcesForCommonMain NO-SOURCE
+> Task :kotlin-address:jvmProcessResources NO-SOURCE
+> Task :demo-app:prepareComposeResourcesTaskForCommonMain NO-SOURCE
+> Task :demo-app:generateResourceAccessorsForCommonMain NO-SOURCE
+> Task :demo-app:convertXmlValueResourcesForDesktopMain NO-SOURCE
+> Task :demo-app:copyNonXmlValueResourcesForDesktopMain NO-SOURCE
+> Task :demo-app:prepareComposeResourcesTaskForDesktopMain NO-SOURCE
+> Task :demo-app:generateResourceAccessorsForDesktopMain NO-SOURCE
+> Task :demo-app:generateActualResourceCollectorsForDesktopMain UP-TO-DATE
+> Task :demo-app:generateComposeResClass UP-TO-DATE
+> Task :demo-app:generateExpectResourceCollectorsForCommonMain UP-TO-DATE
+> Task :demo-app:assembleDesktopMainResources UP-TO-DATE
+> Task :demo-app:desktopProcessResources UP-TO-DATE
+> Task :kotlin-utxo:compileKotlinJvm UP-TO-DATE
+> Task :crypto-core:compileKotlinJvm UP-TO-DATE
+> Task :kotlin-utxo:jvmProcessResources NO-SOURCE
+> Task :kotlin-utxo:jvmMainClasses UP-TO-DATE
+> Task :crypto-core:jvmProcessResources NO-SOURCE
+> Task :crypto-core:jvmMainClasses UP-TO-DATE
+> Task :kotlin-utxo:jvmJar UP-TO-DATE
+> Task :crypto-core:jvmJar UP-TO-DATE
+> Task :kotlin-address:compileKotlinJvm UP-TO-DATE
+> Task :kotlin-address:jvmMainClasses UP-TO-DATE
+> Task :kotlin-address:jvmJar UP-TO-DATE
+> Task :kotlin-tx-builder:compileKotlinJvm UP-TO-DATE
+> Task :kotlin-tx-builder:jvmMainClasses UP-TO-DATE
+> Task :kotlin-tx-builder:jvmJar UP-TO-DATE
+> Task :kotlin-blockchain-client:compileKotlinJvm UP-TO-DATE
+> Task :kotlin-blockchain-client:jvmMainClasses UP-TO-DATE
+> Task :kotlin-blockchain-client:jvmJar UP-TO-DATE
+> Task :kotlin-wallet-sdk:compileKotlinJvm UP-TO-DATE
+> Task :kotlin-wallet-sdk:jvmMainClasses UP-TO-DATE
+> Task :kotlin-wallet-sdk:jvmJar UP-TO-DATE
+
+> Task :demo-app:compileKotlinDesktop FAILED
+e: file:///D:/OtherProject/mine/crypto/kotlin-crypto-pure/demo-app/src/commonMain/kotlin/io/github/iml1s/crypto/demo/app/App.kt:131:77 Argument type mismatch: actual type is 'io.github.iml1s.wallet.NetworkType', but 'kotlin.String' was expected.
+
+[Incubating] Problems report is available at: file:///D:/OtherProject/mine/crypto/kotlin-crypto-pure/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':demo-app:compileKotlinDesktop'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 11s
+18 actionable tasks: 1 executed, 17 up-to-date

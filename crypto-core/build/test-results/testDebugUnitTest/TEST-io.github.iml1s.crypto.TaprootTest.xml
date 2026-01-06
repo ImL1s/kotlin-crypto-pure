@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.github.iml1s.crypto.TaprootTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:41:33.643Z" hostname="WIN_DESKTOP" time="0.01">
-  <properties/>
-  <testcase name="testModInverse" classname="io.github.iml1s.crypto.TaprootTest" time="0.001"/>
-  <testcase name="testPointAddition" classname="io.github.iml1s.crypto.TaprootTest" time="0.009"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

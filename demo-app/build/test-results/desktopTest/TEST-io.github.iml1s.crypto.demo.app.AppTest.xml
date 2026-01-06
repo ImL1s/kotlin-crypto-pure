@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.github.iml1s.crypto.demo.app.AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:47:43.673Z" hostname="WIN_DESKTOP" time="33.158">
-  <properties/>
-  <testcase name="testWalletGeneration[desktop]" classname="io.github.iml1s.crypto.demo.app.AppTest" time="33.158"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

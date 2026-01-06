@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.github.iml1s.crypto.CardanoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:41:36.161Z" hostname="WIN_DESKTOP" time="0.003">
-  <properties/>
-  <testcase name="testEnterpriseAddressMainnet" classname="io.github.iml1s.crypto.CardanoTest" time="0.003"/>
-  <system-out><![CDATA[Generated Cardano Address: addr1v9xaw2syjeuxp5njzeq26dkvx5a7vacz5mdrzdzwlrfjxyc67a2zn
-Address differs from snippet.
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

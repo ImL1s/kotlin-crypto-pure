@@ -12,15 +12,15 @@ class AppTest {
     @Test
     fun testWalletGeneration() {
         rule.setContent {
-            App()
+            App(isMock = true)
         }
 
         // Check initial state
-        rule.onNodeWithText("Generate Wallets").assertExists()
+        rule.onNodeWithText("Load Wallet & Check Balances").assertExists()
         rule.onNodeWithText("BIP39 Mnemonic").assertExists()
         
         // Enter mnemonic is pre-filled, so just click generate
-        rule.onNodeWithText("Generate Wallets").performClick()
+        rule.onNodeWithText("Load Wallet & Check Balances").performClick()
 
         // Wait for results (synchronous in this simple app, but usually requires waitFor)
         // Since our generateWallets is blocking/synchronous in the onClick for now (wrapped in coroutine launch in real app maybe? 
@@ -31,9 +31,13 @@ class AppTest {
         // So it IS synchronous on UI thread. Compose rule will wait for idle.
         
         // Check for generated content
+        rule.waitUntil(timeoutMillis = 5000) {
+            rule.onAllNodesWithText("Ethereum").fetchSemanticsNodes().isNotEmpty()
+        }
         rule.onNodeWithText("Ethereum").assertExists()
         rule.onNodeWithText("Bitcoin").assertExists()
         rule.onNodeWithText("Solana").assertExists()
+
         
         // Verify address logic (partial match checking)
         // Since we can't easily match regex on text nodes with simple API, just existence is good enough E2E.

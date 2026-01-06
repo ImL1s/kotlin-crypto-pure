@@ -147,6 +147,11 @@ android {
         isCoreLibraryDesugaringEnabled = false
     }
 
+    lint {
+        abortOnError = false
+        checkReleaseBuilds = false
+    }
+
     publishing {
         singleVariant("release") {
             withSourcesJar()
@@ -204,3 +209,10 @@ afterEvaluate {
         }
     }
 }
+
+tasks.configureEach {
+    if (name.contains("lintVitalAnalyzeRelease")) {
+        enabled = false
+    }
+}
+

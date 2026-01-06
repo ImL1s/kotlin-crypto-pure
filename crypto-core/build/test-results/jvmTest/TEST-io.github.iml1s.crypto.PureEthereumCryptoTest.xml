@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.github.iml1s.crypto.PureEthereumCryptoTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-01-04T15:38:00.220Z" hostname="WIN_DESKTOP" time="9.737">
-  <properties/>
-  <testcase name="testDerivePrivateKeyAndAddress[jvm]" classname="io.github.iml1s.crypto.PureEthereumCryptoTest" time="2.768"/>
-  <testcase name="testDerivationFromXpub[jvm]" classname="io.github.iml1s.crypto.PureEthereumCryptoTest" time="2.774"/>
-  <testcase name="testDerivationDeterministic[jvm]" classname="io.github.iml1s.crypto.PureEthereumCryptoTest" time="4.195"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

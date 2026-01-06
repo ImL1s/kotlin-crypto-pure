@@ -34,7 +34,7 @@
 | **Hashing** | SHA256, SHA512, Keccak256, RIPEMD160 |
 | **Encoding** | Base58, Bech32, Bech32m, RLP |
 | **Encoding** | Base58, Bech32, Bech32m, RLP |
-| **Blockchain**| Solana, Tron, Ethereum, Bitcoin, TON, Ripple (XRP), Polkadot (DOT), Cardano (ADA), Aptos, Sui, Near, Cosmos, Avalanche |
+| **Blockchain**| Solana, Tron, Ethereum, Bitcoin, TON, Ripple (XRP), Polkadot (DOT), Cardano (ADA), Aptos, Sui, Near, Cosmos, Avalanche, **Dash**, **Zcash**, **Monero** |
 | **Advanced** | **Sr25519** (Schnorrkel), **MuSig2** (Schnorr Multi-sig), **BIP32-Ed25519** (Khovratovich) |
 
 ---
@@ -489,6 +489,10 @@ secureKey.use { key ->
 | `Aptos` | Aptos address generation |
 | `Sr25519` | Schnorrkel signing/verification |
 | `MuSig2` | Schnorr multi-signature aggregation |
+| `Dash` | Dash (DASH) address utilities |
+| `Zcash` | Zcash transparent address (t-addr) |
+| `Monero` | Monero (XMR) address utilities |
+| `MoneroBase58` | Monero-specific Base58 encoding |
 
 ---
 
