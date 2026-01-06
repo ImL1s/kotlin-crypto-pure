@@ -58,7 +58,7 @@ private class Sha256Digest : Digest {
         return res.size
     }
     override fun reset() {
-        if (delegate is Resettable) (delegate as Resettable).reset()
+        (delegate as Resettable).reset()
     }
 }
 
@@ -77,6 +77,6 @@ private class Sha512Digest : Digest {
         return res.size
     }
     override fun reset() {
-        if (delegate is Resettable) (delegate as Resettable).reset()
+        (delegate as Resettable).reset()
     }
 }

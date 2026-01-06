@@ -45,11 +45,11 @@ internal actual fun pbkdf2HmacSha512(
                     kCCPBKDF2.toUInt(),                                // algorithm
                     passwordString,                                    // password (String)
                     password.size.convert(),                           // passwordLen
-                    if (salt.isNotEmpty()) saltPinned.addressOf(0) as CPointer<UByteVar>? else null,    // salt
+                    if (salt.isNotEmpty()) saltPinned.addressOf(0).reinterpret<UByteVar>() else null,    // salt
                     salt.size.convert(),                               // saltLen
                     kCCPRFHmacAlgSHA512.toUInt(),                      // prf
                     iterations.toUInt(),                               // rounds
-                    if (derivedKey.isNotEmpty()) keyPinned.addressOf(0) as CPointer<UByteVar>? else null,     // derivedKey
+                    if (derivedKey.isNotEmpty()) keyPinned.addressOf(0).reinterpret<UByteVar>() else null,     // derivedKey
                     keyLength.convert()                                // derivedKeyLen
                 )
             }
@@ -83,11 +83,11 @@ internal actual fun pbkdf2HmacSha256(
                     kCCPBKDF2.toUInt(),
                     passwordString,
                     password.size.convert(),
-                    if (salt.isNotEmpty()) saltPinned.addressOf(0) as CPointer<UByteVar>? else null,
+                    if (salt.isNotEmpty()) saltPinned.addressOf(0).reinterpret<UByteVar>() else null,
                     salt.size.convert(),
                     kCCPRFHmacAlgSHA256.toUInt(),
                     iterations.toUInt(),
-                    if (derivedKey.isNotEmpty()) keyPinned.addressOf(0) as CPointer<UByteVar>? else null,
+                    if (derivedKey.isNotEmpty()) keyPinned.addressOf(0).reinterpret<UByteVar>() else null,
                     keyLength.convert()
                 )
             }

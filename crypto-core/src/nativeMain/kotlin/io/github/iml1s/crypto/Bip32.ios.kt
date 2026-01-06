@@ -43,9 +43,9 @@ public actual fun platformSha256(data: ByteArray): ByteArray {
     data.usePinned { pinned ->
         result.usePinned { resultPinned ->
             CC_SHA256(
-                pinned.addressOf(0) as CPointer<UByteVar>?,
+                pinned.addressOf(0).reinterpret<UByteVar>(),
                 data.size.toUInt(),
-                resultPinned.addressOf(0) as CPointer<UByteVar>?
+                resultPinned.addressOf(0).reinterpret<UByteVar>()
             )
         }
     }

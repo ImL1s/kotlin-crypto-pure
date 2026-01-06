@@ -9,11 +9,16 @@ group = "io.github.iml1s"
 version = "1.3.0"
 
 kotlin {
-    jvm()
+    jvm {
+        compilerOptions {
+            freeCompilerArgs.add("-Xexpect-actual-classes")
+        }
+    }
     androidTarget {
         compilerOptions {
             jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
             freeCompilerArgs.add("-opt-in=kotlin.ExperimentalStdlibApi")
+            freeCompilerArgs.add("-Xexpect-actual-classes")
         }
         // Enable publishing for Android target
         publishLibraryVariants("release", "debug")
@@ -29,7 +34,7 @@ kotlin {
         target.compilations.getByName("main") {
             cinterops {
                 val CommonCrypto by creating {
-                    defFile = project.file("src/nativeInterop/cinterop/CommonCrypto.def")
+                    definitionFile.set(project.file("src/nativeInterop/cinterop/CommonCrypto.def"))
                     packageName = "commonCrypto"
                     includeDirs("src/nativeInterop/cinterop")
                 }
