@@ -23,9 +23,15 @@ include(":demo-app")
 include(":kotlin-wallet-sdk")
 
 // Composite Builds for Unified SDK
-includeBuild("../kotlin-blockchain-client")
-includeBuild("../kotlin-tx-builder")
-includeBuild("../kotlin-utxo")
-includeBuild("../kotlin-address")
-includeBuild("../kotlin-solana")
+fun includeBuildIfExists(path: String) {
+    if (file(path).exists()) {
+        includeBuild(path)
+    }
+}
+
+includeBuildIfExists("../kotlin-blockchain-client")
+includeBuildIfExists("../kotlin-tx-builder")
+includeBuildIfExists("../kotlin-utxo")
+includeBuildIfExists("../kotlin-address")
+includeBuildIfExists("../kotlin-solana")
 
