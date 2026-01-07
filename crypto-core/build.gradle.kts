@@ -35,12 +35,14 @@ kotlin {
         watchosSimulatorArm64(),
         watchosX64()
     ).forEach { target ->
-        target.compilations.getByName("main") {
-            cinterops {
-                val CommonCrypto by creating {
-                    definitionFile.set(project.file("src/nativeInterop/cinterop/CommonCrypto.def"))
-                    packageName = "commonCrypto"
-                    includeDirs("src/nativeInterop/cinterop")
+        if (target.konanTarget.family.isAppleFamily) {
+            target.compilations.getByName("main") {
+                cinterops {
+                    val CommonCrypto by creating {
+                        definitionFile.set(project.file("src/nativeInterop/cinterop/CommonCrypto.def"))
+                        packageName = "commonCrypto"
+                        includeDirs("src/nativeInterop/cinterop")
+                    }
                 }
             }
         }
