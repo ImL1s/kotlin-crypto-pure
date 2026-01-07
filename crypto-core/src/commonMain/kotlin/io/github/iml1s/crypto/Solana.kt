@@ -18,6 +18,29 @@ object Solana {
         return SolanaKeyPair(seed, publicKeyObj.toByteArray())
     }
 
+    /**
+     * Derive Public Key from Private Key (Seed)
+     */
+    fun derivePublicKey(privateKey: ByteArray): ByteArray {
+        return Ed25519.keyFromSeed(privateKey).publicKey().toByteArray()
+    }
+
+    /**
+     * Sign message
+     */
+    fun sign(message: ByteArray, privateKey: ByteArray): ByteArray {
+        val privateKeyObj = Ed25519.keyFromSeed(privateKey)
+        return privateKeyObj.sign(message)
+    }
+
+    /**
+     * Verify signature
+     */
+    fun verify(message: ByteArray, signature: ByteArray, publicKey: ByteArray): Boolean {
+        val publicKeyObj = Ed25519.PublicKey(publicKey)
+        return publicKeyObj.verify(message, signature)
+    }
+
 
 
 

@@ -24,8 +24,12 @@ include(":kotlin-wallet-sdk")
 
 // Composite Builds for Unified SDK (Standardized at version 1.3.0)
 fun includeBuildIfExists(path: String) {
-    if (file(path).exists()) {
+    val buildFile = file(path)
+    if (buildFile.exists()) {
+        println("ANTIGRAVITY: Including build from ${buildFile.absolutePath}")
         includeBuild(path)
+    } else {
+        println("ANTIGRAVITY: Build path ${buildFile.absolutePath} does not exist!")
     }
 }
 
