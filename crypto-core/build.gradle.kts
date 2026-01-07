@@ -84,7 +84,7 @@ kotlin {
             }
         }
 
-        // Shared Native Main source set (iOS & watchOS)
+        // Shared Native Main source set
         val nativeMain by creating {
             dependsOn(commonMain)
             dependencies {
@@ -92,9 +92,14 @@ kotlin {
             }
         }
 
-        // iosMain will now inherit from nativeMain
-        val iosMain by creating {
+        // Apple-specific source set
+        val appleMain by creating {
             dependsOn(nativeMain)
+        }
+
+        // iosMain will now inherit from appleMain
+        val iosMain by creating {
+            dependsOn(appleMain)
             dependencies {
                 api("fr.acinq.secp256k1:secp256k1-kmp:0.19.0")
             }
@@ -105,15 +110,21 @@ kotlin {
         val iosSimulatorArm64Main by getting { dependsOn(iosMain) }
         val iosX64Main by getting { dependsOn(iosMain) }
         
-        val macosMain by creating {
+        val linuxMain by creating {
             dependsOn(nativeMain)
+        }
+        val linuxX64Main by getting { dependsOn(linuxMain) }
+        val linuxArm64Main by getting { dependsOn(linuxMain) }
+
+        val macosMain by creating {
+            dependsOn(appleMain)
         }
         val macosX64Main by getting { dependsOn(macosMain) }
         val macosArm64Main by getting { dependsOn(macosMain) }
 
-        // watchosMain will now inherit from nativeMain
+        // watchosMain will now inherit from appleMain
         val watchosMain by creating {
-            dependsOn(nativeMain)
+            dependsOn(appleMain)
         }
 
         // Link watchOS targets to watchosMain
@@ -121,21 +132,25 @@ kotlin {
         val watchosSimulatorArm64Main by getting { dependsOn(watchosMain) }
         val watchosX64Main by getting { dependsOn(watchosMain) }
 
-        // Shared Native Test source set (iOS & watchOS)
+        // Shared Native Test source set
         val nativeTest by creating {
             dependsOn(commonTest)
         }
+        
+        val appleTest by creating {
+            dependsOn(nativeTest)
+        }
 
-        val iosArm64Test by getting { dependsOn(nativeTest) }
-        val iosSimulatorArm64Test by getting { dependsOn(nativeTest) }
-        val iosX64Test by getting { dependsOn(nativeTest) }
+        val iosArm64Test by getting { dependsOn(appleTest) }
+        val iosSimulatorArm64Test by getting { dependsOn(appleTest) }
+        val iosX64Test by getting { dependsOn(appleTest) }
 
-        val macosX64Test by getting { dependsOn(nativeTest) }
-        val macosArm64Test by getting { dependsOn(nativeTest) }
+        val macosX64Test by getting { dependsOn(appleTest) }
+        val macosArm64Test by getting { dependsOn(appleTest) }
 
-        val watchosArm64Test by getting { dependsOn(nativeTest) }
-        val watchosSimulatorArm64Test by getting { dependsOn(nativeTest) }
-        val watchosX64Test by getting { dependsOn(nativeTest) }
+        val watchosArm64Test by getting { dependsOn(appleTest) }
+        val watchosSimulatorArm64Test by getting { dependsOn(appleTest) }
+        val watchosX64Test by getting { dependsOn(appleTest) }
 
         val jvmMain by getting {
             dependsOn(commonMain)
