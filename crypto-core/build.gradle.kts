@@ -24,6 +24,8 @@ kotlin {
         publishLibraryVariants("release", "debug")
     }
     listOf(
+        macosX64(),
+        macosArm64(),
         iosArm64(),
         iosSimulatorArm64(),
         iosX64(),
@@ -98,6 +100,12 @@ kotlin {
         val iosArm64Main by getting { dependsOn(iosMain) }
         val iosSimulatorArm64Main by getting { dependsOn(iosMain) }
         val iosX64Main by getting { dependsOn(iosMain) }
+        
+        val macosMain by creating {
+            dependsOn(nativeMain)
+        }
+        val macosX64Main by getting { dependsOn(macosMain) }
+        val macosArm64Main by getting { dependsOn(macosMain) }
 
         // watchosMain will now inherit from nativeMain
         val watchosMain by creating {
@@ -117,6 +125,9 @@ kotlin {
         val iosArm64Test by getting { dependsOn(nativeTest) }
         val iosSimulatorArm64Test by getting { dependsOn(nativeTest) }
         val iosX64Test by getting { dependsOn(nativeTest) }
+
+        val macosX64Test by getting { dependsOn(nativeTest) }
+        val macosArm64Test by getting { dependsOn(nativeTest) }
 
         val watchosArm64Test by getting { dependsOn(nativeTest) }
         val watchosSimulatorArm64Test by getting { dependsOn(nativeTest) }
