@@ -204,6 +204,10 @@ afterEvaluate {
 tasks.configureEach {
     if (name.contains("lintVitalAnalyzeRelease") || 
         name.contains("generateDebugAndroidTestLintModel") ||
+<<<<<<< HEAD
+=======
+        name.contains("generateDebugUnitTestLintModel") ||
+>>>>>>> master
         name.contains("lintReportDebug") || 
         name.contains("lintReportRelease") ||
         name.contains("lintAnalyzeDebugUnitTest") ||
