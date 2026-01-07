@@ -1,6 +1,7 @@
 package io.github.iml1s.crypto
 
 import io.github.andreypfau.curve25519.ed25519.Ed25519
+import io.github.andreypfau.curve25519.ed25519.Ed25519PublicKey
 import kotlin.random.Random
 
 data class SolanaKeyPair(val privateKey: ByteArray, val publicKey: ByteArray)
@@ -36,8 +37,8 @@ object Solana {
     /**
      * Verify signature
      */
-    fun verify(message: ByteArray, signature: ByteArray, publicKey: ByteArray): Boolean {
-        val publicKeyObj = io.github.andreypfau.curve25519.ed25519.Ed25519PublicKey(publicKey)
+    fun verify(message: ByteArray, signature: ByteArray, pubKey: ByteArray): Boolean {
+        val publicKeyObj = Ed25519PublicKey(pubKey)
         return publicKeyObj.verify(message, signature)
     }
 
