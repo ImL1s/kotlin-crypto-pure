@@ -37,7 +37,7 @@ object Solana {
      * Verify signature
      */
     fun verify(message: ByteArray, signature: ByteArray, publicKey: ByteArray): Boolean {
-        val publicKeyObj = Ed25519.PublicKey(publicKey)
+        val publicKeyObj = io.github.andreypfau.curve25519.ed25519.Ed25519PublicKey(publicKey)
         return publicKeyObj.verify(message, signature)
     }
 
