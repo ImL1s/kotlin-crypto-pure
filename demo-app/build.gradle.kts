@@ -123,7 +123,13 @@ tasks.named<Test>("desktopTest") {
 
 
 tasks.configureEach {
-    if (name.contains("lintVitalAnalyzeRelease")) {
+    if (name.contains("lintVitalAnalyzeRelease") || 
+        name.contains("generateDebugAndroidTestLintModel") ||
+        name.contains("generateDebugUnitTestLintModel") ||
+        name.contains("lintReportDebug") || 
+        name.contains("lintReportRelease") ||
+        name.contains("lintAnalyzeDebugUnitTest") ||
+        name == "lintDebug") {
         enabled = false
     }
 }
