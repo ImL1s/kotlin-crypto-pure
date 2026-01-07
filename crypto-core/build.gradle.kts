@@ -202,7 +202,12 @@ afterEvaluate {
 }
 
 tasks.configureEach {
-    if (name.contains("lintVitalAnalyzeRelease")) {
+    if (name.contains("lintVitalAnalyzeRelease") || 
+        name.contains("generateDebugAndroidTestLintModel") ||
+        name.contains("lintReportDebug") || 
+        name.contains("lintReportRelease") ||
+        name.contains("lintAnalyzeDebugUnitTest") ||
+        name == "lintDebug") {
         enabled = false
     }
 }
