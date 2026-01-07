@@ -24,6 +24,8 @@ kotlin {
         publishLibraryVariants("release", "debug")
     }
     listOf(
+        linuxX64(),
+        linuxArm64(),
         macosX64(),
         macosArm64(),
         iosArm64(),
