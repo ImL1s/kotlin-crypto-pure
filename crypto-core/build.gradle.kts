@@ -169,23 +169,9 @@ android {
 afterEvaluate {
     publishing {
         publications {
-            // Configure KMP publications with correct artifact ID
-            withType<MavenPublication>().configureEach {
-                // Override the artifact ID for all publications
-                val baseArtifactId = "kotlin-crypto-pure"
-                artifactId = when (name) {
-                    "androidRelease" -> "$baseArtifactId-android"
-                    "iosArm64" -> "$baseArtifactId-iosarm64"
-                    "iosSimulatorArm64" -> "$baseArtifactId-iossimulatorarm64"
-                    "iosX64" -> "$baseArtifactId-iosx64"
-                    "watchosArm64" -> "$baseArtifactId-watchosarm64"
-                    "watchosSimulatorArm64" -> "$baseArtifactId-watchossimulatorarm64"
-                    "watchosX64" -> "$baseArtifactId-watchosx64"
-                    "kotlinMultiplatform" -> baseArtifactId
-                    else -> "$baseArtifactId-$name"
-                }
-
-                pom {
+                // Configure KMP publications
+                withType<MavenPublication>().configureEach {
+                    pom {
                     name.set("Kotlin Crypto Pure")
                     description.set("Pure Kotlin cryptographic library for multiplatform (Android, iOS, watchOS)")
                     url.set("https://github.com/iml1s/kotlin-crypto-pure")
