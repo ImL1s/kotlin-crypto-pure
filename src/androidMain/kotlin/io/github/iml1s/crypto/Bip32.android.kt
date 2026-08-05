@@ -14,10 +14,13 @@ import java.security.MessageDigest
  * 使用 TrustWallet Core 計算 secp256k1 公鑰
  */
 public actual fun platformGetPublicKey(privateKey: ByteArray): ByteArray {
-
-    val key = PrivateKey(privateKey)
-    val publicKey = key.getPublicKeySecp256k1(true) // compressed = true
-    return publicKey.data()
+    return try {
+        val key = PrivateKey(privateKey)
+        val publicKey = key.getPublicKeySecp256k1(true) // compressed = true
+        publicKey.data()
+    } catch (e: Throwable) {
+        Secp256k1Pure.pubKeyOf(privateKey, compressed = true)
+    }
 }
 
 /**

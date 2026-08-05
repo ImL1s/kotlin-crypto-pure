@@ -95,6 +95,77 @@ object Secp256k1Pure {
             }
         }
     }
+
+    data class Secp256k1Signature(
+        val r: ByteArray,
+        val s: ByteArray,
+        val yParity: Int
+    )
+
+    fun signWithRecovery(message: ByteArray, privateKey: ByteArray): Secp256k1Signature {
+        require(message.size == 32) { "Message must be 32 bytes" }
+        require(privateKey.size == 32) { "Private key must be 32 bytes" }
+
+        var kBytes: ByteArray? = null
+        return try {
+            val d = privateKey.toBigInteger()
+            val z = message.toBigInteger()
+            val k = generateKDeterministic(privateKey, message)
+            kBytes = k.toByteArray()
+
+            val (kGx, kGy) = scalarMultiply(k, G_X, G_Y)
+            val r = kGx % N
+            require(r >= BigInteger.ONE && r < N) { "Invalid signature: r is zero or out of range" }
+
+            val kInv = k.modInverse(N)
+            var s = (kInv * (z + r * d)) % N
+            require(s >= BigInteger.ONE && s < N) { "Invalid signature: s is zero or out of range" }
+
+            val halfN = N shr 1
+            var yParity = if (kGy.isEven()) 0 else 1
+            if (s > halfN) {
+                s = N - s
+                yParity = yParity xor 1
+            }
+
+            Secp256k1Signature(
+                r = r.toByteArrayPadded(32),
+                s = s.toByteArrayPadded(32),
+                yParity = yParity
+            )
+        } finally {
+            kBytes?.let { bytes ->
+                bytes.fill(0)
+                kotlin.random.Random.nextBytes(bytes)
+                bytes.fill(0)
+            }
+        }
+    }
+
+    fun recoverPublicKeyPoint(z: BigInteger, r: BigInteger, s: BigInteger, yParity: Int): Pair<BigInteger, BigInteger>? {
+        if (r < BigInteger.ONE || r >= N || s < BigInteger.ONE || s >= N) return null
+        val x = r
+        // y^2 = x^3 + 7 mod P
+        val y2 = ((x * x % P) * x + BigInteger.fromInt(7)) % P
+        // Modular square root for P = 3 mod 4: y = y2^((P+1)/4) mod P
+        val exp = (P + BigInteger.ONE) shr 2
+        var y = y2.modPow(exp, P)
+        if ((y * y % P) != y2) return null // Not a valid point
+
+        val isYEven = y.isEven()
+        val expectedEven = (yParity and 1) == 0
+        if (isYEven != expectedEven) {
+            y = P - y
+        }
+
+        // Q = r^-1 * (s * R - z * G)
+        val rInv = r.modInverse(N)
+        val sR = scalarMultiply(s, x, y)
+        val zG = scalarMultiply(z, G_X, G_Y)
+        val negZG = Pair(zG.first, P - zG.second)
+        val diff = addPoints(sR, negZG)
+        return scalarMultiply(rInv, diff.first, diff.second)
+    }
     
     /**
      * 從私鑰生成公鑰
@@ -444,6 +515,31 @@ object Secp256k1Pure {
         
         // 3. 使用 x 坐標作為共享密鑰（ECDH 標準做法）
         return sharedX.toByteArray32()
+    }
+
+    fun secKeyVerify(privateKey: ByteArray): Boolean {
+        if (privateKey.size != 32) return false
+        val d = privateKey.toBigInteger()
+        return d > BigInteger.ZERO && d < N
+    }
+
+    fun pubkeyCreate(privateKey: ByteArray): ByteArray {
+        return generatePublicKey(privateKey, compressed = true)
+    }
+
+    fun privKeyTweakAdd(privateKey: ByteArray, tweak: ByteArray): ByteArray {
+        val d = privateKey.toBigInteger()
+        val t = tweak.toBigInteger()
+        val res = (d + t) % N
+        return res.toByteArray32()
+    }
+
+    fun pubKeyTweakAdd(publicKey: ByteArray, tweak: ByteArray): ByteArray {
+        val p1 = decodePublicKey(publicKey)
+        val t = tweak.toBigInteger()
+        val p2 = scalarMultiply(t, G_X, G_Y)
+        val res = pointAdd(p1.first, p1.second, p2.first, p2.second)
+        return encodePublicKey(res, compressed = true)
     }
 
     /**
@@ -800,7 +896,7 @@ object Secp256k1Pure {
         }
     }
 
-    internal fun taggedHash(tag: String, data: ByteArray): ByteArray {
+    fun taggedHash(tag: String, data: ByteArray): ByteArray {
         val tagHash = sha256(tag.encodeToByteArray())
         return sha256(tagHash + tagHash + data)
     }
@@ -854,7 +950,7 @@ object Secp256k1Pure {
         return point.second % BigInteger(KmpBigInteger.fromInt(2)) == BigInteger.ZERO
     }
 
-    internal fun liftX(x: BigInteger): Pair<BigInteger, BigInteger> {
+    fun liftX(x: BigInteger): Pair<BigInteger, BigInteger> {
         val y = decompressY(x, false) // false means even for decompressY's isOdd
         // decompressY checks validity internally? No, we should check curve equation
         if (!validatePointOnCurve(x, y)) throw IllegalArgumentException("Point not on curve")
@@ -865,7 +961,7 @@ object Secp256k1Pure {
      * Scalar multiply with generator point G
      * Used for Taproot tweak: tweak * G
      */
-    internal fun scalarMultiplyG(scalar: BigInteger): Pair<BigInteger, BigInteger> {
+    fun scalarMultiplyG(scalar: BigInteger): Pair<BigInteger, BigInteger> {
         return scalarMultiply(scalar, G_X, G_Y)
     }
 
