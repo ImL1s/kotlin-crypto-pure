@@ -1,5 +1,7 @@
 package io.github.iml1s.crypto
 
+import org.kotlincrypto.hash.sha2.SHA256
+
 /**
  * Base58 編碼/解碼實現
  * 用於 Solana 地址和交易簽名的編碼
@@ -80,12 +82,9 @@ object Base58 {
 
     /**
      * SHA-256 哈希函數
-     * 注意：這裡需要平台特定實現，暫時使用簡化版本
      */
     private fun sha256(data: ByteArray): ByteArray {
-        // TODO: 使用平台特定的 SHA-256 實現
-        // 這裡暫時返回空實現，實際應該使用 CryptoUtils.sha256()
-        return ByteArray(32) // 臨時實現
+        return SHA256().digest(data)
     }
 
     /**

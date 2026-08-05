@@ -41,8 +41,13 @@ object Keccak256 {
         val pubKeyToHash = when (publicKey.size) {
             65 -> publicKey.sliceArray(1 until 65) // 去掉 0x04 前綴
             64 -> publicKey // 已經是正確格式
+            33 -> {
+                val point = Secp256k1Pure.decodePublicKey(publicKey)
+                val uncompressed = Secp256k1Pure.encodePublicKey(point, compressed = false)
+                uncompressed.sliceArray(1 until 65)
+            }
             else -> throw IllegalArgumentException(
-                "Invalid public key length: ${publicKey.size}, expected 64 or 65 bytes"
+                "Invalid public key length: ${publicKey.size}, expected 33, 64 or 65 bytes"
             )
         }
 
