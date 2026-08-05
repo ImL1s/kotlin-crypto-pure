@@ -1,5 +1,7 @@
 package io.github.iml1s.crypto
 
+import org.kotlincrypto.hash.sha2.SHA256
+
 /**
  * 純 Kotlin 實現的 Ethereum 地址與 Key 衍生工具 (嚴格校驗 xpub 與路徑)
  */
@@ -24,7 +26,7 @@ object PureEthereumCrypto {
         // 2. Verify Checksum (強制拒絕校驗碼不符)
         val data = decoded.copyOfRange(0, 78)
         val checksum = decoded.copyOfRange(78, 82)
-        val calculatedChecksum = Secp256k1Pure.sha256(Secp256k1Pure.sha256(data)).copyOfRange(0, 4)
+        val calculatedChecksum = SHA256().digest(SHA256().digest(data)).copyOfRange(0, 4)
 
         if (!checksum.contentEquals(calculatedChecksum)) {
             throw IllegalArgumentException("xpub checksum mismatch")

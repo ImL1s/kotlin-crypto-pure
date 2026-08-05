@@ -146,7 +146,7 @@ object Secp256k1Pure {
         if (r < BigInteger.ONE || r >= N || s < BigInteger.ONE || s >= N) return null
         val x = r
         // y^2 = x^3 + 7 mod P
-        val y2 = ((x * x % P) * x + BigInteger.fromInt(7)) % P
+        val y2 = ((x * x % P) * x + 7.toBigInteger()) % P
         // Modular square root for P = 3 mod 4: y = y2^((P+1)/4) mod P
         val exp = (P + BigInteger.ONE) shr 2
         var y = y2.modPow(exp, P)
@@ -640,6 +640,9 @@ object Secp256k1Pure {
             val ZERO = BigInteger(KmpBigInteger.ZERO)
             val ONE = BigInteger(KmpBigInteger.ONE)
             
+            fun fromInt(v: Int): BigInteger = BigInteger(KmpBigInteger.fromInt(v))
+            fun fromLong(v: Long): BigInteger = BigInteger(KmpBigInteger.fromLong(v))
+
             fun fromByteArray(bytes: ByteArray): BigInteger {
                 if (bytes.isEmpty()) return ZERO
                 // bignum 的 fromByteArray 默認處理帶符號字節
@@ -653,6 +656,10 @@ object Secp256k1Pure {
         }
         
         constructor(bytes: ByteArray) : this(KmpBigInteger.fromByteArray(bytes, Sign.POSITIVE))
+
+        fun isEven(): Boolean = (magnitude % KmpBigInteger.fromInt(2)) == KmpBigInteger.ZERO
+        infix fun shr(n: Int): BigInteger = BigInteger(magnitude shr n)
+        fun toByteArrayPadded(length: Int): ByteArray = toByteArray32()
         
         fun toByteArray32(): ByteArray {
             val bytes = magnitude.toByteArray()
