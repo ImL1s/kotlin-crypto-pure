@@ -11,9 +11,14 @@ object PureEthereumCrypto {
     fun pingWithArg(valStr: String): String = "pong:$valStr"
 
     /**
-     * 從 Xpub 與路徑衍生 Ethereum 地址
+     * 從 Xpub 與路徑衍生 Ethereum 地址 (嚴格校驗網路、version header、depth 與點無窮大)
      */
-    fun deriveAddressFromXpub(xpub: String, path: String): String {
+    fun deriveAddressFromXpub(
+        xpub: String,
+        path: String,
+        isTestnet: Boolean = false,
+        expectedDepth: Int? = null
+    ): String {
         val cleanXpub = xpub.trim()
         require(cleanXpub.isNotEmpty()) { "xpub cannot be empty" }
 
@@ -32,10 +37,22 @@ object PureEthereumCrypto {
             throw IllegalArgumentException("xpub checksum mismatch")
         }
 
-        // 3. Verify Version Header (mainnet 0x0488b21e / testnet 0x043587cf)
+        // 3. Verify Network Context & Version Header (mainnet 0x0488b21e / testnet 0x043587cf)
         val versionHex = data.copyOfRange(0, 4).toHexString()
-        if (versionHex != "0488b21e" && versionHex != "043587cf") {
-            throw IllegalArgumentException("Invalid xpub version header: 0x$versionHex")
+        if (isTestnet) {
+            if (versionHex != "043587cf") {
+                throw IllegalArgumentException("Testnet context requires tpub (0x043587cf), got 0x$versionHex")
+            }
+        } else {
+            if (versionHex != "0488b21e") {
+                throw IllegalArgumentException("Mainnet context requires xpub (0x0488b21e), got 0x$versionHex")
+            }
+        }
+
+        // Verify Depth metadata (byte 4)
+        val depth = data[4].toInt() and 0xFF
+        if (expectedDepth != null && depth != expectedDepth) {
+            throw IllegalArgumentException("xpub depth ($depth) does not match expected depth ($expectedDepth)")
         }
 
         // 4. Verify Compressed Public Key Prefix (0x02 or 0x03)
@@ -72,6 +89,9 @@ object PureEthereumCrypto {
             val pointKpar = Secp256k1Pure.decodePublicKey(currentKeyData)
 
             val pointKi = Secp256k1Pure.addPoints(pointIl, pointKpar)
+            if (pointKi.first == Secp256k1Pure.BigInteger.ZERO && pointKi.second == Secp256k1Pure.BigInteger.ZERO) {
+                throw IllegalStateException("Derived point is point at infinity in CKDpub")
+            }
 
             currentKeyData = Secp256k1Pure.encodePublicKey(pointKi, compressed = true)
             currentChainCode = ir
