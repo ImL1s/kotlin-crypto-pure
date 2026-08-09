@@ -19,8 +19,7 @@ object Bip39 {
     fun generateMnemonic(bits: Int = 128): String {
         require(bits in listOf(128, 160, 192, 224, 256)) { "Invalid entropy bits: $bits" }
 
-        val entropy = ByteArray(bits / 8)
-        Random.nextBytes(entropy)
+        val entropy = secureRandomBytes(bits / 8)
 
         return encode(entropy).joinToString(" ")
     }

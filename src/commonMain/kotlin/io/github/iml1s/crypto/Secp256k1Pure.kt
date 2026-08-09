@@ -166,6 +166,13 @@ object Secp256k1Pure {
         val diff = addPoints(sR, negZG)
         return scalarMultiply(rInv, diff.first, diff.second)
     }
+
+    fun recoverPublicKeyPoint(hash32: ByteArray, rBytes: ByteArray, sBytes: ByteArray, yParity: Int): Pair<BigInteger, BigInteger>? {
+        val z = BigInteger.fromByteArray(hash32)
+        val r = BigInteger.fromByteArray(rBytes)
+        val s = BigInteger.fromByteArray(sBytes)
+        return recoverPublicKeyPoint(z, r, s, yParity)
+    }
     
     /**
      * 從私鑰生成公鑰
