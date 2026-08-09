@@ -47,10 +47,7 @@ object Base58 {
             temp[--j] = ALPHABET[mod.toInt()].code.toByte()
         }
 
-        // 跳過前導零
-        while (j < temp.size && temp[j].toInt() == ALPHABET[0].code) {
-            ++j
-        }
+
 
         // 將前導零轉換為 '1'
         while (--zeroCount >= 0) {
