@@ -76,5 +76,6 @@ val isValid = Secp256k1Pure.verify(message, signature, pubKey)
 
 P1 fixes on the shipped APIs: secret-free `pubKeyOf` errors, secp256k1 identity ≠ affine `(0,0)`, RFC 6979 `bits2octets`, strict DER, BIP32 `IL>=n` reject-before-add, RLP negative integers. See [CHANGELOG](CHANGELOG.md). This is not a full API security certification.
 
-## 📄 License
-MIT License
+## License
+
+Apache License 2.0. See [LICENSE](LICENSE).
