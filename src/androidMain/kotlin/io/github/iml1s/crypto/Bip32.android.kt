@@ -1,26 +1,15 @@
 package io.github.iml1s.crypto
 
-import wallet.core.jni.PrivateKey
-import wallet.core.jni.PublicKeyType
 import org.bouncycastle.crypto.digests.RIPEMD160Digest
 import java.security.MessageDigest
 
 /**
  * Android 平台的 BIP32 輔助函數實現
- * 使用 TrustWallet Core 和 BouncyCastle
+ * 公鑰使用 Secp256k1Pure（與 JVM 相同）；RIPEMD160 使用 BouncyCastle。
  */
 
-/**
- * 使用 TrustWallet Core 計算 secp256k1 公鑰
- */
 public actual fun platformGetPublicKey(privateKey: ByteArray): ByteArray {
-    return try {
-        val key = PrivateKey(privateKey)
-        val publicKey = key.getPublicKeySecp256k1(true) // compressed = true
-        publicKey.data()
-    } catch (e: Throwable) {
-        Secp256k1Pure.pubKeyOf(privateKey, compressed = true)
-    }
+    return Secp256k1Pure.pubKeyOf(privateKey, compressed = true)
 }
 
 /**
