@@ -6,7 +6,7 @@ plugins {
 
 // Library version and metadata
 group = "io.github.iml1s"
-version = "1.0.0"
+version = "1.0.1"
 
 kotlin {
     androidTarget {
@@ -16,6 +16,13 @@ kotlin {
         }
         // Enable publishing for Android target
         publishLibraryVariants("release")
+    }
+
+    jvm {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+            freeCompilerArgs.add("-opt-in=kotlin.ExperimentalStdlibApi")
+        }
     }
 
     iosArm64()
@@ -42,6 +49,12 @@ kotlin {
                 implementation("org.jetbrains.kotlin:kotlin-test")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
+            }
+        }
+
+        val jvmMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
             }
         }
 

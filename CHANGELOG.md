@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-09-05
+
+### Fixed
+
+- `pubKeyOf` rejects a zero or out-of-range private key and does not interpolate key material into exception text.
+- secp256k1 identity is the point at infinity, not affine `(0,0)`; a valid signature with digest `z=0` verifies.
+- RFC 6979 HMAC init uses `bits2octets` (secp256k1). RFC 6979 appendix A.2.5 is P-256 and is not a secp256k1 KAT.
+- Strict DER verification consumes the whole encoding (trailing bytes rejected).
+- BIP32 CKDpriv rejects `parse256(IL) >= n` before adding the parent key.
+- RLP encoding of a negative integer is an error, not the empty/zero encoding `0x80`.
+
+This is a P1 correctness slice on the shipped APIs above, not a certification that every remaining public API is PASS.
+
 ## [1.0.0] - 2024-12-27
 
 ### Added
@@ -49,4 +62,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - watchOS (arm64, x64, simulator)
 - wearOS (via Android)
 
+[1.0.1]: https://github.com/ImL1s/kotlin-crypto-pure/releases/tag/v1.0.1
 [1.0.0]: https://github.com/ImL1s/kotlin-crypto-pure/releases/tag/v1.0.0

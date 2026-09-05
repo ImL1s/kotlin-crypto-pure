@@ -54,7 +54,7 @@ graph TD
 
 ```kotlin
 // build.gradle.kts
-implementation("com.github.ImL1s:kotlin-crypto-pure:0.2.0-watchos")
+implementation("com.github.ImL1s:kotlin-crypto-pure:1.0.1")
 ```
 
 ---
@@ -71,6 +71,10 @@ val isValid = Secp256k1Pure.verify(message, signature, pubKey)
 ```
 
 ---
+
+## Correctness (v1.0.1)
+
+P1 fixes on the shipped APIs: secret-free `pubKeyOf` errors, secp256k1 identity ≠ affine `(0,0)`, RFC 6979 `bits2octets`, strict DER, BIP32 `IL>=n` reject-before-add, RLP negative integers. See [CHANGELOG](CHANGELOG.md). This is not a full API security certification.
 
 ## 📄 License
 MIT License
