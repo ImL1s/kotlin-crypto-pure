@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Strict DER verification consumes the whole encoding (trailing bytes rejected).
 - BIP32 CKDpriv rejects `parse256(IL) >= n` before adding the parent key.
 - RLP encoding of a negative integer is an error, not the empty/zero encoding `0x80`.
+- Drop unused `com.trustwallet:wallet-core` (GitHub Packages 401) so Android unit tests resolve on CI.
 
 This is a P1 correctness slice on the shipped APIs above, not a certification that every remaining public API is PASS.
 
