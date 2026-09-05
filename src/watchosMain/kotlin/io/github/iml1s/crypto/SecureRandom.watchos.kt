@@ -8,7 +8,7 @@ actual fun secureRandomBytes(size: Int): ByteArray {
     val bytes = ByteArray(size)
     if (size == 0) return bytes
     bytes.usePinned { pinned ->
-        val result = SecRandomCopyBytes(kSecRandomDefault, size.toULong(), pinned.addressOf(0))
+        val result = SecRandomCopyBytes(kSecRandomDefault, size.toUInt(), pinned.addressOf(0))
         if (result != 0) {
             error("SecRandomCopyBytes failed with code $result")
         }
